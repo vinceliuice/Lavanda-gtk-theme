@@ -1,0 +1,109 @@
+/********
+ * Nemo *
+ ********/
+// based css:
+// https://github.com/linuxmint/nemo/blob/master/gresources/nemo-style-fallback-mandatory.css
+// https://github.com/linuxmint/nemo/blob/master/gresources/nemo-style-fallback.css
+// hard-coded css:
+// https://github.com/linuxmint/nemo/blob/master/gresources/nemo-style-application.css
+
+.nemo-window {
+  .primary-toolbar {
+    background-color: $titlebar;
+    border-bottom: 1px solid $divider;
+    padding: $space-size / 2;
+
+    // FIXME: workaround for wrong size allocation of Nemo
+    entry {
+      min-height: 24px;
+      padding: 2px $space-size + 2px;
+      margin: 0;
+      @extend %titlebar-entry;
+    }
+
+    button {
+      @extend %titlebar-button;
+      margin: 2px 1px;
+    }
+
+    .path-bar.linked:not(.vertical) > button {
+      &.slider-button {
+        border-radius: $corner-radius / 2;
+
+        &:first-child {
+          border-top-left-radius: $corner-radius;
+          border-bottom-left-radius: $corner-radius;
+        }
+
+        &:last-child {
+          border-top-right-radius: $corner-radius;
+          border-bottom-right-radius: $corner-radius;
+        }
+      }
+    }
+
+    // instead of .path-bar button.slider-button
+    button:not(.text-button):not(.image-button) {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+
+  // .nemo-places-sidebar { }
+
+  scrolledwindow.frame {
+    border-style: none;
+
+    .view:not(:selected) { background-color: transparent; }
+  }
+
+  // infobar { margin-top: -6px; }
+
+  // Inactive F3 pane shading
+  .nemo-inactive-pane .view:not(:selected) { background-color: $base-alt; }
+
+  // Rename box styling in the icon view.
+  .nemo-window-pane widget.entry {
+    border-radius: $corner-radius;
+    background-color: $fill;
+
+    &:selected { @extend %selected_items_primary; }
+  }
+
+  .toolbar {
+    padding: 0;
+
+    button {
+      @extend %button-flat;
+      margin: $space-size / 2 0;
+      padding: $space-size / 2;
+    }
+
+    separator {
+      margin: $space-size 0;
+    }
+  }
+
+  .view {
+    selection,
+    &:selected {
+      @extend %selected_items_color;
+    }
+  }
+}
+
+// For Places Sidebar diskfull indicators
+.places-treeview {
+  -NemoPlacesTreeView-disk-full-bg-color: mix($text, $background, percentage(0.3)); // Can't use translucent colors
+  -NemoPlacesTreeView-disk-full-fg-color: $primary;
+  -NemoPlacesTreeView-disk-full-bar-width: 2px;
+  -NemoPlacesTreeView-disk-full-bar-radius: 0;
+  -NemoPlacesTreeView-disk-full-bottom-padding: 1px; // There is already hard-coded 1px bottom-padding
+  -NemoPlacesTreeView-disk-full-max-length: 80px;
+  padding-top: $space-size / 2;
+  padding-bottom: $space-size / 2;
+}
+
+.nemo-desktop.nemo-canvas-item {
+  @extend %desktop-canvas-item;
+}
