@@ -285,13 +285,15 @@ spinner {
  ****************/
 %entry,
 entry {
-  %entry_basic, & {
+  @at-root %entry_basic, & {
     min-height: $medium-size;
     padding: 0 8px;
     border-radius: $corner-radius;
     caret-color: currentColor; // this shouldn't be needed.
 
     @include entry(normal);
+
+    &:hover { @include entry(hover); }
 
     &:focus { @include entry(checked); }
 
@@ -1059,15 +1061,18 @@ searchbar > revealer > box {
 %titlebar-button {
   color: $titlebar-text-secondary;
   background-color: if($topbar == 'light', white, $titlebar-fill);
+  box-shadow: 0 2px 3px -1px rgba(black, 0.04);
 
   &:focus, &:hover { color: $titlebar-text; }
 
   &:hover {
-    background-color: if($topbar == 'light', rgba(white, 0.5), $overlay-checked);
+    background-color: if($topbar == 'light', white, $overlay-checked);
+    box-shadow: 0 3px 4px -1px rgba(black, 0.1);
   }
 
   &:active {
     @include button(active);
+    box-shadow: 0 2px 3px -1px rgba(black, 0.05);
   }
 
   &:checked {
@@ -1108,6 +1113,7 @@ searchbar > revealer > box {
   }
 }
 
+// Headerbar
 .titlebar {
   transition: all $duration $ease-out;
   background-color: $titlebar;
@@ -1173,7 +1179,7 @@ searchbar > revealer > box {
     background-color: $primary;
 
     &:backdrop {
-      background-color: $primary;
+      background-color: darken($primary, 5%);
     }
   }
 
@@ -1187,6 +1193,7 @@ searchbar > revealer > box {
   stackswitcher,
   .stack-switcher { // reset
     background-color: if($topbar == 'light', white, $titlebar-fill);
+    box-shadow: 0 2px 3px -1px rgba(black, 0.04);
   }
 
   // FIXME: Ugly overriding
@@ -1212,7 +1219,7 @@ searchbar > revealer > box {
 
     &:backdrop {
       color: on($primary, secondary);
-      background-color: lighten($primary, 6%);
+      background-color: darken($primary, 5%);
     }
 
     .subtitle:link { color: on($primary); }
@@ -1365,6 +1372,7 @@ headerbar {
         margin: 0;
         min-width: 120px;
         padding: 0;
+        box-shadow: none;
         background-color: transparent;
         background-image: none;
         color: $titlebar-text-secondary;
@@ -1377,12 +1385,14 @@ headerbar {
           color: $titlebar-text;
           transition: $transition, border-image $ripple-fade-in-duration $ease-out;
           background-image: none;
+          box-shadow: none;
           box-shadow: inset 0 -2px mix(#6a58f0, $titlebar, 50%);
         }
 
         &:active {
           color: $titlebar-text;
           background-image: none;
+          box-shadow: none;
           transition: $transition, border-image $ripple-fade-in-duration $ease-out;
           border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                         #cf54d0 100%,
@@ -1393,6 +1403,7 @@ headerbar {
         &:checked {
           color: $titlebar-text;
           background-image: none;
+          box-shadow: none;
           border-image: linear-gradient(to right,
                                         #6a58f0,
                                         #cf54d0)
@@ -1528,21 +1539,24 @@ treeview.view {
   &.progressbar { // progress bar in treeviews
     border: none;
     box-shadow: none;
-    background-color: $primary;
-    background-image: none;
+    background-color: transparent;
+    background-image: linear-gradient(to right, #6a58f0, #cf54d0);
     border-radius: $circular-radius;
     color: on($primary);
+    transition: background-image $ripple-fade-in-duration $ease-out;
 
     &:selected, &:selected:hover, &:selected:focus {
       box-shadow: none;
-      background-color: mix($text, $primary, 15%);
+      background-color: transparent;
+      background-image: linear-gradient(to right, lighten(#6a58f0, 5%), lighten(#cf54d0, 5%));
       color: on($primary);
 
       &:backdrop { color: on($primary); }
     }
 
     &:backdrop, &:selected:backdrop {
-      background-color: $track;
+      background-color: transparent;
+      background-image: image($track);
     }
   }
 
@@ -1664,7 +1678,7 @@ menu,
 
   .csd & {
     border: none;
-    box-shadow: none;
+    box-shadow: inset 0 1px highlight($popover);
   }
 
   menuitem {
@@ -1767,7 +1781,7 @@ popover.background {
   border-radius: $menu-radius;
 
   &, .csd & {
-    box-shadow: $shadow-z5;
+    box-shadow: $shadow-z6;
     background-clip: border-box;
 
     &:backdrop { box-shadow: $shadow-z3; }
@@ -2387,14 +2401,19 @@ treeview.view {
     &, &:hover, &:disabled, &:checked:hover, &:indeterminate:hover {
       box-shadow: none;
     }
+
+    &:checked, &:indeterminate {
+      background-color: $assets-color;
+      color: on($assets-color);
+      // background-image: none;
+    }
   }
 
-  &:selected, &:selected:focus {
+  .background.csd & {
     radio, check {
       &:checked, &:indeterminate {
         background-color: $assets-color;
         color: on($assets-color);
-        background-image: none;
       }
     }
   }
@@ -2432,6 +2451,23 @@ scale {
     min-height: $slider_size;
     min-width: $slider_size;
     margin: $slider_margin;
+    transition: all $duration $ease-out;
+    border-radius: $circular-radius;
+    color: $primary;
+    background-color: $base;
+    box-shadow: inset 0 0 0 2px #cf54d0;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px #cf54d0, 0 0 0 8px $divider;
+    }
+
+    &:active {
+      box-shadow: inset 0 0 0 4px #cf54d0, 0 0 0 8px $divider;
+    }
+
+    &:disabled {
+      box-shadow: inset 0 0 0 2px $text-secondary-disabled;
+    }
   }
 
   // click-and-hold the slider to activate
@@ -2493,26 +2529,6 @@ scale {
     background-color: $track;
 
     &:disabled { background-color: transparent; }
-  }
-
-  slider {
-    transition: all $duration $ease-out;
-    border-radius: $circular-radius;
-    color: $primary;
-    background-color: $base;
-    box-shadow: inset 0 0 0 2px #cf54d0;
-
-    &:hover {
-      box-shadow: inset 0 0 0 2px #cf54d0, 0 0 0 8px $divider;
-    }
-
-    &:active {
-      box-shadow: inset 0 0 0 4px #cf54d0, 0 0 0 8px $divider;
-    }
-
-    &:disabled {
-      box-shadow: inset 0 0 0 2px $text-secondary-disabled;
-    }
   }
 
   marks,
@@ -2874,9 +2890,9 @@ separator {
  *********/
 
 %circular_list {
-  border-radius: $corner-radius + 1px;
-  box-shadow: none;
-  border: 1px solid $divider;
+  border-radius: $corner-radius;
+  box-shadow: $shadow-z2;
+  border: none;
 
   > separator {
     background: none;
@@ -3691,7 +3707,7 @@ decoration {
   .csd.popup & {
     border-radius: $menu-radius;
     border: none;
-    box-shadow: $shadow-z5;
+    box-shadow: $shadow-z6;
   }
 
   tooltip.csd & {
@@ -3757,57 +3773,12 @@ decoration {
   }
 }
 
-%firefox_window_button {
-  &.minimize, &.maximize, &.close {
-    background-repeat: no-repeat;
-    background-size: 16px 16px;
-    background-position: center;
-
-    &, &:hover, &:active {
-      box-shadow: none;
-      color: transparent;
-      animation: none;
-      transition: $transition;
-    }
-  }
-
-  &.minimize { // Window minimize button
-    &:hover, &:active {
-      background-image: -gtk-scaled(url("assets/scalable/minimize-symbolic.svg"),
-                                    url("assets/scalable/minimize-symbolic@2.svg"));
-    }
-  }
-
-  &.maximize { // Window maximize button
-    &:hover, &:active {
-      background-image: -gtk-scaled(url("assets/scalable/maximize-symbolic.svg"),
-                                    url("assets/scalable/maximize-symbolic@2.svg"));
-    }
-  }
-
-  &.close { // Window close button
-    &:hover, &:active {
-      background-image: -gtk-scaled(url("assets/scalable/close-symbolic.svg"),
-                                    url("assets/scalable/close-symbolic@2.svg"));
-    }
-  }
-}
-
 button.titlebutton:not(.suggested-action):not(.destructive-action) {
   @extend %circular-button;
   @extend %mac_window_button;
-
-  .background.csd headerbar.titlebar.default-decoration & { @extend %firefox_window_button; }
-
-  .background.csd.maximized headerbar.titlebar.default-decoration &.maximize {
-    &:hover, &:active {
-      background-image: -gtk-scaled(url("assets/scalable/unmaximize-symbolic.svg"),
-                                    url("assets/scalable/unmaximize-symbolic@2.svg"))
-    }
-  }
 }
 
-.monospace { font-family: monospace; }
+// .monospace { font-family: monospace; }
 
 
 /**********************
@@ -3876,6 +3847,7 @@ stackswitcher,
 
     &:hover {
       background-color: $overlay-checked;
+      box-shadow: none;
     }
 
     &:checked {

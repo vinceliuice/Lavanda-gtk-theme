@@ -27,7 +27,6 @@ if [ ! -z "${COLOR_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _COLOR_VARIANTS <<< "${COLOR_VARIANTS:-}"
 fi
 
-cp -rf src/sass/_tweaks.scss src/sass/_tweaks-temp.scss
 cp -rf src/sass/gnome-shell/_common.scss src/sass/gnome-shell/_common-temp.scss
 
 for color in "${_COLOR_VARIANTS[@]}"; do

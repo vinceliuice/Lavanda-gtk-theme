@@ -98,12 +98,20 @@ window.dialog {
 // Calculator
 //
 
-.history-view { background-color: $base; }
+.display-container {
+  margin-bottom: 6px;
 
-.sourceview {
-  padding: 0 12px 8px 0;
-  font-size: 1.4em;
-  border-top: 1px solid $border;
+  .small & {
+    border-radius: 0;
+  }
+
+  .history-view { background-color: $base; }
+
+  #displayitem {
+    padding: 0 12px 8px 0;
+    font-size: 1.4em;
+    border-top: 1px solid $border;
+  }
 }
 
 .math-buttons button {
@@ -113,19 +121,6 @@ window.dialog {
   &.text-button {
     padding-left: $space-size * 2 + 4px;
     padding-right: $space-size * 2 + 4px;
-  }
-}
-
-.small .card {
-  border-radius: 0;
-  box-shadow: none;
-
-  &.forecast-card {
-    border-width: 1px 0;
-  }
-
-  &.display-container {
-    border-width: 0 0 1px 0;
   }
 }
 

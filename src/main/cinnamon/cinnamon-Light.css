@@ -331,7 +331,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 12px;
   background-clip: padding-box;
   background-color: #FFFFFF;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
 .menu .popup-menu-item,
@@ -578,7 +578,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -cinnamon-caption-spacing: 4px;
 }
 
-#selected.window-caption {
+.window-caption#selected {
   background-color: #7b88ff;
   color: #FFFFFF;
   border: 1px solid #7b88ff;
@@ -586,7 +586,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .expo-workspaces-name-entry,
-#selected.expo-workspaces-name-entry {
+.expo-workspaces-name-entry#selected {
   height: 15px;
   border-radius: 6px;
   font-size: 9pt;
@@ -598,7 +598,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .expo-workspaces-name-entry:focus,
-#selected.expo-workspaces-name-entry:focus {
+.expo-workspaces-name-entry#selected:focus {
   border: 1px solid #7b88ff;
   background-color: #7b88ff;
   color: #FFFFFF;
@@ -614,7 +614,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 6px;
 }
 
-#active.expo-workspace-thumbnail-frame {
+.expo-workspace-thumbnail-frame#active {
   border: 4px solid #7b88ff;
   background-color: black;
   border-radius: 6px;

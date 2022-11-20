@@ -106,7 +106,7 @@
   padding: 12px;
   background-color: #121212;
   border: 1px solid black;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .app-folder-dialog .folder-name-container {
@@ -723,7 +723,7 @@ StWidget.focused .app-well-app-running-dot {
   background-color: #FFFFFF;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
 .modal-dialog-linked-button:last-child {
@@ -2239,12 +2239,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.12);
 }
 
-#panel .panel-button.clock-display:hover {
+#panel .panel-button:hover.clock-display {
   box-shadow: none;
   color: rgba(255, 255, 255, 0.7);
 }
 
-#panel .panel-button.clock-display:hover .clock {
+#panel .panel-button:hover.clock-display .clock {
   color: #FFFFFF;
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.12);
 }
@@ -2255,12 +2255,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
 }
 
-#panel .panel-button.clock-display:active, #panel .panel-button.clock-display:overview, #panel .panel-button.clock-display:focus, #panel .panel-button.clock-display:checked {
+#panel .panel-button:active.clock-display, #panel .panel-button:overview.clock-display, #panel .panel-button:focus.clock-display, #panel .panel-button:checked.clock-display {
   box-shadow: none;
   color: rgba(255, 255, 255, 0.7);
 }
 
-#panel .panel-button.clock-display:active .clock, #panel .panel-button.clock-display:overview .clock, #panel .panel-button.clock-display:focus .clock, #panel .panel-button.clock-display:checked .clock {
+#panel .panel-button:active.clock-display .clock, #panel .panel-button:overview.clock-display .clock, #panel .panel-button:focus.clock-display .clock, #panel .panel-button:checked.clock-display .clock {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
 }
@@ -2289,7 +2289,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   -st-icon-style: symbolic;
 }
 
-#panel #panelActivities.panel-button {
+#panel .panel-button#panelActivities {
   -natural-hpadding: 18px;
 }
 
@@ -2308,12 +2308,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.12);
 }
 
-#panel:overview .panel-button.clock-display:hover, #panel.unlock-screen .panel-button.clock-display:hover, #panel.login-screen .panel-button.clock-display:hover, #panel.lock-screen .panel-button.clock-display:hover {
+#panel:overview .panel-button:hover.clock-display, #panel.unlock-screen .panel-button:hover.clock-display, #panel.login-screen .panel-button:hover.clock-display, #panel.lock-screen .panel-button:hover.clock-display {
   box-shadow: none;
   color: #FFFFFF;
 }
 
-#panel:overview .panel-button.clock-display:hover .clock, #panel.unlock-screen .panel-button.clock-display:hover .clock, #panel.login-screen .panel-button.clock-display:hover .clock, #panel.lock-screen .panel-button.clock-display:hover .clock {
+#panel:overview .panel-button:hover.clock-display .clock, #panel.unlock-screen .panel-button:hover.clock-display .clock, #panel.login-screen .panel-button:hover.clock-display .clock, #panel.lock-screen .panel-button:hover.clock-display .clock {
   color: #FFFFFF;
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.12);
 }
@@ -2324,12 +2324,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
 }
 
-#panel:overview .panel-button.clock-display:active, #panel:overview .panel-button.clock-display:overview, #panel:overview .panel-button.clock-display:focus, #panel:overview .panel-button.clock-display:checked, #panel.unlock-screen .panel-button.clock-display:active, #panel.unlock-screen .panel-button.clock-display:overview, #panel.unlock-screen .panel-button.clock-display:focus, #panel.unlock-screen .panel-button.clock-display:checked, #panel.login-screen .panel-button.clock-display:active, #panel.login-screen .panel-button.clock-display:overview, #panel.login-screen .panel-button.clock-display:focus, #panel.login-screen .panel-button.clock-display:checked, #panel.lock-screen .panel-button.clock-display:active, #panel.lock-screen .panel-button.clock-display:overview, #panel.lock-screen .panel-button.clock-display:focus, #panel.lock-screen .panel-button.clock-display:checked {
+#panel:overview .panel-button:active.clock-display, #panel:overview .panel-button:overview.clock-display, #panel:overview .panel-button:focus.clock-display, #panel:overview .panel-button:checked.clock-display, #panel.unlock-screen .panel-button:active.clock-display, #panel.unlock-screen .panel-button:overview.clock-display, #panel.unlock-screen .panel-button:focus.clock-display, #panel.unlock-screen .panel-button:checked.clock-display, #panel.login-screen .panel-button:active.clock-display, #panel.login-screen .panel-button:overview.clock-display, #panel.login-screen .panel-button:focus.clock-display, #panel.login-screen .panel-button:checked.clock-display, #panel.lock-screen .panel-button:active.clock-display, #panel.lock-screen .panel-button:overview.clock-display, #panel.lock-screen .panel-button:focus.clock-display, #panel.lock-screen .panel-button:checked.clock-display {
   box-shadow: none;
   color: #FFFFFF;
 }
 
-#panel:overview .panel-button.clock-display:active .clock, #panel:overview .panel-button.clock-display:overview .clock, #panel:overview .panel-button.clock-display:focus .clock, #panel:overview .panel-button.clock-display:checked .clock, #panel.unlock-screen .panel-button.clock-display:active .clock, #panel.unlock-screen .panel-button.clock-display:overview .clock, #panel.unlock-screen .panel-button.clock-display:focus .clock, #panel.unlock-screen .panel-button.clock-display:checked .clock, #panel.login-screen .panel-button.clock-display:active .clock, #panel.login-screen .panel-button.clock-display:overview .clock, #panel.login-screen .panel-button.clock-display:focus .clock, #panel.login-screen .panel-button.clock-display:checked .clock, #panel.lock-screen .panel-button.clock-display:active .clock, #panel.lock-screen .panel-button.clock-display:overview .clock, #panel.lock-screen .panel-button.clock-display:focus .clock, #panel.lock-screen .panel-button.clock-display:checked .clock {
+#panel:overview .panel-button:active.clock-display .clock, #panel:overview .panel-button:overview.clock-display .clock, #panel:overview .panel-button:focus.clock-display .clock, #panel:overview .panel-button:checked.clock-display .clock, #panel.unlock-screen .panel-button:active.clock-display .clock, #panel.unlock-screen .panel-button:overview.clock-display .clock, #panel.unlock-screen .panel-button:focus.clock-display .clock, #panel.unlock-screen .panel-button:checked.clock-display .clock, #panel.login-screen .panel-button:active.clock-display .clock, #panel.login-screen .panel-button:overview.clock-display .clock, #panel.login-screen .panel-button:focus.clock-display .clock, #panel.login-screen .panel-button:checked.clock-display .clock, #panel.lock-screen .panel-button:active.clock-display .clock, #panel.lock-screen .panel-button:overview.clock-display .clock, #panel.lock-screen .panel-button:focus.clock-display .clock, #panel.lock-screen .panel-button:checked.clock-display .clock {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
 }
@@ -2384,7 +2384,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   margin: 0;
   font-weight: normal;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
 .popup-menu .popup-menu-item {
@@ -2407,7 +2407,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   border-radius: 6px 6px 0 0;
 }
 
-.popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item.selected:checked {
+.popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item:checked.selected {
   color: rgba(0, 0, 0, 0.87) !important;
   background-color: alpha(currentColor, 0.08) !important;
 }

@@ -46,10 +46,10 @@ avatar {
 .card {
   @at-root %card, & {
     border-radius: $corner-radius;
-    border: 1px solid $border;
-    background-clip: border-box;
+    border: none;
+    background-clip: padding-box;
     color: $text-secondary;
-    box-shadow: none;
+    box-shadow: $shadow-z2;
     outline: none;
     background-color: $base;
     color: $text;
@@ -250,9 +250,32 @@ preferencesgroup > box {
 
     .app-version {
       padding: $space-size / 2 $space-size * 3;
-      color: $primary;
       border-radius: $corner-radius;
       margin-top: $space-size / 2;
+      background-color: $overlay-normal;
+
+      &:hover {
+        background-color: $overlay-hover;
+      }
+
+      &:focus {
+        background-color: $overlay-focus;
+
+        &:hover {
+          background-color: $overlay-focus-hover;
+          outline: none;
+        }
+      }
+
+      &:active, &:focus:active {
+        background-color: $overlay-active;
+        outline: none;
+      }
+
+      &, &:hover, &:focus, &:active {
+        color: $primary;
+        background-image: none;
+      }
     }
   }
 

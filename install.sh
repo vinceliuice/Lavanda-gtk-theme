@@ -283,9 +283,8 @@ gnome_shell_version() {
 }
 
 uninstall_link() {
-  [[ -L "${HOME}/.config/gtk-4.0/assets" ]] && rm -rf "${HOME}/.config/gtk-4.0/assets" && echo -e "\nUninstall ${HOME}/.config/gtk-4.0/assets link ..."
-  [[ -L "${HOME}/.config/gtk-4.0/gtk.css" ]] && rm -rf "${HOME}/.config/gtk-4.0/gtk.css" && echo -e "Uninstall ${HOME}/.config/gtk-4.0/gtk.css link ..."
-  [[ -L "${HOME}/.config/gtk-4.0/gtk-dark.css" ]] && rm -rf "${HOME}/.config/gtk-4.0/gtk-dark.css" && echo -e "Uninstall ${HOME}/.config/gtk-4.0/gtk-dark.css link ..."
+  rm -rf "${HOME}/.config/gtk-4.0/"{assets,gtk.css,gtk-dark.css}
+  echo -e "\nUninstall ${HOME}/.config/gtk-4.0/ links ..."
 }
 
 link_libadwaita() {
@@ -307,11 +306,11 @@ link_libadwaita() {
 }
 
 link_theme() {
-    for color in "${colors[@]}"; do
-      for size in "${sizes[@]}"; do
-        link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
-      done
+  for color in "${colors[1]}"; do
+    for size in "${sizes[0]}"; do
+      link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
     done
+  done
 }
 
 install_theme() {

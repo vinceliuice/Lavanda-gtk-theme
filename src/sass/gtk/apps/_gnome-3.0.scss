@@ -462,6 +462,7 @@ frame.gedit-map-frame > border {
   separator { @extend %hide_separators; }
 
   .csd & {
+    background-color: transparent;
     border-bottom-left-radius: $window-radius;
   }
 }
