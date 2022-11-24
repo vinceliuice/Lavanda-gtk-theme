@@ -1153,12 +1153,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .keyboard-key:focus, .keyboard-key:hover {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #f2f2f2;
+  background-color: #ededed;
 }
 
 .keyboard-key:checked, .keyboard-key:active {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #e6e6e6;
+  background-color: #e1e1e1;
 }
 
 .keyboard-key:grayed {
@@ -1541,7 +1541,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   padding: 0 8px;
   border: none;
   border-radius: 0;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -1646,7 +1646,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .lg-extension {
   border: none;
   border-radius: 6px;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
   padding: 12px;
 }
 
@@ -2594,11 +2594,11 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 #unlockDialogNotifications StButton#vhandle, #unlockDialogNotifications StButton#hhandle {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(250, 250, 250, 0.3);
 }
 
 #unlockDialogNotifications StButton#vhandle:hover, #unlockDialogNotifications StButton#vhandle:focus, #unlockDialogNotifications StButton#hhandle:hover, #unlockDialogNotifications StButton#hhandle:focus {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(250, 250, 250, 0.5);
 }
 
 #unlockDialogNotifications StButton#vhandle:active, #unlockDialogNotifications StButton#hhandle:active {

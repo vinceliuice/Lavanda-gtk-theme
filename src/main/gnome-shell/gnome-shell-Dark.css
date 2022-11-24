@@ -1541,7 +1541,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   padding: 0 8px;
   border: none;
   border-radius: 0;
-  background-color: #242424;
+  background-color: #212121;
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.12);
 }
 
@@ -1646,7 +1646,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .lg-extension {
   border: none;
   border-radius: 6px;
-  background-color: #242424;
+  background-color: #212121;
   padding: 12px;
 }
 
@@ -2594,11 +2594,11 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 #unlockDialogNotifications StButton#vhandle, #unlockDialogNotifications StButton#hhandle {
-  background-color: rgba(36, 36, 36, 0.3);
+  background-color: rgba(33, 33, 33, 0.3);
 }
 
 #unlockDialogNotifications StButton#vhandle:hover, #unlockDialogNotifications StButton#vhandle:focus, #unlockDialogNotifications StButton#hhandle:hover, #unlockDialogNotifications StButton#hhandle:focus {
-  background-color: rgba(36, 36, 36, 0.5);
+  background-color: rgba(33, 33, 33, 0.5);
 }
 
 #unlockDialogNotifications StButton#vhandle:active, #unlockDialogNotifications StButton#hhandle:active {

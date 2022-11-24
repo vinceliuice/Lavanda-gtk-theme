@@ -128,24 +128,16 @@ $nautilus: $base-alt;
   transition: background-color $duration $ease-out;
   margin: $space-size 0;
   border-radius: $corner-radius;
+  color: $titlebar-text-secondary;
 
   button { margin: 0; } // reset the margin
 
-  &.width-maximized { background-color: $titlebar-fill; }
+  &.width-maximized { background-color: if($topbar == 'light', white, $overlay-normal); }
 
   // workaround for 3.30.1
   &.background.frame {
     border-style: none;
-    background-color: $titlebar-fill;
-  }
-
-  // for 3.30
-  .path-bar button {
-    label:not(:only-child) {
-      &:first-child { margin-left: 0; }
-
-      &:last-child { margin-right: 0; }
-    }
+    background-color: if($topbar == 'light', white, $overlay-normal);
   }
 
   // for 3.32
@@ -328,6 +320,13 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
 // Ensure paned separator rendering. See issue #84 for details.
 .nautilus-window paned > separator { background-color: $base-alt; }
 
+window.csd.background {
+  > deck > box.view > notebook > box > stack {
+    > button {
+      margin: 2px; // space for focus shadow
+    }
+  }
+}
 
 /*********
  * gedit *
@@ -1880,9 +1879,13 @@ dialog.background.csd {
     }
   }
 
-  stack scrolledwindow {
+  stack scrolledwindow { // about dialog
     &.frame {
       border-radius: $corner-radius;
+
+      > viewport.frame.view {
+        border-radius: $corner-radius;
+      }
 
       textview.view {
         border-radius: $corner-radius;
@@ -1891,10 +1894,6 @@ dialog.background.csd {
           background: none;
         }
       }
-    }
-
-    viewport.frame {
-      &.view { border-radius: $corner-radius; }
     }
   }
 }

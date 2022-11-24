@@ -2,6 +2,47 @@
 //
 // Nautilus
 //
+
+%titlebar-flat-button {
+  color: $titlebar-text-secondary;
+  background-color: transparent;
+  box-shadow: none;
+
+  &:focus { color: $titlebar-text; }
+
+  &:hover {
+    background-color: $overlay-hover;
+    box-shadow: none;
+    color: $titlebar-text;
+  }
+
+  &:active {
+    @include button(flat-active);
+    box-shadow: none;
+    color: $titlebar-text;
+  }
+
+  &:checked {
+    @include button(flat-checked);
+    color: $titlebar-text;
+  }
+
+  &:disabled {
+    color: $titlebar-text-secondary-disabled;
+    background-color: transparent;
+  }
+
+  &:backdrop {
+    color: $titlebar-text-disabled;
+
+    &:focus, &:hover, &:active { color: $titlebar-text-secondary; }
+
+    &:checked { color: on($primary, secondary); }
+
+    &:disabled { color: $titlebar-text-secondary-disabled; }
+  }
+}
+
 .nautilus-window {
   placesview {
     label { color: $text-secondary; }
@@ -36,6 +77,8 @@
   > menubutton > button.image-button {
     min-width: 24px;
     min-height: 24px;
+
+    @extend %titlebar-flat-button;
   }
 
   > text, > box, > menubutton > button.image-button {
@@ -44,23 +87,38 @@
 }
 
 #NautilusQueryEditorTag {
-  background-color: $divider;
+  background-color: $titlebar-divider;
 
   > button.image-button {
     margin: 0;
     padding: 0;
+    @extend %titlebar-flat-button;
   }
 }
 
 #NautilusPathBar {
-  background-color: $titlebar-fill;
+  padding: 2px;
+  background-color: if($topbar == 'light', white, $overlay-normal);
   border-radius: $corner-radius;
   margin: $space-size 0;
+  color: $titlebar-text-secondary;
+
+  > menubutton > button {
+    min-height: 20px;
+    min-width: 20px;
+    margin: 0;
+    padding: $space-size;
+    border-radius: $corner-radius - 2px;
+    @extend %titlebar-flat-button;
+  }
 }
 
 #NautilusPathButton {
-  margin: 0 $space-size / 2;
-  border-radius: $corner-radius;
+  min-height: 20px;
+  margin: 0;
+  border-radius: $corner-radius - 2px;
+  background-color: transparent;
+  @extend %titlebar-flat-button;
 
   &.current-dir {
     color: $titlebar-text;
@@ -70,8 +128,6 @@
       box-shadow: none;
     }
   }
-
-  &:first-child { margin-left: 0; }
 }
 
 #NautilusViewCell {
@@ -1476,14 +1532,6 @@ window.dialog {
       > row {
         &:first-child, &:last-child { border-radius: 0; }
       }
-    }
-  }
-}
-
-window.aboutdialog {
-  stack scrolledwindow.frame > {
-    &, viewport.view {
-      border-radius: $window-radius - $space-size;
     }
   }
 }

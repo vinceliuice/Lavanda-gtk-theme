@@ -269,7 +269,7 @@ spinner {
  ****************/
 %entry,
 entry {
-  %entry-basic, & {
+  @at-root %entry-basic, & {
     min-height: $medium-size;
     padding: 0 8px;
     border-spacing: $space-size;
@@ -441,7 +441,6 @@ editablelabel > stack > text {
 
 %button-on-dark {
   color: on(dark, secondary);
-
   &:focus, &:hover, &:active, &:checked { color: on(dark); }
   &:disabled { color: on(dark, secondary-disabled); }
   &:checked:disabled { color: on(dark, disabled); }
@@ -449,47 +448,30 @@ editablelabel > stack > text {
 
 %button-basic {
   @include button(normal);
-
   &:focus { @include button(focus); }
-
   &:hover { @include button(hover); -gtk-icon-filter: brightness(1.2); }
-
   &.keyboard-activating, &:active { @include button(active); }
-
   &:disabled { @include button(disabled); }
-
   &:checked { @include button(checked); }
-
   &:checked:hover { @include button(checked-hover); }
-
   &:checked:disabled { @include button(checked-disabled); }
 }
 
 %button-flat-simple {
   @include button(flat-normal);
-
   &:focus:not(:hover):not(:active) { @include button(flat-focus); }
-
   &:hover { @include button(flat-hover); }
-
   &:active { @include button(flat-active); }
-
   &:disabled { @include button(flat-disabled); }
 }
 
 %button-flat {
   @include button(flat-normal);
-
   &:focus:not(:hover):not(:active) { @include button(flat-focus); }
-
   &:hover { @include button(flat-hover); }
-
   &:active { @include button(flat-active); }
-
   &:disabled { @include button(flat-disabled); }
-
   &:checked, &:checked:hover { @include button(flat-checked); }
-
   &:checked:disabled { @include button(flat-checked-disabled); }
 }
 
@@ -819,6 +801,10 @@ button {
 }
 
 menubutton {
+  .linked > & > button {
+    margin-left: 1px;
+  }
+
   &.osd {
     background: none;
     color: inherit;
@@ -898,14 +884,15 @@ splitbutton {
   }
 
   > separator {
-    margin-top: $space-size;
-    margin-bottom: $space-size;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: transparent;
     background: none;
+    min-width: 0;
   }
 
   > menubutton > button {
-    padding-left: $space-size - 2px;
-    padding-right: $space-size - 2px;
+    padding: ($medium-size - 24px) / 2 ($medium-size - 16px) / 2;
   }
 
   // Since the inner button doesn't have any style classes on it,
@@ -931,33 +918,36 @@ splitbutton {
   > menubutton > button:dir(rtl) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    margin-right: -1px;
+    margin-right: 0;
   }
 
   > button:dir(rtl),
   > menubutton > button:dir(ltr) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-left: -1px;
+    margin-left: 1px;
   }
 
   @at-root %flat_split_button,
   &.flat {
     > separator {
-      background: $border;
+      background-color: transparent;
+      background: none;
     }
 
     &:hover,
     &:active,
     &:checked {
-      background: gtkalpha(currentColor, 0.07);
+      background-color: $overlay-normal;
 
       > separator {
+        background-color: transparent;
         background: none;
       }
     }
 
     &:focus-within:focus-visible > separator {
+      background-color: transparent;
       background: none;
     }
 
@@ -1038,6 +1028,10 @@ buttoncontent {
 %linked {
   border-radius: 0;
 
+  &:not(:first-child) {
+    margin-left: 1px;
+  }
+
   &:first-child {
     border-top-left-radius: $corner-radius;
     border-bottom-left-radius: $corner-radius;
@@ -1055,6 +1049,10 @@ buttoncontent {
 
 %linked-vertical {
   border-radius: 0;
+
+  &:not(:first-child) {
+    margin-top: 1px;
+  }
 
   &:first-child {
     border-top-left-radius: $corner-radius;
@@ -1483,13 +1481,13 @@ searchbar > revealer > box {
    }
 
    &:backdrop {
-     color: $titlebar-text-disabled;
+     color: $titlebar-text-secondary-disabled;
 
-     &:focus, &:hover, &:active { color: $titlebar-text-secondary; }
+     &:focus, &:hover, &:active { color: $titlebar-text-disabled; }
 
-     &:checked { color: on($primary, secondary); }
+     &:checked { color: on($primary, disabled); }
 
-     &:disabled { color: $titlebar-text-secondary-disabled; }
+     &:disabled { color: $divider; }
    }
  }
 
@@ -1624,15 +1622,23 @@ headerbar {
   }
 
   popover.background { // reset popover
-    button:not(.suggested-action):not(.destructive-action):not(.flat) {
+    button:not(.suggested-action):not(.destructive-action) {
       @extend %button-basic;
+
+      &, &:hover {
+        box-shadow: none;
+      }
+
+      &.flat {
+        @extend %button-flat;
+      }
     }
 
     button.suggested-action,
     button.destructive-action {
       &:disabled {
-        background-color: $titlebar-fill;
-        color: $titlebar-text-disabled;
+        background-color: $fill;
+        color: $text-disabled;
       }
     }
 
@@ -1736,21 +1742,6 @@ pathbar > button {
   padding-left: ($medium-size - 24px) / 2;
   padding-right: ($medium-size - 24px) / 2;
   border-radius: $corner-radius;
-  background-color: $overlay-focus;
-  border: none;
-  box-shadow: none;
-
-  &:disabled { background-color: $overlay-normal; }
-
-  &:checked {
-    background-color: $overlay-checked;
-    color: $text;
-
-    &:hover {
-      background-color: $overlay-focus-hover;
-      color: $text;
-    }
-  }
 
   label, image {
     margin-left: $space-size / 2;
@@ -1979,8 +1970,7 @@ popover.menu {
       border: none;
       outline: none;
       transition: none;
-
-      &:selected { background: image($overlay-selected); }
+      @extend %button-flat-simple;
     }
   }
 
@@ -1989,11 +1979,8 @@ popover.menu {
 
     button.circular.image-button.model {
       @extend %small-button;
+      @extend %button-flat-simple;
       padding: $space-size;
-
-      &:focus {
-        background-color: $overlay-selected;
-      }
     }
   }
 
@@ -2762,7 +2749,7 @@ switch {
   padding: 0;
   border: none;
   border-radius: $circular-radius;
-  background-color: $text-disabled;
+  background-color: $track;
   background-clip: border-box;
   font-size: 0;
   color: transparent;
@@ -2772,12 +2759,7 @@ switch {
     color: transparent;
   }
 
-  &:disabled { opacity: 0.5; }
-
-  // hide on/off icons for >=3.24.5
-  image {
-    margin: -8px;
-  }
+  &:disabled { opacity: 0.35; }
 
   > slider {
     transition: all $duration $ease-out;
@@ -4951,6 +4933,7 @@ stackswitcher {
     background-color: transparent;
     border-radius: $corner-radius;
     padding: ($medium-size - 24px - $space-size) / 2 ($medium-size - 16px) / 2;
+    box-shadow: none;
 
     &.text-button { min-width: 100px; }
 
