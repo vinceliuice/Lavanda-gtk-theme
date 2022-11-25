@@ -49,10 +49,10 @@
   @if ($type == 'b') { @return $grey-050; }
   @if ($type == 'c') { @return $grey-100; }
   @if ($type == 'd') { @return $grey-250; }
-  @if ($type == 'e') { @return $grey-850; }
-  @if ($type == 'f') { @return $grey-800; }
-  @if ($type == 'g') { @return $grey-750; }
-  @if ($type == 'h') { @return $grey-700; }
+  @if ($type == 'e') { @return mix($blue-dark, $grey-850, 5%); }
+  @if ($type == 'f') { @return mix($blue-dark, $grey-800, 5%); }
+  @if ($type == 'g') { @return mix($blue-dark, $grey-750, 5%); }
+  @if ($type == 'h') { @return mix($blue-dark, $grey-700, 5%); }
 }
 
 @function overlay($color, $state: 'normal') {
@@ -69,6 +69,8 @@
 //
 
 $primary:                               if($variant == 'light', $default-dark, $default-light);
+$primary-left:                          #6a58f0;
+$primary-right:                         #cf54d0;
 $accent:                                #cf54d0;
 $drop_target_color:                     $orange-dark;
 $indicator:                             $primary;
@@ -89,7 +91,7 @@ $scrim-inverse:                         rgba($white, 0.1);
 $titlebar:                              if($topbar == 'dark', background(f), background(c));
 $titlebar-backdrop:                     if($topbar == 'dark', background(g), background(b));
 $titlebar-primary:                      $primary;
-$popover:                               if($variant == 'light', background(a), background(g));
+$popover:                               if($variant == 'light', background(a), lighten(background(e), 3%));
 $panel-solid:                           if($topbar == 'dark', background(e), background(c)); // for Unity panel which doesn't allow translucent colors
 $panel:                                 rgba($panel-solid, 0.75);
 

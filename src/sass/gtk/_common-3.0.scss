@@ -1305,12 +1305,7 @@ searchbar > revealer > box {
 
     .background.csd & {
       padding: $space-size;
-
-      @if $variant == 'dark' {
-        box-shadow: inset 0 -1px $border;
-      } @else {
-        box-shadow: inset 0 1px highlight($titlebar), inset 0 -1px $border;
-      }
+      box-shadow: inset 0 1px highlight($titlebar), inset 0 -1px $border;
     }
 
     // workaround for non-animatable buttons
@@ -1400,7 +1395,7 @@ headerbar {
           transition: $transition, border-image $ripple-fade-in-duration $ease-out;
           background-image: none;
           box-shadow: none;
-          box-shadow: inset 0 -2px mix(#6a58f0, $titlebar, 50%);
+          box-shadow: inset 0 -2px mix($primary-left, $titlebar, 50%);
         }
 
         &:active {
@@ -1409,8 +1404,8 @@ headerbar {
           box-shadow: none;
           transition: $transition, border-image $ripple-fade-in-duration $ease-out;
           border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                        #cf54d0 100%,
-                                        mix(#6a58f0, $titlebar, 50%) 0%)
+                                        $primary-right 100%,
+                                        mix($primary-left, $titlebar, 50%) 0%)
                                         0 0 2 / 0 0 2px;
         }
 
@@ -1419,8 +1414,8 @@ headerbar {
           background-image: none;
           box-shadow: none;
           border-image: linear-gradient(to right,
-                                        #6a58f0,
-                                        #cf54d0)
+                                        $primary-left,
+                                        $primary-right)
                                         0 0 2 / 0 0 2px;
 
            &:disabled, &:backdrop {
@@ -1562,7 +1557,7 @@ treeview.view {
     border: none;
     box-shadow: none;
     background-color: transparent;
-    background-image: linear-gradient(to right, #6a58f0, #cf54d0);
+    background-image: linear-gradient(to right, $primary-left, $primary-right);
     border-radius: $circular-radius;
     color: on($primary);
     transition: background-image $ripple-fade-in-duration $ease-out;
@@ -1570,7 +1565,7 @@ treeview.view {
     &:selected, &:selected:hover, &:selected:focus {
       box-shadow: none;
       background-color: transparent;
-      background-image: linear-gradient(to right, lighten(#6a58f0, 5%), lighten(#cf54d0, 5%));
+      background-image: linear-gradient(to right, lighten($primary-left, 5%), lighten($primary-right, 5%));
       color: on($primary);
 
       &:backdrop { color: on($primary); }
@@ -1700,7 +1695,7 @@ menu,
 
   .csd & {
     border: none;
-    box-shadow: inset 0 1px highlight($popover);
+    box-shadow: inset 0 1px highlight($surface);
   }
 
   menuitem {
@@ -2008,6 +2003,10 @@ notebook {
         }
       }
 
+      label {
+        padding: 0 $space-size;
+      }
+
       // colors the button like the label, overridden otherwise
       button.flat {
         @extend %small-button;
@@ -2066,6 +2065,12 @@ notebook {
         tab.reorderable-page { border-style: solid; }
       }
     }
+  }
+
+  > button.circular.image-button {
+    min-width: $small-size;
+    min-height: $small-size;
+    padding: $space-size / 2;
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
@@ -2310,7 +2315,7 @@ radio {
   }
 
   &:checked, &:indeterminate {
-    background-image: linear-gradient(to right, #6a58f0, #cf54d0);
+    background-image: linear-gradient(to right, $primary-left, $primary-right);
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -2478,14 +2483,14 @@ scale {
     border-radius: $circular-radius;
     color: $primary;
     background-color: $base;
-    box-shadow: inset 0 0 0 2px #cf54d0;
+    box-shadow: inset 0 0 0 2px $primary-right;
 
     &:hover {
-      box-shadow: inset 0 0 0 2px #cf54d0, 0 0 0 8px $divider;
+      box-shadow: inset 0 0 0 2px $primary-right, 0 0 0 8px $divider;
     }
 
     &:active {
-      box-shadow: inset 0 0 0 4px #cf54d0, 0 0 0 8px $divider;
+      box-shadow: inset 0 0 0 4px $primary-right, 0 0 0 8px $divider;
     }
 
     &:disabled {
@@ -2530,7 +2535,7 @@ scale {
   }
 
   &.horizontal {
-    highlight { background-image: linear-gradient(to right, #6a58f0, #cf54d0); }
+    highlight { background-image: linear-gradient(to right, $primary-left, $primary-right); }
 
     highlight:disabled {
       background-image: image($text-secondary-disabled);
@@ -2538,7 +2543,7 @@ scale {
   }
 
   &.vertical {
-    highlight { background-image: linear-gradient(to bottom, #6a58f0, #cf54d0); }
+    highlight { background-image: linear-gradient(to bottom, $primary-left, $primary-right); }
 
     highlight:disabled {
       background-image: image($text-secondary-disabled);
@@ -2724,11 +2729,11 @@ progressbar {
   }
 
   &.horizontal {
-    progress { background-image: linear-gradient(to right, #6a58f0, #cf54d0); }
+    progress { background-image: linear-gradient(to right, $primary-left, $primary-right); }
   }
 
   &.vertical {
-    progress { background-image: linear-gradient(to bottom, #6a58f0, #cf54d0); }
+    progress { background-image: linear-gradient(to bottom, $primary-left, $primary-right); }
   }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
@@ -2969,18 +2974,6 @@ list {
         &:focus {
           box-shadow: none;
         }
-
-        // list > row.header {
-        //   .expander-row-arrow {
-        //     -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
-        //   }
-        // }
-        //
-        // &:checked list > row.header {
-        //   .expander-row-arrow {
-        //     -gtk-icon-source: -gtk-icontheme("go-down-symbolic");
-        //   }
-        // }
 
         &:first-child:not(:last-child),
         &:only-child:checked {
@@ -3315,14 +3308,33 @@ stacksidebar.sidebar {
     min-height: 32px;
     padding: 0 $space-size / 2;
     border-radius: $corner-radius;
+    @include button(normal);
+    background-color: transparent;
+
+    &:hover {
+      @include button(hover);
+    }
+
+    &:active {
+      @include button(active);
+
+      image, label {
+        color: on($primary);
+      }
+    }
 
     &:selected {
-      background-color: $primary;
-      color: on($primary);
+      @include button(checked);
       font-weight: 500;
 
-      label, image {
+      image, label {
         color: on($primary);
+      }
+
+      @if $topbar == 'light' {
+        box-shadow: 0 1px 1px rgba($primary, 0.15), 0 1px 2px rgba($primary, 0.2), 0 2px 3px rgba($primary, 0.1);
+      } @else {
+        box-shadow: 0 1px 1px rgba(black, 0.15), 0 1px 2px rgba(black, 0.2), 0 2px 3px rgba(black, 0.1);
       }
     }
 
@@ -3369,17 +3381,39 @@ placessidebar.sidebar {
     margin: 0; // Remove unwanted hard-coded vertical margins with -1px
     padding: 0;
     border-radius: $corner-radius;
+    @include button(normal);
+    background-color: transparent;
+
+    &:hover {
+      @include button(hover);
+    }
+
+    &:active {
+      @include button(active);
+
+      image, label {
+        color: on($primary);
+      }
+    }
+
+    &:selected {
+      @include button(checked);
+      font-weight: 500;
+
+      image, label {
+        color: on($primary);
+      }
+
+      @if $topbar == 'light' {
+        box-shadow: 0 1px 1px rgba($primary, 0.15), 0 1px 2px rgba($primary, 0.2), 0 2px 3px rgba($primary, 0.1);
+      } @else {
+        box-shadow: 0 1px 1px rgba(black, 0.15), 0 1px 2px rgba(black, 0.2), 0 2px 3px rgba(black, 0.1);
+      }
+    }
 
     // Using margins/padding directly in the SidebarRow
     // will make the animation of the new bookmark row jump
     > revealer { padding: 0 8px 0 16px; }
-
-    &:selected {
-      background-color: $divider;
-      font-weight: 500;
-
-      // &, image.sidebar-icon, button.sidebar-button { color: $text; }
-    }
 
     &:disabled { color: $text-disabled; }
 
@@ -3413,7 +3447,7 @@ placessidebar.sidebar {
                   box-shadow 0ms,
                   background-size $ripple-fade-out-duration $ease-out,
                   background-image $ripple-fade-out-opacity-duration $ease-out;
-      box-shadow: inset 0 0 0 9999px $overlay-hover;
+      background-color: $overlay-hover;
     }
   }
 }

@@ -2275,6 +2275,10 @@ notebook {
           }
         }
 
+        label {
+          padding: 0 $space-size;
+        }
+
         // colors the button like the label, overridden otherwise
         button.flat {
           @extend %small-button;
@@ -2851,7 +2855,7 @@ radio {
   }
 
   &:checked, &:indeterminate {
-    background-image: linear-gradient(to right, #6a58f0, #cf54d0);
+    background-image: linear-gradient(to right, $primary-left, $primary-right);
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -3045,14 +3049,14 @@ scale {
       border-radius: $circular-radius;
       color: $primary;
       background-color: $base;
-      box-shadow: inset 0 0 0 2px #cf54d0;
+      box-shadow: inset 0 0 0 2px $primary-right;
 
       &:hover {
-        box-shadow: inset 0 0 0 2px #cf54d0, 0 0 0 8px $divider;
+        box-shadow: inset 0 0 0 2px $primary-right, 0 0 0 8px $divider;
       }
 
       &:active {
-        box-shadow: inset 0 0 0 4px #cf54d0, 0 0 0 8px $divider;
+        box-shadow: inset 0 0 0 4px $primary-right, 0 0 0 8px $divider;
       }
 
       &:disabled {
@@ -3062,7 +3066,7 @@ scale {
   }
 
   &.horizontal {
-    > trough > highlight { background-image: linear-gradient(to right, #6a58f0, #cf54d0); }
+    > trough > highlight { background-image: linear-gradient(to right, $primary-left, $primary-right); }
 
     > trough > highlight:disabled {
       background-image: image($text-secondary-disabled);
@@ -3070,7 +3074,7 @@ scale {
   }
 
   &.vertical {
-    > trough > highlight { background-image: linear-gradient(to bottom, #6a58f0, #cf54d0); }
+    > trough > highlight { background-image: linear-gradient(to bottom, $primary-left, $primary-right); }
 
     > trough > highlight:disabled {
       background-image: image($text-secondary-disabled);
@@ -3266,11 +3270,11 @@ progressbar {
   }
 
   &.horizontal {
-    progress { background-image: linear-gradient(to right, #6a58f0, #cf54d0); }
+    progress { background-image: linear-gradient(to right, $primary-left, $primary-right); }
   }
 
   &.vertical {
-    progress { background-image: linear-gradient(to bottom, #6a58f0, #cf54d0); }
+    progress { background-image: linear-gradient(to bottom, $primary-left, $primary-right); }
   }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
@@ -4301,10 +4305,6 @@ stacksidebar {
     padding: $space-size;
     border-radius: $corner-radius;
 
-    &:selected {
-      font-weight: 500;
-    }
-
     + row { margin-top: 4px; }
 
     > label {
@@ -4355,6 +4355,34 @@ separator.sidebar {
     padding: $space-size;
     border-radius: $corner-radius;
     margin: $space-size / 4 $space-size;
+    @include button(normal);
+    background-color: transparent;
+
+    &:hover {
+      @include button(hover);
+    }
+
+    &:active {
+      @include button(active);
+
+      image, label {
+        color: on($primary);
+      }
+    }
+
+    &:selected {
+      @include button(checked);
+
+      image, label {
+        color: on($primary);
+      }
+
+      @if $topbar == 'light' {
+        box-shadow: 0 1px 1px rgba($primary, 0.15), 0 1px 2px rgba($primary, 0.2), 0 2px 3px rgba($primary, 0.1);
+      } @else {
+        box-shadow: 0 1px 1px rgba(black, 0.15), 0 1px 2px rgba(black, 0.2), 0 2px 3px rgba(black, 0.1);
+      }
+    }
   }
 }
 
@@ -4527,7 +4555,19 @@ infobar {
       color: $text;
 
       button {
-        &.text-button:not(:disabled):not(.suggested-action):not(.destructive-action) { color: $primary; }
+        &.text-button:not(:disabled):not(.suggested-action):not(.destructive-action) {
+          color: $primary;
+          background-color: gtkalpha(currentColor, 0.15);
+
+          &:hover {
+            color: $primary;
+            background-color: gtkalpha(currentColor, 0.25);
+          }
+
+          &:active, &:checked {
+            color: on($primary);
+          }
+        }
       }
     }
   }
@@ -4543,7 +4583,7 @@ infobar {
         &, &:hover, &:focus, &:active, &:checked, &.text-button:not(:disabled) { color: on($primary); }
       }
 
-      *:link { color: on($primary); }
+      *:link, link { color: on($primary); }
     }
 
     &:hover > revealer > box {
@@ -4563,7 +4603,7 @@ infobar {
         &, &:hover, &:focus, &:active, &:checked, &.text-button:not(:disabled) { color: on($warning); }
       }
 
-      *:link { color: on($warning); }
+      *:link, link { color: on($warning); }
     }
 
     &:hover > revealer > box {
@@ -4581,7 +4621,7 @@ infobar {
         &, &:hover, &:focus, &:active, &:checked, &.text-button:not(:disabled) { color: on($error); }
       }
 
-      *:link { color: on($error); }
+      *:link, link { color: on($error); }
     }
 
     &:hover > revealer > box {
