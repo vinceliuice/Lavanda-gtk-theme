@@ -82,8 +82,8 @@ $base:                                  if($variant == 'light', background(a), b
 $base-alt:                              if($variant == 'light', background(b), background(h));
 
 $tooltip:                               if($variant == 'dark', rgba(darken(background(e), 3%), 0.9), rgba(darken(background(h), 3%), 0.9));
-$osd:                                   background(e);
-$scrim:                                 background(f);
+$osd:                                   background(f);
+$scrim:                                 background(e);
 $scrim-alt:                             background(g);
 $scrim-inverse:                         rgba($white, 0.1);
 $titlebar:                              if($topbar == 'dark', background(f), background(c));

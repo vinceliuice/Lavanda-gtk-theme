@@ -1,6 +1,5 @@
 /* Slider */
 
-$slide_active_color: if($variant == 'dark', rgba(white, 0.85), $primary);
 $slide_size: if($compact == 'false', 7px, 6px);
 
 .slider {
@@ -10,7 +9,7 @@ $slide_size: if($compact == 'false', 7px, 6px);
   -slider-height: 2px;
   -slider-background-color: $track; //background of the trough
   -slider-border-color: $primary; //trough border color
-  -slider-active-background-color: $slide_active_color; //active trough fill
+  -slider-active-background-color: $primary; //active trough fill
   -slider-active-border-color: $primary; //active trough border
   -slider-border-width: 2px;
   -slider-handle-radius: $slide_size;
@@ -21,7 +20,7 @@ $slide_size: if($compact == 'false', 7px, 6px);
   -barlevel-height: 2px;
   -barlevel-background-color: $track;
   -barlevel-border-color: transparent;
-  -barlevel-active-background-color: $slide_active_color;
+  -barlevel-active-background-color: $primary;
   -barlevel-active-border-color: transparent;
   -barlevel-overdrive-color: $destructive;
   -barlevel-overdrive-border-color: transparent;

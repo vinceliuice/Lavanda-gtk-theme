@@ -30,45 +30,67 @@
     border-radius: $circular_radius;
     text-shadow: none;
     border: 2px solid transparent;
+    background-gradient-direction: horizontal;
+    background-gradient-start: transparent;
+    background-gradient-end: transparent;
 
     &.clock-display {
       .clock {
         transition-duration: 150ms;
         border: 2px solid transparent;
         border-radius: $circular_radius;
+        background-gradient-direction: horizontal;
+        background-gradient-start: transparent;
+        background-gradient-end: transparent;
       }
     }
 
     &:hover {
       color: $panel-text;
       background-color: transparent;
-      box-shadow: inset 0 0 0 1000px overlay($panel, hover);
+      box-shadow: 0 2px 3px -1px rgba(black, 0.04);
+      background-gradient-start: if($topbar == 'light', white, overlay($panel, hover));
+      background-gradient-end: if($topbar == 'light', white, overlay($panel, hover));
 
       &.clock-display {
         box-shadow: none;
         color: $panel-text-secondary;
+        background-color: transparent;
+        background-gradient-start: transparent;
+        background-gradient-end: transparent;
 
         .clock {
           color: $panel-text;
-          box-shadow: inset 0 0 0 1000px overlay($panel, hover);
+          background-color: transparent;
+          box-shadow: 0 2px 3px -1px rgba(black, 0.04);
+          background-gradient-start: if($topbar == 'light', white, overlay($panel, hover));
+          background-gradient-end: if($topbar == 'light', white, overlay($panel, hover));
         }
       }
     }
 
     &:active, &:overview, &:focus, &:checked {
       &, &:hover {
+        color: on($primary);
         background-color: transparent;
-        color: $panel-text;
-        box-shadow: inset 0 0 0 1000px overlay($panel, active);
+        box-shadow: 0 2px 3px -1px rgba(black, 0.08);
+        background-gradient-start: #6a58f0;
+        background-gradient-end: #cf54d0;
       }
 
       &.clock-display {
         box-shadow: none;
         color: $panel-text-secondary;
+        background-color: transparent;
+        background-gradient-start: transparent;
+        background-gradient-end: transparent;
 
         .clock {
-          box-shadow: inset 0 0 0 1000px overlay($panel, active);
-          color: $panel-text;
+          color: on($primary);
+          background-color: transparent;
+          box-shadow: 0 2px 3px -1px rgba(black, 0.08);
+          background-gradient-start: #6a58f0;
+          background-gradient-end: #cf54d0;
         }
       }
     }
@@ -76,9 +98,7 @@
     .unlock-screen &,
     .login-screen &,
     .lock-screen & {
-      color: $panel-text;
-
-      &:focus, &:hover, &:active { color: $panel-text; }
+      &, &:focus, &:hover { color: $panel-text; }
     }
 
     // status area icons
@@ -113,37 +133,53 @@
     background-color: transparent;
     box-shadow: none;
 
-    StLabel, StIcon { color: on(dark, secondary); }
+    StLabel, StIcon { color: on($osd, secondary); }
 
     .panel-button {
       &:hover {
-        color: on(dark);
+        color: on($osd);
         background-color: transparent;
-        box-shadow: inset 0 0 0 1000px overlay(dark, hover);
+        box-shadow: none;
+        background-gradient-start: overlay($osd, hover);
+        background-gradient-end: overlay($osd, hover);
 
         &.clock-display {
           box-shadow: none;
-          color: on(dark);
+          color: on($osd);
+          background-color: transparent;
+          background-gradient-start: transparent;
+          background-gradient-end: transparent;
 
           .clock {
-            color: on(dark);
-            box-shadow: inset 0 0 0 1000px overlay(dark, hover);
+            color: on($osd);
+            box-shadow: none;
+            background-color: transparent;
+            background-gradient-start: overlay($osd, hover);
+            background-gradient-end: overlay($osd, hover);
           }
         }
       }
 
       &:active, &:overview, &:focus, &:checked {
-        color: on(dark);
+        color: on($osd);
         background-color: transparent;
-        box-shadow: inset 0 0 0 1000px overlay(dark, active);
+        box-shadow: none;
+        background-gradient-start: #6a58f0;
+        background-gradient-end: #cf54d0;
 
         &.clock-display {
           box-shadow: none;
-          color: on(dark);
+          color: on($osd);
+          background-color: transparent;
+          background-gradient-start: transparent;
+          background-gradient-end: transparent;
 
           .clock {
-            box-shadow: inset 0 0 0 1000px overlay(dark, active);
-            color: on(dark);
+            box-shadow: none;
+            color: on($osd);
+            background-color: transparent;
+            background-gradient-start: #6a58f0;
+            background-gradient-end: #cf54d0;;
           }
         }
       }

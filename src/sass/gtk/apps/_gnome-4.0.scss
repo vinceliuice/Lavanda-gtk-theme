@@ -102,6 +102,7 @@
   border-radius: $corner-radius;
   margin: $space-size 0;
   color: $titlebar-text-secondary;
+  box-shadow: 0 2px 3px -1px rgba(black, 0.04);
 
   > menubutton > button {
     min-height: 20px;
@@ -590,10 +591,6 @@ datechooser {
     color: on($titlebar);
     border-radius: $corner-radius;
   }
-}
-
-menubutton stack > box {
-  border-spacing: $space-size;
 }
 
 //
@@ -1428,12 +1425,18 @@ image.circular {
 // Builder
 //
 
-headerbar splitbutton {
+headerbar splitbutton.omnibar {
+  > button.image-button {
+    border-radius: 0;
+    margin-left: 1px;
+  }
+
   notification button {
-    margin: 0;
     min-height: $small-size;
     min-width: $small-size;
     padding: 0;
+    margin: 0;
+    @extend %titlebar-flat-button;
   }
 }
 
@@ -1479,7 +1482,10 @@ panelframeswitcher {
 
 panelstatusbar {
   > menubutton > button,
-  > paneltogglebutton button { border-radius: 0; }
+  > paneltogglebutton button {
+    border-radius: 0;
+    @extend %button-flat;
+  }
 }
 
 // Setting window

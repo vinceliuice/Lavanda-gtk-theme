@@ -62,6 +62,10 @@ entry selection, label selection, textview text selection:focus, textview text s
   border-radius: 0;
 }
 
+.linked:not(.vertical) > button:not(:first-child), .linked:not(.vertical) > spinbutton.vertical:not(:first-child), .linked:not(.vertical) > spinbutton:not(:first-child):not(.vertical), .linked:not(.vertical) > entry:not(:first-child) {
+  margin-left: 1px;
+}
+
 .linked:not(.vertical) > button:first-child, .linked:not(.vertical) > spinbutton.vertical:first-child, .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -78,6 +82,10 @@ entry selection, label selection, textview text selection:focus, textview text s
 
 .linked.vertical > button, .linked.vertical > spinbutton.vertical, .linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry {
   border-radius: 0;
+}
+
+.linked.vertical > button:not(:first-child), .linked.vertical > spinbutton.vertical:not(:first-child), .linked.vertical > spinbutton:not(:first-child):not(.vertical), .linked.vertical > entry:not(:first-child) {
+  margin-top: 1px;
 }
 
 .linked.vertical > button:first-child, .linked.vertical > spinbutton.vertical:first-child, .linked.vertical > spinbutton:first-child:not(.vertical), .linked.vertical > entry:first-child {
@@ -640,19 +648,19 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   }
 }
 
-.xfce4-panel.background button, .raven-mpris button.image-button, .mate-panel-menu-bar button, infobar.warning > revealer > box button, infobar.warning:backdrop > revealer > box button, notebook > header > tabs > tab:checked button.flat, notebook > header > tabs > tab:checked button.close-button {
+.xfce4-panel.background button, .raven-mpris button.image-button, .mate-panel-menu-bar button, tabbar tabbox > tab:checked button.tab-close-button, infobar.warning > revealer > box button, infobar.warning:backdrop > revealer > box button, notebook > header > tabs > tab:checked button.flat, notebook > header > tabs > tab:checked button.close-button {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.xfce4-panel.background button:focus, .raven-mpris button.image-button:focus, .mate-panel-menu-bar button:focus, infobar.warning > revealer > box button:focus, notebook > header > tabs > tab:checked button.flat:focus, notebook > header > tabs > tab:checked button.close-button:focus, .xfce4-panel.background button:hover, .raven-mpris button.image-button:hover, .mate-panel-menu-bar button:hover, infobar.warning > revealer > box button:hover, notebook > header > tabs > tab:checked button.flat:hover, notebook > header > tabs > tab:checked button.close-button:hover, .xfce4-panel.background button:active, .raven-mpris button.image-button:active, .mate-panel-menu-bar button:active, infobar.warning > revealer > box button:active, notebook > header > tabs > tab:checked button.flat:active, notebook > header > tabs > tab:checked button.close-button:active, .xfce4-panel.background button:checked, .raven-mpris button.image-button:checked, .mate-panel-menu-bar button:checked, infobar.warning > revealer > box button:checked, notebook > header > tabs > tab:checked button.flat:checked, notebook > header > tabs > tab:checked button.close-button:checked {
+.xfce4-panel.background button:focus, .raven-mpris button.image-button:focus, .mate-panel-menu-bar button:focus, tabbar tabbox > tab:checked button.tab-close-button:focus, infobar.warning > revealer > box button:focus, notebook > header > tabs > tab:checked button.flat:focus, notebook > header > tabs > tab:checked button.close-button:focus, .xfce4-panel.background button:hover, .raven-mpris button.image-button:hover, .mate-panel-menu-bar button:hover, tabbar tabbox > tab:checked button.tab-close-button:hover, infobar.warning > revealer > box button:hover, notebook > header > tabs > tab:checked button.flat:hover, notebook > header > tabs > tab:checked button.close-button:hover, .xfce4-panel.background button:active, .raven-mpris button.image-button:active, .mate-panel-menu-bar button:active, tabbar tabbox > tab:checked button.tab-close-button:active, infobar.warning > revealer > box button:active, notebook > header > tabs > tab:checked button.flat:active, notebook > header > tabs > tab:checked button.close-button:active, .xfce4-panel.background button:checked, .raven-mpris button.image-button:checked, .mate-panel-menu-bar button:checked, tabbar tabbox > tab:checked button.tab-close-button:checked, infobar.warning > revealer > box button:checked, notebook > header > tabs > tab:checked button.flat:checked, notebook > header > tabs > tab:checked button.close-button:checked {
   color: #FFFFFF;
 }
 
-.xfce4-panel.background button:disabled, .raven-mpris button.image-button:disabled, .mate-panel-menu-bar button:disabled, infobar.warning > revealer > box button:disabled, notebook > header > tabs > tab:checked button.flat:disabled, notebook > header > tabs > tab:checked button.close-button:disabled {
+.xfce4-panel.background button:disabled, .raven-mpris button.image-button:disabled, .mate-panel-menu-bar button:disabled, tabbar tabbox > tab:checked button.tab-close-button:disabled, infobar.warning > revealer > box button:disabled, notebook > header > tabs > tab:checked button.flat:disabled, notebook > header > tabs > tab:checked button.close-button:disabled {
   color: rgba(255, 255, 255, 0.32);
 }
 
-.xfce4-panel.background button:checked:disabled, .raven-mpris button.image-button:checked:disabled, .mate-panel-menu-bar button:checked:disabled, infobar.warning > revealer > box button:checked:disabled, notebook > header > tabs > tab:checked button.flat:checked:disabled, notebook > header > tabs > tab:checked button.close-button:checked:disabled {
+.xfce4-panel.background button:checked:disabled, .raven-mpris button.image-button:checked:disabled, .mate-panel-menu-bar button:checked:disabled, tabbar tabbox > tab:checked button.tab-close-button:checked:disabled, infobar.warning > revealer > box button:checked:disabled, notebook > header > tabs > tab:checked button.flat:checked:disabled, notebook > header > tabs > tab:checked button.close-button:checked:disabled {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -756,7 +764,7 @@ button:drop(active) {
 
 .budgie-session-dialog .linked.horizontal > button,
 .budgie-polkit-dialog .linked.horizontal > button,
-.budgie-run-dialog .linked.horizontal > button, .drop-shadow button, .budgie-panel button, .budgie-popover row button, .budgie-settings-window buttonbox.inline-toolbar button, #mate-menu button, #MatePanelPopupWindow button, popover.messagepopover .popover-action-area button, tabbox > tab button, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button, calendar.button, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular, treeview.view header button button.circular, row.activatable button.circular, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical button, spinbutton:not(.vertical) button, modelbutton.flat,
+.budgie-run-dialog .linked.horizontal > button, .drop-shadow button, .budgie-panel button, .budgie-popover row button, .budgie-settings-window buttonbox.inline-toolbar button, #mate-menu button, #MatePanelPopupWindow button, popover.messagepopover .popover-action-area button, tabbar tabbox > tab button.tab-close-button, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button, calendar.button, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular, treeview.view header button button.circular, row.activatable button.circular, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical button, spinbutton:not(.vertical) button, modelbutton.flat,
 .menuitem.button.flat, .nemo-window .toolbar button, #buttonbox_frame button, .xfce4-panel.background button, .raven stackswitcher.linked > button, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button, .lock-dialog button, .mate-panel-menu-bar button, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button,
 window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button, layouttabbar button, filechooser #pathbarbox > stack > box > button, messagedialog .dialog-action-box button, messagedialog .dialog-action-box .linked:not(.vertical) > button, .app-notification button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action), popover.background.menu button,
 popover.background button.model, toolbar button, combobox > .linked:not(.vertical) > button:not(:only-child), button.flat {
@@ -770,7 +778,7 @@ popover.background button.model, toolbar button, combobox > .linked:not(.vertica
 
 .budgie-session-dialog .linked.horizontal > button:focus,
 .budgie-polkit-dialog .linked.horizontal > button:focus,
-.budgie-run-dialog .linked.horizontal > button:focus, .drop-shadow button:focus, .budgie-panel button:focus, .budgie-popover row button:focus, .budgie-settings-window buttonbox.inline-toolbar button:focus, #mate-menu button:focus, #MatePanelPopupWindow button:focus, popover.messagepopover .popover-action-area button:focus, tabbox > tab button:focus, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:focus:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:focus, calendar.button:focus, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:focus, treeview.view header button button.circular:focus, row.activatable button.circular:focus, scrollbar button:focus, notebook > header > tabs > arrow:focus, spinbutton.vertical button:focus, spinbutton:not(.vertical) button:focus, modelbutton.flat:focus,
+.budgie-run-dialog .linked.horizontal > button:focus, .drop-shadow button:focus, .budgie-panel button:focus, .budgie-popover row button:focus, .budgie-settings-window buttonbox.inline-toolbar button:focus, #mate-menu button:focus, #MatePanelPopupWindow button:focus, popover.messagepopover .popover-action-area button:focus, tabbar tabbox > tab button.tab-close-button:focus, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:focus:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:focus, calendar.button:focus, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:focus, treeview.view header button button.circular:focus, row.activatable button.circular:focus, scrollbar button:focus, notebook > header > tabs > arrow:focus, spinbutton.vertical button:focus, spinbutton:not(.vertical) button:focus, modelbutton.flat:focus,
 .menuitem.button.flat:focus, .nemo-window .toolbar button:focus, #buttonbox_frame button:focus, .xfce4-panel.background button:focus, .raven stackswitcher.linked > button:focus, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:focus, .lock-dialog button:focus, .mate-panel-menu-bar button:focus, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:focus,
 window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:focus, layouttabbar button:focus, filechooser #pathbarbox > stack > box > button:focus, messagedialog .dialog-action-box button:focus, messagedialog .dialog-action-box .linked:not(.vertical) > button:focus, .app-notification button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action), popover.background.menu button:focus,
 popover.background button.model:focus, toolbar button:focus, combobox > .linked:not(.vertical) > button:focus:not(:only-child), button.flat:focus {
@@ -780,7 +788,7 @@ popover.background button.model:focus, toolbar button:focus, combobox > .linked:
 
 .budgie-session-dialog .linked.horizontal > button:hover,
 .budgie-polkit-dialog .linked.horizontal > button:hover,
-.budgie-run-dialog .linked.horizontal > button:hover, .drop-shadow button:hover, .budgie-panel button:hover, .budgie-popover row button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, #mate-menu button:hover, #MatePanelPopupWindow button:hover, popover.messagepopover .popover-action-area button:hover, tabbox > tab button:hover, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:hover:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:hover, calendar.button:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:hover, treeview.view header button button.circular:hover, row.activatable button.circular:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spinbutton.vertical button:hover, spinbutton:not(.vertical) button:hover, modelbutton.flat:hover,
+.budgie-run-dialog .linked.horizontal > button:hover, .drop-shadow button:hover, .budgie-panel button:hover, .budgie-popover row button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, #mate-menu button:hover, #MatePanelPopupWindow button:hover, popover.messagepopover .popover-action-area button:hover, tabbar tabbox > tab button.tab-close-button:hover, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:hover:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:hover, calendar.button:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:hover, treeview.view header button button.circular:hover, row.activatable button.circular:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spinbutton.vertical button:hover, spinbutton:not(.vertical) button:hover, modelbutton.flat:hover,
 .menuitem.button.flat:hover, .nemo-window .toolbar button:hover, #buttonbox_frame button:hover, .xfce4-panel.background button:hover, .raven stackswitcher.linked > button:hover, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:hover, .lock-dialog button:hover, .mate-panel-menu-bar button:hover, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:hover,
 window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:hover, layouttabbar button:hover, filechooser #pathbarbox > stack > box > button:hover, messagedialog .dialog-action-box button:hover, messagedialog .dialog-action-box .linked:not(.vertical) > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action), popover.background.menu button:hover,
 popover.background button.model:hover, toolbar button:hover, combobox > .linked:not(.vertical) > button:hover:not(:only-child), button.flat:hover {
@@ -796,7 +804,7 @@ popover.background button.model:hover, toolbar button:hover, combobox > .linked:
 
 .budgie-session-dialog .linked.horizontal > button:active,
 .budgie-polkit-dialog .linked.horizontal > button:active,
-.budgie-run-dialog .linked.horizontal > button:active, .drop-shadow button:active, .budgie-panel button:active, .budgie-popover row button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, #mate-menu button:active, #MatePanelPopupWindow button:active, popover.messagepopover .popover-action-area button:active, tabbox > tab button:active, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:active:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:active, calendar.button:active, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:active, treeview.view header button button.circular:active, row.activatable button.circular:active, scrollbar button:active, notebook > header > tabs > arrow:active, spinbutton.vertical button:active, spinbutton:not(.vertical) button:active, modelbutton.flat:active,
+.budgie-run-dialog .linked.horizontal > button:active, .drop-shadow button:active, .budgie-panel button:active, .budgie-popover row button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, #mate-menu button:active, #MatePanelPopupWindow button:active, popover.messagepopover .popover-action-area button:active, tabbar tabbox > tab button.tab-close-button:active, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:active:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:active, calendar.button:active, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:active, treeview.view header button button.circular:active, row.activatable button.circular:active, scrollbar button:active, notebook > header > tabs > arrow:active, spinbutton.vertical button:active, spinbutton:not(.vertical) button:active, modelbutton.flat:active,
 .menuitem.button.flat:active, .nemo-window .toolbar button:active, #buttonbox_frame button:active, .xfce4-panel.background button:active, .raven stackswitcher.linked > button:active, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:active, .lock-dialog button:active, .mate-panel-menu-bar button:active, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:active,
 window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:active, layouttabbar button:active, filechooser #pathbarbox > stack > box > button:active, messagedialog .dialog-action-box button:active, messagedialog .dialog-action-box .linked:not(.vertical) > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action), popover.background.menu button:active,
 popover.background button.model:active, toolbar button:active, combobox > .linked:not(.vertical) > button:active:not(:only-child), button.flat:active {
@@ -811,7 +819,7 @@ popover.background button.model:active, toolbar button:active, combobox > .linke
 
 .budgie-session-dialog .linked.horizontal > button:disabled,
 .budgie-polkit-dialog .linked.horizontal > button:disabled,
-.budgie-run-dialog .linked.horizontal > button:disabled, .drop-shadow button:disabled, .budgie-panel button:disabled, .budgie-popover row button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, #mate-menu button:disabled, #MatePanelPopupWindow button:disabled, popover.messagepopover .popover-action-area button:disabled, tabbox > tab button:disabled, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:disabled:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:disabled, calendar.button:disabled, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:disabled, treeview.view header button button.circular:disabled, row.activatable button.circular:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disabled, spinbutton.vertical button:disabled, spinbutton:not(.vertical) button:disabled, modelbutton.flat:disabled,
+.budgie-run-dialog .linked.horizontal > button:disabled, .drop-shadow button:disabled, .budgie-panel button:disabled, .budgie-popover row button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, #mate-menu button:disabled, #MatePanelPopupWindow button:disabled, popover.messagepopover .popover-action-area button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:disabled:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:disabled, calendar.button:disabled, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:disabled, treeview.view header button button.circular:disabled, row.activatable button.circular:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disabled, spinbutton.vertical button:disabled, spinbutton:not(.vertical) button:disabled, modelbutton.flat:disabled,
 .menuitem.button.flat:disabled, .nemo-window .toolbar button:disabled, #buttonbox_frame button:disabled, .xfce4-panel.background button:disabled, .raven stackswitcher.linked > button:disabled, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:disabled, .lock-dialog button:disabled, .mate-panel-menu-bar button:disabled, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:disabled,
 window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:disabled, layouttabbar button:disabled, filechooser #pathbarbox > stack > box > button:disabled, messagedialog .dialog-action-box button:disabled, messagedialog .dialog-action-box .linked:not(.vertical) > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action), popover.background.menu button:disabled,
 popover.background button.model:disabled, toolbar button:disabled, combobox > .linked:not(.vertical) > button:disabled:not(:only-child), button.flat:disabled {
@@ -881,7 +889,7 @@ button.osd {
   min-width: 24px;
   min-width: 24px;
   padding: 6px;
-  background-color: #121212;
+  background-color: #212121;
   color: #FFFFFF;
 }
 
@@ -890,12 +898,12 @@ button.osd:focus {
 }
 
 button.osd:hover {
-  background-color: #363636;
+  background-color: #424242;
   color: #FFFFFF;
 }
 
 button.osd:active {
-  background-color: #4d4d4d;
+  background-color: #595959;
   color: #FFFFFF;
 }
 
@@ -1291,7 +1299,7 @@ frame.documents-dropdown, .app-notification, toolbar.osd {
 }
 
 frame.documents-dropdown:backdrop, .app-notification:backdrop, toolbar.osd:backdrop {
-  box-shadow: 0 3px 2px -2.5px rgba(0, 0, 0, 0.15), 0 2px 3px -1px rgba(0, 0, 0, 0.18), 0 1px 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 3px 2px -2.5px rgba(0, 0, 0, 0.1), 0 2px 3px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.25);
 }
 
 frame.left.documents-dropdown, .left.app-notification, frame.right.documents-dropdown, .right.app-notification, frame.top.documents-dropdown, .top.app-notification, frame.bottom.documents-dropdown, .bottom.app-notification, toolbar.osd.left, toolbar.osd.right, toolbar.osd.top, toolbar.osd.bottom {
@@ -1370,6 +1378,7 @@ searchbar > revealer > box {
   background-size: auto;
   background-color: transparent;
   color: #FFFFFF;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.05);
 }
 
 .nemo-window .primary-toolbar button:disabled, headerbar button:disabled:not(.suggested-action):not(.destructive-action) {
@@ -1378,24 +1387,33 @@ searchbar > revealer > box {
 }
 
 .nemo-window .primary-toolbar button:backdrop, headerbar button:backdrop:not(.suggested-action):not(.destructive-action) {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.32);
 }
 
 .nemo-window .primary-toolbar button:backdrop:focus, headerbar button:backdrop:focus:not(.suggested-action):not(.destructive-action), .nemo-window .primary-toolbar button:backdrop:hover, headerbar button:backdrop:hover:not(.suggested-action):not(.destructive-action), .nemo-window .primary-toolbar button:backdrop:active, headerbar button:backdrop:active:not(.suggested-action):not(.destructive-action) {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .nemo-window .primary-toolbar button:backdrop:checked, headerbar button:backdrop:checked:not(.suggested-action):not(.destructive-action) {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .nemo-window .primary-toolbar button:backdrop:disabled, headerbar button:backdrop:disabled:not(.suggested-action):not(.destructive-action) {
-  color: rgba(255, 255, 255, 0.32);
+  color: rgba(0, 0, 0, 0.12);
 }
 
 .nemo-window .primary-toolbar entry, .titlebar entry {
   background-color: rgba(255, 255, 255, 0.04);
   color: #FFFFFF;
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.04);
+}
+
+.nemo-window .primary-toolbar entry:hover, .titlebar entry:hover {
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.04), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.nemo-window .primary-toolbar entry:focus, .titlebar entry:focus {
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.04), inset 0 0 0 2px #7b88ff;
 }
 
 .nemo-window .primary-toolbar entry:disabled, .titlebar entry:disabled {
@@ -1679,6 +1697,14 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
   background-image: none;
   box-shadow: none;
   border-image: linear-gradient(to right, #6a58f0, #cf54d0) 0 0 2/0 0 2px;
+}
+
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked:disabled, headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked:backdrop {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):disabled, headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):backdrop {
+  color: rgba(255, 255, 255, 0.32);
 }
 
 headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) > stack > box {
@@ -2123,6 +2149,7 @@ popover.background {
 popover.background, .csd popover.background {
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
   background-clip: border-box;
+  border: none;
 }
 
 popover.background:backdrop, .csd popover.background:backdrop {
@@ -2194,11 +2221,11 @@ popover.background list separator {
 /*************
  * Notebooks *
  *************/
-tabbox > tab, notebook > header > tabs > tab {
+tabbar tabbox > tab, notebook > header > tabs > tab {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms;
   min-height: 24px;
   min-width: 24px;
-  padding: 3px 12px;
+  padding: 3px 6px;
   border: none;
   outline: none;
   background-clip: padding-box;
@@ -2207,7 +2234,7 @@ tabbox > tab, notebook > header > tabs > tab {
   border-radius: 6px;
 }
 
-tabbox > tab:hover, notebook > header > tabs > tab:hover {
+tabbar tabbox > tab:hover, notebook > header > tabs > tab:hover {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
   background-color: alpha(currentColor, 0.08);
   background-image: radial-gradient(circle, transparent 10%, transparent 0%);
@@ -2218,7 +2245,7 @@ tabbox > tab:hover, notebook > header > tabs > tab:hover {
   box-shadow: none;
 }
 
-tabbox > tab:active, notebook > header > tabs > tab:active {
+tabbar tabbox > tab:active, notebook > header > tabs > tab:active {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms;
   animation: ripple 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
   background-color: alpha(currentColor, 0.08);
@@ -2228,11 +2255,11 @@ tabbox > tab:active, notebook > header > tabs > tab:active {
   box-shadow: none;
 }
 
-tabbox > tab:disabled, notebook > header > tabs > tab:disabled {
+tabbar tabbox > tab:disabled, notebook > header > tabs > tab:disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 
-tabbox > tab:checked, notebook > header > tabs > tab:checked {
+tabbar tabbox > tab:checked, notebook > header > tabs > tab:checked {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms, box-shadow 0ms;
   background-image: linear-gradient(to right, #6a58f0, #cf54d0);
   background-repeat: no-repeat;
@@ -2243,7 +2270,7 @@ tabbox > tab:checked, notebook > header > tabs > tab:checked {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-tabbox > tab:checked:disabled, notebook > header > tabs > tab:checked:disabled {
+tabbar tabbox > tab:checked:disabled, notebook > header > tabs > tab:checked:disabled {
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -2338,11 +2365,11 @@ notebook > header > tabs > tab > box:drop(active) {
 
 notebook > header > tabs > tab button.flat:last-child {
   margin-left: 6px;
-  margin-right: -6px;
+  margin-right: 0;
 }
 
 notebook > header > tabs > tab button.flat:first-child {
-  margin-left: -6px;
+  margin-left: 0;
   margin-right: 6px;
 }
 
@@ -2534,7 +2561,7 @@ switch {
   margin: 6px 0;
   border: none;
   border-radius: 9999px;
-  background-color: rgba(0, 0, 0, 0.38);
+  background-color: rgba(0, 0, 0, 0.26);
   background-clip: padding-box;
   font-size: 0;
   color: transparent;
@@ -2552,7 +2579,7 @@ switch:checked {
 }
 
 switch:disabled {
-  opacity: 0.5;
+  opacity: 0.35;
 }
 
 switch slider {
@@ -3406,7 +3433,7 @@ window.background.csd > stack > grid > scrolledwindow > viewport > box > frame >
 window.background.csd > stack > scrolledwindow > viewport > box > list,
 window.background.csd > box > stack > scrolledwindow > viewport > box > list, preferencesgroup list, .geary-accounts-editor-pane list, window.background.csd.unified > deck > deck > deck list, hdyleaflet list.view, hdyleaflet list.frame, leaflet list.view, leaflet list.frame, box.horizontal > stack.background list.view, box.horizontal > stack.background list.frame, hdyleaflet stack.background scrolledwindow > viewport list, hdyleaflet overlay scrolledwindow > viewport list, leaflet stack.background scrolledwindow > viewport list, leaflet overlay scrolledwindow > viewport list, box.horizontal > stack.background stack.background scrolledwindow > viewport list, box.horizontal > stack.background overlay scrolledwindow > viewport list, hdyleaflet frame:not(.view) list:not(.contacts-contact-list), leaflet frame:not(.view) list:not(.contacts-contact-list), box.horizontal > stack.background frame:not(.view) list:not(.contacts-contact-list), list.tweak-group list, .tweak-group-startup, list.content:not(.conversation-listbox) {
   border-radius: 6px;
-  box-shadow: 0 3px 2px -2.5px rgba(0, 0, 0, 0.15), 0 2px 3px -1px rgba(0, 0, 0, 0.18), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 2px -2.5px rgba(0, 0, 0, 0.1), 0 2px 3px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.08);
   border: none;
 }
 
@@ -3456,6 +3483,43 @@ list {
 
 list row {
   padding: 3px;
+}
+
+list.content:not(.conversation-listbox) > row.row > box > row {
+  border: none;
+}
+
+list.content:not(.conversation-listbox) > row.expander {
+  padding: 0;
+}
+
+list.content:not(.conversation-listbox) > row.expander:focus {
+  box-shadow: none;
+}
+
+list.content:not(.conversation-listbox) > row.expander:first-child:not(:last-child) list > row.header, list.content:not(.conversation-listbox) > row.expander:only-child:checked list > row.header {
+  border-radius: 6px 6px 0 0;
+}
+
+list.content:not(.conversation-listbox) > row.expander:not(:first-child):not(:last-child) list > row.header {
+  border-radius: 0;
+}
+
+list.content:not(.conversation-listbox) > row.expander list {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+list.content:not(.conversation-listbox) > row.expander list.nested {
+  border-radius: 0 0 6px 6px;
+}
+
+list.content:not(.conversation-listbox) > row.expander list.nested > row {
+  background-color: transparent;
+}
+
+list.content:not(.conversation-listbox) > row.expander list.nested > row:first-child {
+  border-radius: 0;
 }
 
 list.navigation-sidebar {
@@ -3601,17 +3665,17 @@ messagedialog.background.csd {
   border-bottom-right-radius: 12px;
 }
 
-messagedialog .titlebar {
+messagedialog.background .titlebar, messagedialog.background.csd .titlebar {
   min-height: 24px;
   border-style: none;
-  box-shadow: none;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.87);
 }
 
-messagedialog .titlebar:backdrop {
+messagedialog.background .titlebar:backdrop, messagedialog.background.csd .titlebar:backdrop {
   background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.38);
 }
 
 messagedialog .dialog-action-box {
@@ -3906,6 +3970,20 @@ infobar.info > revealer > box link:link, infobar.info:hover > revealer > box lin
 
 infobar.info > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action), infobar.info:hover > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action), infobar.info:backdrop > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action) {
   color: #7b88ff;
+  background-color: alpha(currentColor, 0.15);
+}
+
+infobar.info > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):hover, infobar.info:hover > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):hover, infobar.info:backdrop > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):hover {
+  color: #7b88ff;
+  background-color: alpha(currentColor, 0.25);
+}
+
+infobar.info > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):active, infobar.info > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):checked, infobar.info:hover > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):active, infobar.info:hover > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):checked, infobar.info:backdrop > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):active, infobar.info:backdrop > revealer > box button.text-button:not(:disabled):not(.suggested-action):not(.destructive-action):checked {
+  color: #FFFFFF;
+}
+
+infobar.info > revealer > box button:focus, infobar.info:hover > revealer > box button:focus, infobar.info:backdrop > revealer > box button:focus {
+  box-shadow: inset 0 0 0 2px alpha(currentColor, 0.08);
 }
 
 infobar.action > revealer > box, infobar.action:backdrop > revealer > box, infobar.question > revealer > box, infobar.question:backdrop > revealer > box {
@@ -4095,7 +4173,7 @@ colorchooser .popover.osd {
 }
 
 colorchooser .popover.osd:backdrop {
-  box-shadow: 0 3px 2px -2.5px rgba(0, 0, 0, 0.15), 0 2px 3px -1px rgba(0, 0, 0, 0.18), 0 1px 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 3px 2px -2.5px rgba(0, 0, 0, 0.1), 0 2px 3px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.08), inset 0 1px rgba(255, 255, 255, 0.25);
 }
 
 /********
@@ -4259,6 +4337,7 @@ stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destruc
   background-color: transparent;
   border-radius: 6px;
   padding: 3px 10px;
+  box-shadow: none;
 }
 
 stackswitcher.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action).text-button,
@@ -4478,6 +4557,7 @@ popover.emoji-completion .emoji:hover {
   transition: background-color 75ms cubic-bezier(0, 0, 0.2, 1);
   margin: 6px 0;
   border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .path-bar-box button {
@@ -4485,20 +4565,12 @@ popover.emoji-completion .emoji:hover {
 }
 
 .path-bar-box.width-maximized {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: alpha(currentColor, 0.05);
 }
 
 .path-bar-box.background.frame {
   border-style: none;
-  background-color: rgba(255, 255, 255, 0.04);
-}
-
-.path-bar-box .path-bar button label:not(:only-child):first-child {
-  margin-left: 0;
-}
-
-.path-bar-box .path-bar button label:not(:only-child):last-child {
-  margin-right: 0;
+  background-color: alpha(currentColor, 0.05);
 }
 
 .path-bar-box .linked.nautilus-path-bar button:not(.suggested-action):not(.destructive-action) {
@@ -4655,6 +4727,10 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal > box.horizontal:
 
 .nautilus-window paned > separator {
   background-color: #FAFAFA;
+}
+
+window.csd.background > deck > box.view > notebook > box > stack > button {
+  margin: 2px;
 }
 
 /*********
@@ -4989,21 +5065,35 @@ window.background.csd scrolledwindow.contacts-contact-form {
 /************************
  * Epiphany (Gnome Web) *
  ************************/
-tabbox {
-  border: none;
+tabbar > revealer > box {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   background-color: rgba(0, 0, 0, 0.04);
-  padding: 3px;
-  margin: 3px;
-  border-radius: 9px;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
 }
 
-tabbox > tab button {
+tabbar tabbox {
+  padding: 3px;
+  margin: 0;
+  background: none;
+}
+
+tabbar tabbox > tab button.tab-close-button {
   min-height: 24px;
   min-width: 24px;
   border-radius: 9999px;
   border: none;
   padding: 0;
-  margin-right: -6px;
+  margin-right: 0;
+}
+
+tabbar .end-action {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+tabbar .end-action button {
+  border-radius: 0;
 }
 
 /*****************
@@ -5741,7 +5831,7 @@ list.categories {
   min-height: 24px;
   padding: 0 4px;
   border-radius: 6px;
-  background-color: #212121;
+  background-color: #121212;
   color: #FFFFFF;
 }
 
@@ -5939,16 +6029,16 @@ dialog.background.csd stack scrolledwindow.frame {
   border-radius: 6px;
 }
 
+dialog.background.csd stack scrolledwindow.frame > viewport.frame.view {
+  border-radius: 6px;
+}
+
 dialog.background.csd stack scrolledwindow.frame textview.view {
   border-radius: 6px;
 }
 
 dialog.background.csd stack scrolledwindow.frame textview.view > text {
   background: none;
-}
-
-dialog.background.csd stack scrolledwindow viewport.frame.view {
-  border-radius: 6px;
 }
 
 window.background.csd.unified {
@@ -6359,6 +6449,14 @@ window.background.csd > box.vertical > overlay > stack > box.vertical > box.hori
 window.background.csd > box.vertical > overlay > stack > box.vertical > box.horizontal > revealer > stack > scrolledwindow > viewport.frame > list > row.activatable,
 window.background.csd > box.vertical > overlay > stack > box.vertical > box.horizontal > revealer > stack > box.vertical > stack > scrolledwindow > viewport.frame > list > row.activatable {
   border-radius: 6px;
+}
+
+window.preferences preferencespage clamp > box > preferencesgroup > box {
+  padding: 6px;
+}
+
+window.preferences preferencespage clamp > box > preferencesgroup > box > box > widget > list {
+  margin: 4px;
 }
 
 /*********
@@ -7440,7 +7538,7 @@ calendar.raven-calendar:selected {
 }
 
 .raven-mpris {
-  background-color: #212121;
+  background-color: #121212;
   color: #FFFFFF;
 }
 

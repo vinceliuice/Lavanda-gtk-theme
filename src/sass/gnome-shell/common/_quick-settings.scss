@@ -39,6 +39,9 @@
   &:checked {
     background-color: $primary !important;
     color: on($primary);
+    background-gradient-direction: horizontal;
+    background-gradient-start: #6a58f0;
+    background-gradient-end: #cf54d0;
 
     &:hover {
       background-color: mix($text, $primary, 6%) !important;
@@ -148,6 +151,9 @@
       &.active {
         background-color: $primary !important;
         color: on($primary);
+        background-gradient-direction: horizontal;
+        background-gradient-start: #6a58f0;
+        background-gradient-end: #cf54d0;
       }
     }
 

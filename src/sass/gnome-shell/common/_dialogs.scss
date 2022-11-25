@@ -3,8 +3,8 @@
 %theme_dialogs {
   background-color: $popover;
   border-radius: $modal_radius;
-  border: 1px solid $window-border;
-  box-shadow: inset 0 0 0 1px highlight($popover);
+  border: none;
+  box-shadow: inset 0 1px highlight($popover);
 }
 
 %last_dialog_button {

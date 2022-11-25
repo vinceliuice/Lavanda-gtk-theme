@@ -55,8 +55,8 @@
   border-radius: $menu_radius * 3;
   padding: $base_padding * 2;
   background-color: $osd;
-  border: 1px solid black;
-  box-shadow: inset 0 0 0 1px highlight($osd);
+  border: none;
+  box-shadow: inset 0 1px highlight($osd);
 
   & .folder-name-container {
     padding: ($base_padding * 4) ($base_padding * 6) 0;

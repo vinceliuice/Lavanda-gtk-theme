@@ -453,7 +453,7 @@ editablelabel > stack > text {
   &.keyboard-activating, &:active { @include button(active); }
   &:disabled { @include button(disabled); }
   &:checked { @include button(checked); }
-  &:checked:hover { @include button(checked-hover); }
+  // &:checked:hover { @include button(checked-hover); }
   &:checked:disabled { @include button(checked-disabled); }
 }
 
@@ -471,7 +471,7 @@ editablelabel > stack > text {
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
   &:disabled { @include button(flat-disabled); }
-  &:checked, &:checked:hover { @include button(flat-checked); }
+  &:checked { @include button(flat-checked); }
   &:checked:disabled { @include button(flat-checked-disabled); }
 }
 
@@ -803,6 +803,10 @@ button {
 menubutton {
   .linked > & > button {
     margin-left: 1px;
+  }
+
+  stack > box {
+    border-spacing: $space-size;
   }
 
   &.osd {
@@ -1454,60 +1458,65 @@ searchbar > revealer > box {
  * Header bars *
  ***************/
 
- %titlebar-button {
-   color: $titlebar-text-secondary;
-   background-color: if($topbar == 'light', white, $titlebar-fill);
-   box-shadow: 0 2px 3px -1px rgba(black, 0.04);
+%titlebar-button {
+  color: $titlebar-text-secondary;
+  background-color: if($topbar == 'light', white, $titlebar-fill);
+  box-shadow: 0 2px 3px -1px rgba(black, 0.04);
 
-   &:focus, &:hover { color: $titlebar-text; }
+  &:focus, &:hover { color: $titlebar-text; }
 
-   &:hover {
-     background-color: if($topbar == 'light', white, $overlay-checked);
-     box-shadow: 0 3px 4px -1px rgba(black, 0.1);
-   }
+  &:hover {
+    background-color: if($topbar == 'light', white, $overlay-checked);
+    box-shadow: 0 3px 4px -1px rgba(black, 0.1);
+  }
 
-   &:active {
-     @include button(active);
-     box-shadow: 0 2px 3px -1px rgba(black, 0.05);
-   }
+  &:active {
+    @include button(active);
+    box-shadow: 0 2px 3px -1px rgba(black, 0.05);
+  }
 
-   &:checked {
-     @include button(checked);
-   }
+  &:checked {
+    @include button(checked);
+    box-shadow: 0 2px 3px -1px rgba(black, 0.05);
+  }
 
-   &:disabled {
-     color: $titlebar-text-secondary-disabled;
-     background-color: if($topbar == 'light', rgba(white, 0.5), $overlay-normal);
-   }
+  &:disabled {
+    color: $titlebar-text-secondary-disabled;
+    background-color: if($topbar == 'light', rgba(white, 0.5), $overlay-normal);
+  }
 
-   &:backdrop {
-     color: $titlebar-text-secondary-disabled;
+  &:backdrop {
+    color: $titlebar-text-secondary-disabled;
 
-     &:focus, &:hover, &:active { color: $titlebar-text-disabled; }
+    &:focus, &:hover, &:active { color: $titlebar-text-disabled; }
 
-     &:checked { color: on($primary, disabled); }
+    &:checked { color: on($primary, disabled); }
 
-     &:disabled { color: $divider; }
-   }
- }
+    &:disabled { color: $divider; }
+  }
+}
 
- %titlebar-entry {
-   background-color: if($topbar == 'light', white, $titlebar-fill);
-   color: $titlebar-text;
+%titlebar-entry {
+  background-color: if($topbar == 'light', white, $titlebar-fill);
+  color: $titlebar-text;
 
-   &:disabled {
-     background-color: if($topbar == 'light', rgba(white, 0.5), $overlay-normal);
-     color: $titlebar-text-disabled;
-   }
+  &, &:hover, &:focus-within {
+    box-shadow: 0 2px 3px -1px rgba(black, 0.04);
+  }
 
-   image {
-     color: $titlebar-text-secondary;
+  &:disabled {
+    background-color: if($topbar == 'light', rgba(white, 0.5), $overlay-normal);
+    color: $titlebar-text-disabled;
+  }
 
-     &:hover, &:active { color: $titlebar-text; }
+  image {
+    color: $titlebar-text-secondary;
 
-     &:disabled { color: $titlebar-text-disabled; }
-   }
- }
+    &:hover, &:active { color: $titlebar-text; }
+
+    &:disabled { color: $titlebar-text-disabled; }
+  }
+}
 
 headerbar {
   transition: background-color $duration $ease-out, color $duration $ease-out;
@@ -2393,6 +2402,7 @@ $tab_needs_attention_gradient: radial-gradient(ellipse at bottom,
 tabbar {
   > revealer > box {
     box-shadow: none;
+    padding: 0;
   }
 
   .box {

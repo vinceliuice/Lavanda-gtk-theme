@@ -83,7 +83,7 @@
   .message-content {
     padding: $base_padding * 1.5;
     margin-bottom: $base_margin * 2;
-    spacing: 4px;
+    spacing: $base_margin;
     color: $text-disabled;
   }
 
@@ -114,6 +114,9 @@
 .message-media-control {
   border-radius: $circular_radius;
   color: $text-secondary;
+  padding: $base_padding * 2;
+  min-height: 16px;
+  min-width: 16px;
 
   &:last-child:ltr { margin-right: $base_margin * 4; }
   &:last-child:rtl { margin-left: $base_margin * 4; }

@@ -28,6 +28,13 @@
   }
 }
 
+.icon-button {
+  min-height: 20px;
+  min-width: 20px;
+  padding: $base_padding;
+  @extend %flat_button;
+}
+
 // buttons on OSD elements
 // that are undecorated by default and use OSD colors
 %osd_button {

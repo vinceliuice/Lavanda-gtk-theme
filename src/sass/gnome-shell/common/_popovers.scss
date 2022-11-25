@@ -29,8 +29,8 @@
     border-radius: $menu_radius;
     margin: 0;
     font-weight: normal;
-    border: 1px solid $window-border;
-    box-shadow: inset 0 0 0 1px highlight($popover);
+    border: none;
+    box-shadow: inset 0 1px highlight($popover);
   }
 
   .popup-menu-item {

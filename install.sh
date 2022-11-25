@@ -92,7 +92,6 @@ install() {
 
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${ELSE_DARK:-}/"*.svg                           "${THEME_DIR}/gnome-shell/assets"
-  cp -r "${SRC_DIR}/assets/gnome-shell/theme/"*.svg                                          "${THEME_DIR}/gnome-shell/assets"
 
   cd "${THEME_DIR}/gnome-shell"
   ln -s assets/no-events.svg no-events.svg
