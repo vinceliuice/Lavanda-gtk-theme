@@ -1512,7 +1512,7 @@ terminal-window {
   }
 
   &.background.csd,
-  &.background.csd.maximized { border-radius: 0 0 0 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
+  &.background.csd.maximized { border-radius: 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 
   notebook > header {
     > box {
@@ -1544,6 +1544,7 @@ window.background { // gnome-terminal 3.32 setting
   > box.vertical > box.horizontal > stack {
     > widget > notebook.frame {
       border-width: 0;
+      border-radius: 0 0 $window-radius 0;
 
       > stack {
         border-bottom-right-radius: $window-radius;

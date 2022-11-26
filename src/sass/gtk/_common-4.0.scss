@@ -230,9 +230,9 @@ window.assistant {
   color: on($base);
   background-color: $base;
   background-clip: padding-box;
-  border-radius: $corner-radius;
+  border-radius: $window-radius;
   border: none;
-  box-shadow: $shadow-z4, inset 0 1px highlight($surface);
+  box-shadow: $shadow-z6, inset 0 1px highlight($surface);
 }
 
 .osd {
@@ -2029,6 +2029,15 @@ popover.menu {
 
     &:disabled { color: $text-disabled; }
 
+    accelerator {
+      color: $text-disabled;
+      margin-left: $space-size * 5;
+    }
+
+    &:disabled accelerator {
+      color: $divider;
+    }
+
     arrow {
       &.left { -gtk-icon-source: -gtk-icontheme("go-previous-symbolic"); }
       &.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
@@ -2172,6 +2181,9 @@ notebook {
 
   &, &.frame {
     background-color: $base;
+  }
+
+  &.frame {
     border-radius: $modal-radius + $space-size;
   }
 

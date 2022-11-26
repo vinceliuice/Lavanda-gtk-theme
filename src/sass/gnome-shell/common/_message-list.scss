@@ -43,7 +43,7 @@
 
   // icon container
   .message-icon-bin {
-    padding: $base_padding * 3;
+    padding: $base_padding * 2;
 
     &:ltr { padding-right: $base_padding; }
     &:rtl { padding-left: $base_padding; }
@@ -114,12 +114,11 @@
 .message-media-control {
   border-radius: $circular_radius;
   color: $text-secondary;
-  padding: $base_padding * 2;
   min-height: 16px;
   min-width: 16px;
 
-  &:last-child:ltr { margin-right: $base_margin * 4; }
-  &:last-child:rtl { margin-left: $base_margin * 4; }
+  &:last-child:ltr { margin-right: $base_margin * 4 !important; }
+  &:last-child:rtl { margin-left: $base_margin * 4 !important; }
 
   &:hover, &:focus { color: $text; background-color: $divider; }
   &:active { color: $text; background-color: $track; }

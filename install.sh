@@ -152,6 +152,7 @@ install() {
 }
 
 colors=()
+lcolors=()
 sizes=()
 
 while [[ $# -gt 0 ]]; do
@@ -182,14 +183,17 @@ while [[ $# -gt 0 ]]; do
         case "${color}" in
           standard)
             colors+=("${COLOR_VARIANTS[0]}")
+            lcolors+=("${COLOR_VARIANTS[0]}")
             shift
             ;;
           light)
             colors+=("${COLOR_VARIANTS[1]}")
+            lcolors+=("${COLOR_VARIANTS[1]}")
             shift
             ;;
           dark)
             colors+=("${COLOR_VARIANTS[2]}")
+            lcolors+=("${COLOR_VARIANTS[2]}")
             shift
             ;;
           -*|--*)
@@ -243,6 +247,10 @@ if [[ "${#colors[@]}" -eq 0 ]] ; then
   colors=("${COLOR_VARIANTS[@]}")
 fi
 
+if [[ "${#lcolors[@]}" -eq 0 ]] ; then
+  lcolors=("${COLOR_VARIANTS[1]}")
+fi
+
 if [[ "${#sizes[@]}" -eq 0 ]] ; then
   sizes=("${SIZE_VARIANTS[0]}")
 fi
@@ -294,8 +302,6 @@ link_libadwaita() {
 
   local THEME_DIR="${1}/${2}${3}${4}"
 
-  rm -rf "${HOME}/.config/gtk-4.0/"{assets,gtk.css,gtk-dark.css}
-
   echo -e "\nLink '$THEME_DIR/gtk-4.0' to '${HOME}/.config/gtk-4.0' for libadwaita..."
 
   mkdir -p                                                                      "${HOME}/.config/gtk-4.0"
@@ -305,8 +311,8 @@ link_libadwaita() {
 }
 
 link_theme() {
-  for color in "${colors[1]}"; do
-    for size in "${sizes[0]}"; do
+  for color in "${lcolors[@]}"; do
+    for size in "${sizes[@]}"; do
       link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
     done
   done

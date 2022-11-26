@@ -1719,9 +1719,9 @@ menu,
 
     &:disabled { color: $text-disabled; }
 
-    accelerator { color: $text-secondary; }
+    accelerator { color: $text-disabled; }
 
-    &:disabled accelerator { color: $text-secondary-disabled; }
+    &:disabled accelerator { color: $divider; }
 
     // submenu indicators
     arrow {
@@ -1798,7 +1798,7 @@ popover.background {
   border-radius: $menu-radius;
 
   &, .csd & {
-    box-shadow: $shadow-z6;
+    box-shadow: $shadow-z5;
     background-clip: border-box;
     border: none;
 
@@ -1897,15 +1897,14 @@ popover.background {
 }
 
 notebook {
+  background-color: $base;
+
   frame > paned > & > header,
   &.frame > header { background-color: $fill; }
 
-  &, &.frame {
-    background-color: $base;
-    border-radius: $modal-radius + $space-size;
-  }
-
   &.frame frame {
+    border-radius: $modal-radius + $space-size;
+
     > border {
       border: none;
       border-radius: $modal-radius;
