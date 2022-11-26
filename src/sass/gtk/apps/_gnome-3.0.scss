@@ -128,24 +128,16 @@ $nautilus: $base-alt;
   transition: background-color $duration $ease-out;
   margin: $space-size 0;
   border-radius: $corner-radius;
+  color: $titlebar-text-secondary;
 
   button { margin: 0; } // reset the margin
 
-  &.width-maximized { background-color: $titlebar-fill; }
+  &.width-maximized { background-color: if($topbar == 'light', white, $overlay-normal); }
 
   // workaround for 3.30.1
   &.background.frame {
     border-style: none;
-    background-color: $titlebar-fill;
-  }
-
-  // for 3.30
-  .path-bar button {
-    label:not(:only-child) {
-      &:first-child { margin-left: 0; }
-
-      &:last-child { margin-right: 0; }
-    }
+    background-color: if($topbar == 'light', white, $overlay-normal);
   }
 
   // for 3.32
@@ -328,6 +320,13 @@ dialog.background > box.dialog-vbox.vertical > grid.horizontal {
 // Ensure paned separator rendering. See issue #84 for details.
 .nautilus-window paned > separator { background-color: $base-alt; }
 
+window.csd.background {
+  > deck > box.view > notebook > box > stack {
+    > button {
+      margin: 2px; // space for focus shadow
+    }
+  }
+}
 
 /*********
  * gedit *
@@ -751,25 +750,47 @@ window.background.csd {
  * Epiphany (Gnome Web) *
  ************************/
 
-tabbox { // Gnome 40.0
-  border: none;
-  background-color: $fill;
-  padding: $space-size / 2;
-  margin: $space-size / 2;
-  border-radius: $modal-radius + $space-size / 2;
+tabbar { // Gnome >= 40.0
+  > revealer > box {
+    border-bottom: 1px solid $border;
+    background-color: $fill;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+  }
 
-  > tab {
-    @extend %tabs_tab;
+  tabbox {
+    padding: $space-size / 2;
+    margin: 0;
+    background: none;
 
-    // close button
+    > tab {
+      @extend %tabs_tab;
+
+      // close button
+      button.tab-close-button {
+        min-height: 24px;
+        min-width: 24px;
+        border-radius: $circular-radius;
+        border: none;
+        padding: 0;
+        margin-right: 0;
+        @extend %button-flat-simple;
+      }
+
+      &:checked {
+        button.tab-close-button {
+          @extend %button-on-dark;
+        }
+      }
+    }
+  }
+
+  .end-action {
+    border-left: 1px solid $border;
+
     button {
-      min-height: 24px;
-      min-width: 24px;
-      border-radius: $circular-radius;
-      border: none;
-      padding: 0;
-      margin-right: -6px;
-      @extend %button-flat-simple;
+      border-radius: 0;
     }
   }
 }
@@ -1491,7 +1512,7 @@ terminal-window {
   }
 
   &.background.csd,
-  &.background.csd.maximized { border-radius: 0 0 0 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
+  &.background.csd.maximized { border-radius: 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 
   notebook > header {
     > box {
@@ -1523,6 +1544,7 @@ window.background { // gnome-terminal 3.32 setting
   > box.vertical > box.horizontal > stack {
     > widget > notebook.frame {
       border-width: 0;
+      border-radius: 0 0 $window-radius 0;
 
       > stack {
         border-bottom-right-radius: $window-radius;
@@ -1880,9 +1902,13 @@ dialog.background.csd {
     }
   }
 
-  stack scrolledwindow {
+  stack scrolledwindow { // about dialog
     &.frame {
       border-radius: $corner-radius;
+
+      > viewport.frame.view {
+        border-radius: $corner-radius;
+      }
 
       textview.view {
         border-radius: $corner-radius;
@@ -1891,10 +1917,6 @@ dialog.background.csd {
           background: none;
         }
       }
-    }
-
-    viewport.frame {
-      &.view { border-radius: $corner-radius; }
     }
   }
 }

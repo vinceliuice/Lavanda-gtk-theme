@@ -1,6 +1,6 @@
 ## Lavanda gtk theme
 
-![Lavanda](Lavanda.png?raw=true)
+![Lavanda](screenshot.png?raw=true)
 
 ## Requirements
 
@@ -39,18 +39,10 @@ Run the following commands in the terminal:
 -r, --remove,
 -u, --uninstall         Uninstall/Remove installed themes or links
 
---tweaks                Specify versions for tweaks [nord|dracula|black|rimless|normal] (only nord and dracula can not mix use with!)
-                        1. nord:     Nord ColorScheme version
-                        2. dracula   Dracula ColorScheme version
-                        3. black:    Blackness color version
-                        4. rimless:  Remove the 1px border about windows and menus
-                        5. normal:   Normal windows button style (titlebuttons: max/min/close)
 -h, --help              Show help
 ```
 
 > For more information, run: `./install.sh --help`
-
-![tweaks](tweaks.png?raw=true)
 
 ### Flatpak Installation
 
@@ -58,7 +50,3 @@ Automatically install your host GTK+ theme as a Flatpak. Use this:
 
 - [pakitheme](https://github.com/refi64/pakitheme)
 
-## Firefox theme
-[Install Firefox theme](src/other/firefox)
-
-![01](src/other/firefox/screenshot.png?raw=true)

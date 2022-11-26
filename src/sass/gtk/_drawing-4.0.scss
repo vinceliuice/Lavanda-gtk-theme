@@ -37,7 +37,7 @@
 
   @if $t == normal {
     transition: $transition,
-                outline $ripple-fade-out-duration $ease-out,
+                outline $ripple-fade-out-duration $ease-in,
                 box-shadow $ripple-fade-out-duration $ease-out;
     box-shadow: inset 0 0 0 2px transparent;
     background-color: if($fc == $primary, $entry, rgba($fc, 0.1));
@@ -116,7 +116,8 @@
   }
 
   @if $t == focus {
-    transition: outline $ripple-fade-out-duration $ease-out;
+    transition: $transition,
+                outline $ripple-fade-in-duration $ease-in;
     outline: 2px solid rgba($primary, 0.35);
     outline-offset: 0;
   }
@@ -127,7 +128,7 @@
                 background-image 0ms,
                 border 0ms;
     animation: ripple $ripple-fade-in-duration $ease-out forwards;
-    background-image: radial-gradient(circle, rgba(#6a58f0, 0.75) 10%, rgba(#cf54d0, 0.75) 0%);
+    background-image: radial-gradient(circle, rgba($primary-left, 0.75) 10%, rgba($primary-right, 0.75) 0%);
     background-size: 0% 0%;
     background-color: transparent;
     color: on($primary);
@@ -147,7 +148,7 @@
                 background-image 0ms,
                 background-color 0ms,
                 box-shadow 0ms;
-    background-image: linear-gradient(to right, #6a58f0, #cf54d0);
+    background-image: linear-gradient(to right, $primary-left, $primary-right);
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -168,7 +169,9 @@
 
   @if $t == flat-normal {
     transition: $transition;
-    outline: none;
+    outline: 0 solid transparent;
+    outline-offset: 2px;
+    box-shadow: none;
     background-color: transparent;
     background-image: none;
     color: $text-secondary;
@@ -189,8 +192,12 @@
   }
 
   @if $t == flat-focus {
-    box-shadow: inset 0 0 0 2px $overlay-focus;
+    transition: $transition,
+                outline $ripple-fade-in-duration $ease-in;
+    box-shadow: none;
     color: $text;
+    outline: 2px solid $overlay-focus;
+    outline-offset: -2px;
   }
 
   @if $t == flat-active {

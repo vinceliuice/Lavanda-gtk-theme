@@ -21,14 +21,14 @@
     padding: 4px 8px;
     min-height: $item_size - $base_padding;
     border-radius: $circular_radius;
-    caret-color: on($primary);
+    caret-color: on($osd);
 
-    @include entry(flat-normal, $tc: on($primary));
-    &:focus { @include entry(flat-focus, $tc: on($primary)); }
-    &:insensitive { @include entry(flat-insensitive, $tc: on($primary, disabled)); }
+    @include entry(flat-normal, $bc: $osd);
+    &:focus { @include entry(flat-focus, $bc: $osd); }
+    &:insensitive { @include entry(flat-insensitive, $bc: $osd); }
 
     StLabel.hint-text {
-      color: on($primary, disabled);
+      color: on($osd, disabled);
     }
   }
 
@@ -37,16 +37,16 @@
   .modal-dialog-button {
     padding: 0 16px;
     border: none;
-    @include button(flat-normal, $tc: on($primary));
-    &:hover, &:focus { @include button(flat-hover, $tc: on($primary)); }
-    &:active { @include button(flat-active, $tc: on($primary)); }
-    &:insensitive { @include button(flat-insensitive, $tc: on($primary, disabled)); }
+    @include button(flat-normal, $tc: on($osd));
+    &:hover, &:focus { @include button(flat-hover, $tc: on($osd)); }
+    &:active { @include button(flat-active, $tc: on($osd)); }
+    &:insensitive { @include button(flat-insensitive, $tc: on($osd, disabled)); }
 
     &:default {
-      @include button(normal, $tc: on($primary));
-      &:hover, &:focus { @include button(hover, $tc: on($primary)); }
-      &:active { @include button(active, $tc: on($primary)); }
-      &:insensitive { @include button(insensitive, $tc: on($primary, disabled)); }
+      @include button(normal, $tc: on($osd));
+      &:hover, &:focus { @include button(hover, $tc: on($osd)); }
+      &:active { @include button(active, $tc: on($osd)); }
+      &:insensitive { @include button(insensitive, $tc: on($osd, disabled)); }
     }
   }
 

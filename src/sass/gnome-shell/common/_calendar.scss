@@ -134,16 +134,19 @@
   .calendar-day-base {
     @include fontsize($font_size - 1);
     text-align: center;
-    width: $item_size + 2px;
-    height: $item_size + 2px;
-    padding: 0;
-    margin: 2px;
+    width: $item_size + 2px !important;
+    height: $item_size + 2px !important;
+    padding: 0 !important;
+    margin: 2px !important;
     border-radius: $circular_radius;
     color: $text-secondary;
     border: none;
     font-feature-settings: "tnum";
 
-    &:hover, &:focus { background-color: $divider; }
+    &:hover, &:focus {
+      background-color: $divider;
+      box-shadow: none;
+    }
 
     &:active, &:selected {
       color: $text;
@@ -169,8 +172,6 @@
   .calendar-day-left {
     border-left-width: 0;
   }
-
-  .calendar-work-day {}
 
   .calendar-nonwork-day {
     color: $text-disabled;
@@ -221,9 +222,9 @@
   }
 
   .calendar-week-number {
-    width: $item_size - 6px;
-    height: 0;
-    margin: 8px 0 8px $base_padding !important;
+    width: $item_size - 6px !important;
+    height: $item_size - 6px !important;
+    margin: $base_padding 0 $base_padding $base_padding !important;
     padding: 0 !important;
     border-radius: $base_radius;
     background-color: $fill;

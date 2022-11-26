@@ -22,6 +22,6 @@
   }
 
   &:checked StBin, &:focus:checked StBin {
-    background-image: url("assets/checkbox#{$asset_suffix}.svg");
+    background-image: url("assets/checkbox.svg");
   }
 }
