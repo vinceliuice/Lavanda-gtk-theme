@@ -4761,12 +4761,11 @@ colorchooser .popover.osd {
  **********************/
 window {
   border: none;
+  outline: none;
 
   &.csd {
     border-radius: $window-radius;
-    outline: none;
     box-shadow: $shadow-z16, 0 0 36px transparent;
-    transition: $transition-shadow;
 
     &:backdrop {
       // the transparent shadow here is to enforce that the shadow extents don't
@@ -4774,6 +4773,7 @@ window {
       // The biggest shadow should be in the same order then in the active state
       // or the jumping will happen during the transition.
       box-shadow: $shadow-z4, 0 0 36px transparent;
+      transition: $transition-shadow;
     }
 
     &.maximized,
