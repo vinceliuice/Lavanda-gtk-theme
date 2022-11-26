@@ -15,6 +15,8 @@
 
 - `Icon theme` [Colloid](https://github.com/vinceliuice/Colloid-icon-theme)
 
+- `Wallpaper` [Download here](src/other/wallpaper/)
+
 ## Installation
 
 ### Manual Installation
