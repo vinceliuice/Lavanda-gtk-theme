@@ -15,6 +15,8 @@
 
 - `Icon theme` [Colloid](https://github.com/vinceliuice/Colloid-icon-theme)
 
+- `Wallpaper` [Download here](src/other/wallpaper/)
+
 ## Installation
 
 ### Manual Installation
@@ -30,7 +32,6 @@ Run the following commands in the terminal:
 ```
 -d, --dest DIR          Specify destination directory (Default: ~/.themes)
 -n, --name NAME         Specify theme name (Default: Lavanda)
--t, --theme VARIANT...  Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|teal|grey|all] (Default: blue)
 -c, --color VARIANT...  Specify color variant(s) [standard|light|dark] (Default: All variants)
 -s, --size VARIANT...   Specify size variant [standard|compact] (Default: standard variant)
 
