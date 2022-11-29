@@ -1700,9 +1700,9 @@ menu,
 
   menuitem {
     transition: background-color $duration $ease-out;
-    min-height: 20px;
+    min-height: 24px;
     min-width: 40px;
-    padding: 4px 8px;
+    padding: $space-size / 2 $space-size;
     margin: 0 $space-size;
     color: $text;
     font: initial;
@@ -1730,12 +1730,12 @@ menu,
 
       &:dir(ltr) {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-        margin-left: 8px;
+        margin-left: $space-size;
       }
 
       &:dir(rtl) {
         -gtk-icon-source:-gtk-icontheme('pan-end-symbolic-rtl');
-        margin-right: 8px;
+        margin-right: $space-size;
       }
     }
 
@@ -1752,20 +1752,19 @@ menu,
   > arrow {
     min-height: 16px;
     min-width: 16px;
-    padding: 4px;
+    padding: $space-size;
     background-color: $surface;
     color: $text-secondary;
 
     &.top {
-      margin-top: 0;
+      margin: 0 $space-size;
       // border-bottom: 1px solid $divider;
       border-radius: $corner-radius;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
     }
 
     &.bottom {
-      margin-top: 4px * 2;
-      margin-bottom: -4px * 3;
+      margin: 8px $space-size -12px;
       // border-top: 1px solid $divider;
       border-radius: $corner-radius;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
@@ -1784,7 +1783,7 @@ menu,
     }
   }
 
-  separator { margin: 4px 0; }
+  separator { margin: $space-size / 2 0; }
 }
 
 
@@ -1902,9 +1901,11 @@ notebook {
   frame > paned > & > header,
   &.frame > header { background-color: $fill; }
 
-  &.frame frame {
+  &.frame {
     border-radius: $modal-radius + $space-size;
+  }
 
+  &.frame frame {
     > border {
       border: none;
       border-radius: $modal-radius;
@@ -2362,12 +2363,12 @@ radio {
 
     &:dir(ltr) {
       margin-right: $space-size;
-      margin-left: -$space-size / 2;
+      margin-left: 0;
     }
 
     &:dir(rtl) {
       margin-left: $space-size;
-      margin-right: -$space-size / 2;
+      margin-right: 0;
     }
 
     &, &:hover, &:disabled, &:checked:hover, &:indeterminate:hover {
@@ -2930,7 +2931,7 @@ separator {
 %circular_row {
   border-radius: 0;
 
-  &:not(:first-child) { border-top: 1px solid $border; }
+  &:not(:first-child) { border-top: 1px solid $frame; }
 
   &:first-child {
     border-top-left-radius: $corner-radius;
@@ -2996,6 +2997,7 @@ list {
 
             > row {
               background-color: transparent;
+              border-top: 1px solid $frame;
 
               &:first-child {
                 border-radius: 0;

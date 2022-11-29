@@ -2008,9 +2008,9 @@ menu menuitem,
 .menu menuitem,
 .context-menu menuitem {
   transition: background-color 75ms cubic-bezier(0, 0, 0.2, 1);
-  min-height: 20px;
+  min-height: 24px;
   min-width: 40px;
-  padding: 4px 8px;
+  padding: 3px 6px;
   margin: 0 6px;
   color: rgba(0, 0, 0, 0.87);
   font: initial;
@@ -2039,13 +2039,13 @@ menu menuitem:disabled,
 menu menuitem accelerator,
 .menu menuitem accelerator,
 .context-menu menuitem accelerator {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.38);
 }
 
 menu menuitem:disabled accelerator,
 .menu menuitem:disabled accelerator,
 .context-menu menuitem:disabled accelerator {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.12);
 }
 
 menu menuitem arrow,
@@ -2059,14 +2059,14 @@ menu menuitem arrow:dir(ltr),
 .menu menuitem arrow:dir(ltr),
 .context-menu menuitem arrow:dir(ltr) {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 menu menuitem arrow:dir(rtl),
 .menu menuitem arrow:dir(rtl),
 .context-menu menuitem arrow:dir(rtl) {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
 menu menuitem label:dir(rtl), menu menuitem label:dir(ltr),
@@ -2088,7 +2088,7 @@ menu > arrow,
 .context-menu > arrow {
   min-height: 16px;
   min-width: 16px;
-  padding: 4px;
+  padding: 6px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -2096,7 +2096,7 @@ menu > arrow,
 menu > arrow.top,
 .menu > arrow.top,
 .context-menu > arrow.top {
-  margin-top: 0;
+  margin: 0 6px;
   border-radius: 6px;
   -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
@@ -2104,8 +2104,7 @@ menu > arrow.top,
 menu > arrow.bottom,
 .menu > arrow.bottom,
 .context-menu > arrow.bottom {
-  margin-top: 8px;
-  margin-bottom: -12px;
+  margin: 8px 6px -12px;
   border-radius: 6px;
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
@@ -2128,7 +2127,7 @@ menu > arrow:disabled,
 menu separator,
 .menu separator,
 .context-menu separator {
-  margin: 4px 0;
+  margin: 3px 0;
 }
 
 /************
@@ -2142,7 +2141,7 @@ popover.background {
 }
 
 popover.background, .csd popover.background {
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.1);
   background-clip: border-box;
   border: none;
 }
@@ -2269,12 +2268,15 @@ tabbar tabbox > tab:checked:disabled, notebook > header > tabs > tab:checked:dis
   color: rgba(0, 0, 0, 0.38);
 }
 
+notebook {
+  background-color: #FFFFFF;
+}
+
 frame > paned > notebook > header, notebook.frame > header {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
-notebook, notebook.frame {
-  background-color: #FFFFFF;
+notebook.frame {
   border-radius: 12px;
 }
 
@@ -2401,7 +2403,7 @@ notebook > header.left tabs tab.reorderable-page, notebook > header.right tabs t
   border-style: solid;
 }
 
-notebook > button.circular {
+notebook > button.circular.image-button {
   min-width: 24px;
   min-height: 24px;
   padding: 3px;
@@ -2728,12 +2730,12 @@ menu menuitem check, menu menuitem radio {
 
 menu menuitem check:dir(ltr), menu menuitem radio:dir(ltr) {
   margin-right: 6px;
-  margin-left: -3px;
+  margin-left: 0;
 }
 
 menu menuitem check:dir(rtl), menu menuitem radio:dir(rtl) {
   margin-left: 6px;
-  margin-right: -3px;
+  margin-right: 0;
 }
 
 menu menuitem check, menu menuitem check:hover, menu menuitem check:disabled, menu menuitem check:checked:hover, menu menuitem check:indeterminate:hover, menu menuitem radio, menu menuitem radio:hover, menu menuitem radio:disabled, menu menuitem radio:checked:hover, menu menuitem radio:indeterminate:hover {
@@ -3786,15 +3788,50 @@ stacksidebar.sidebar row {
   min-height: 32px;
   padding: 0 3px;
   border-radius: 6px;
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.04);
+  background-image: none;
+  background-size: 1000% 1000%;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: transparent;
+}
+
+stacksidebar.sidebar row:hover {
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-color 300ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
+  background-image: radial-gradient(circle, transparent 10%, transparent 0%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+  background-color: alpha(currentColor, 0.1);
+}
+
+stacksidebar.sidebar row:active {
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, border 0ms;
+  animation: ripple 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-image: radial-gradient(circle, rgba(106, 88, 240, 0.75) 10%, rgba(207, 84, 208, 0.75) 0%);
+  background-size: 0% 0%;
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+stacksidebar.sidebar row:active image, stacksidebar.sidebar row:active label {
+  color: #FFFFFF;
 }
 
 stacksidebar.sidebar row:selected {
-  background-color: #7b88ff;
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms, box-shadow 0ms;
+  background-image: linear-gradient(to right, #6a58f0, #cf54d0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  background-color: transparent;
   color: #FFFFFF;
   font-weight: 500;
+  box-shadow: 0 1px 1px rgba(123, 136, 255, 0.15), 0 1px 2px rgba(123, 136, 255, 0.2), 0 2px 3px rgba(123, 136, 255, 0.1);
 }
 
-stacksidebar.sidebar row:selected label, stacksidebar.sidebar row:selected image {
+stacksidebar.sidebar row:selected image, stacksidebar.sidebar row:selected label {
   color: #FFFFFF;
 }
 
@@ -3833,15 +3870,55 @@ placessidebar.sidebar row {
   margin: 0;
   padding: 0;
   border-radius: 6px;
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.04);
+  background-image: none;
+  background-size: 1000% 1000%;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: transparent;
+}
+
+placessidebar.sidebar row:hover {
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-color 300ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
+  background-image: radial-gradient(circle, transparent 10%, transparent 0%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000% 1000%;
+  background-color: alpha(currentColor, 0.1);
+}
+
+placessidebar.sidebar row:active {
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, border 0ms;
+  animation: ripple 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  background-image: radial-gradient(circle, rgba(106, 88, 240, 0.75) 10%, rgba(207, 84, 208, 0.75) 0%);
+  background-size: 0% 0%;
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+placessidebar.sidebar row:active image, placessidebar.sidebar row:active label {
+  color: #FFFFFF;
+}
+
+placessidebar.sidebar row:selected {
+  transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms, box-shadow 0ms;
+  background-image: linear-gradient(to right, #6a58f0, #cf54d0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-weight: 500;
+  box-shadow: 0 1px 1px rgba(123, 136, 255, 0.15), 0 1px 2px rgba(123, 136, 255, 0.2), 0 2px 3px rgba(123, 136, 255, 0.1);
+}
+
+placessidebar.sidebar row:selected image, placessidebar.sidebar row:selected label {
+  color: #FFFFFF;
 }
 
 placessidebar.sidebar row > revealer {
   padding: 0 8px 0 16px;
-}
-
-placessidebar.sidebar row:selected {
-  background-color: rgba(0, 0, 0, 0.12);
-  font-weight: 500;
 }
 
 placessidebar.sidebar row:disabled {
@@ -3882,7 +3959,7 @@ placessidebar.sidebar row.sidebar-new-bookmark-row image.sidebar-icon {
 
 placessidebar.sidebar row:drop(active) {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), box-shadow 0ms, background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: inset 0 0 0 9999px alpha(currentColor, 0.08);
+  background-color: alpha(currentColor, 0.08);
 }
 
 placesview .server-list-button > image {
@@ -4226,7 +4303,7 @@ decoration:backdrop {
 .csd.popup decoration {
   border-radius: 12px;
   border: none;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 tooltip.csd decoration {
@@ -4790,7 +4867,7 @@ window.org-gnome-gedit > overlay > box.vertical > paned.gedit-side-panel-paned s
   padding: 6px;
   background-color: #FFFFFF;
   border-radius: 0 0 12px 12px;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.05), 0 4px 6px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
 .gedit-search-slider .linked:not(.vertical) > entry .gedit-search-entry-occurrences-tag {
@@ -5697,7 +5774,7 @@ terminal-window decoration {
 }
 
 terminal-window.background.csd, terminal-window.background.csd.maximized {
-  border-radius: 0 0 0 0;
+  border-radius: 0;
 }
 
 terminal-window notebook > header > box {
@@ -5720,6 +5797,7 @@ window.background > box.vertical > box.horizontal > frame > scrolledwindow > vie
 
 window.background > box.vertical > box.horizontal > stack > widget > notebook.frame {
   border-width: 0;
+  border-radius: 0 0 12px 0;
 }
 
 window.background > box.vertical > box.horizontal > stack > widget > notebook.frame > stack {

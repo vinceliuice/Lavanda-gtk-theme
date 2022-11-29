@@ -727,7 +727,7 @@ StWidget.focused .app-well-app-running-dot {
 
 /* Modal Dialogs */
 .candidate-popup-content, .modal-dialog {
-  background-color: #25292f;
+  background-color: #1a1f26;
   border-radius: 12px;
   border: none;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
@@ -1721,7 +1721,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .message .message-icon-bin {
-  padding: 18px;
+  padding: 12px;
 }
 
 .message .message-icon-bin:ltr {
@@ -1804,17 +1804,16 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .message-media-control {
   border-radius: 9999px;
   color: rgba(255, 255, 255, 0.7);
-  padding: 12px;
   min-height: 16px;
   min-width: 16px;
 }
 
 .message-media-control:last-child:ltr {
-  margin-right: 16px;
+  margin-right: 16px !important;
 }
 
 .message-media-control:last-child:rtl {
-  margin-left: 16px;
+  margin-left: 16px !important;
 }
 
 .message-media-control:hover, .message-media-control:focus {
@@ -1998,26 +1997,26 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .notification-banner {
   width: 34em;
   min-height: 64px;
-  margin: 2px 5px 8px;
+  margin: 6px 6px 8px !important;
   border-radius: 6px;
   color: rgba(255, 255, 255, 0.7);
-  background-color: #25292f;
+  background-color: #1a1f26;
   border: none;
   text-shadow: none;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
   border-radius: 12px;
 }
 
 .notification-banner:hover {
   color: #FFFFFF;
-  background-color: #25292f;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-  margin: 2px 12px 17px;
+  background-color: #1a1f26;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  margin: 6px 10px 12px !important;
 }
 
 .notification-banner:focus {
   color: #FFFFFF;
-  background-color: #25292f;
+  background-color: #1a1f26;
 }
 
 .notification-banner .notification-actions {
@@ -2051,13 +2050,13 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .notification-banner .notification-button:focus {
   background-color: transparent;
   color: #FFFFFF;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12) !important;
 }
 
 .notification-banner .notification-button:hover, .notification-banner .notification-button:focus:hover {
   background-color: rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .notification-banner .notification-button:active {
@@ -2415,19 +2414,19 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   padding: 0;
   font-weight: normal;
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
-  margin: 0 3px;
+  box-shadow: none;
+  margin: 0;
   font-size: 10pt;
 }
 
 .popup-menu .popup-menu-content {
   padding: 6px;
-  background-color: #25292f;
+  background-color: #1a1f26;
   border-radius: 12px;
-  margin: 0;
+  margin: 0 6px 6px;
   font-weight: normal;
   border: none;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 .popup-menu .popup-menu-item {
@@ -3472,7 +3471,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .cosmic-application-dialog {
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
-  background-color: #25292f;
+  background-color: #1a1f26;
   color: #FFFFFF;
 }
 

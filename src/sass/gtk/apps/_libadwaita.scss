@@ -68,6 +68,8 @@ avatar {
       @include button(active);
     }
   }
+
+  separator { background-color: $frame; }
 }
 
 //

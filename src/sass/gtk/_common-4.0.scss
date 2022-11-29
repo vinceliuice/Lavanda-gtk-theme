@@ -2194,8 +2194,6 @@ notebook {
     }
 
     > list {
-      // @extend %circular_list;
-
       row.activatable { border-radius: $corner-radius; }
     }
   }
@@ -3489,6 +3487,14 @@ separator {
   border-radius: $corner-radius;
   box-shadow: $shadow-z2;
   border: none;
+
+  &.horizontal > row:not(:last-child) {
+    border-left: 1px solid $frame;
+  }
+
+  &.vertical > row:not(:last-child) {
+    border-bottom: 1px solid $frame;
+  }
 }
 
 %circular_row {
@@ -3506,10 +3512,6 @@ separator {
 
   &:only-child {
     border-radius: $corner-radius;
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid $border;
   }
 
   &:focus {
@@ -3533,12 +3535,12 @@ list {
 
   &.horizontal row.separator:not(:last-child),
   &.separators.horizontal > row:not(.separator):not(:last-child) {
-    border-left: 1px solid $border;
+    border-left: 1px solid $frame;
   }
 
   &:not(.horizontal) row.separator:not(:last-child),
   &.separators:not(.horizontal) > row:not(.separator):not(:last-child) {
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid $frame;
   }
 }
 
@@ -3812,7 +3814,7 @@ row.combo {
 }
 
 %boxed_list_row {
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid $frame;
 
   &:not(:selected).activatable {
     &:hover {
