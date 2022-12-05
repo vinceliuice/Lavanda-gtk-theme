@@ -1372,7 +1372,7 @@ button.combo:only-child {
   @at-root %toolbar_osd, &.osd {
     transition: $transition-shadow;
     padding: $space-size;
-    border-radius: $corner-radius + $space-size;
+    border-radius: $window-radius;
     box-shadow: $shadow-z4, inset 0 1px highlight($surface);
     background-color: $surface;
     color: $text;
@@ -3979,8 +3979,8 @@ columnview {
 .app-notification {
   @extend %toolbar_osd;
   margin: $space-size;
-  border-spacing: $space-size;
-  padding: $space-size;
+  border-spacing: 0;
+  padding: 0;
   border: none;
   background-image: none;
 
@@ -3989,6 +3989,8 @@ columnview {
 
     &.text-button:not(:disabled) { color: $primary; }
   }
+
+  > box > label { margin-left: $space-size * 1.5; }
 
   &.frame,
   border { border: none; }

@@ -291,7 +291,6 @@ gnome_shell_version() {
 
 uninstall_link() {
   rm -rf "${HOME}/.config/gtk-4.0/"{assets,gtk.css,gtk-dark.css}
-  echo -e "\nUninstall ${HOME}/.config/gtk-4.0/ links ..."
 }
 
 link_libadwaita() {

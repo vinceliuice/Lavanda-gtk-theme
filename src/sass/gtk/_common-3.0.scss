@@ -997,7 +997,13 @@ toolbar {
   padding: 2px;
   background-color: $background;
 
-  button { @extend %button-flat; }
+  button {
+    @extend %button-flat;
+  }
+
+  .linked > button {
+    @extend %button-basic;
+  }
 
   // on OSD
   .osd & { background-color: transparent; }
@@ -1006,7 +1012,7 @@ toolbar {
   @at-root %toolbar_osd, &.osd {
     transition: $transition-shadow;
     padding: $space-size;
-    border-radius: $corner-radius;
+    border-radius: $window-radius;
     box-shadow: $shadow-z4, inset 0 1px highlight($surface);
     background-color: $surface;
 
@@ -3082,13 +3088,15 @@ row {
 .app-notification {
   // @extend %osd;
   @extend %toolbar_osd;
-  margin: 8px;
+  margin: $space-size $space-size 10px;
 
   button {
     @extend %button-flat;
 
     &.text-button:not(:disabled) { color: $primary; }
   }
+
+  > box > label { margin-left: $space-size * 1.5; }
 
   &.frame,
   border { border-style: none; }
