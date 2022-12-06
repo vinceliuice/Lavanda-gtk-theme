@@ -795,6 +795,21 @@ tabbar { // Gnome >= 40.0
   }
 }
 
+// Preferences window
+window.preferences {
+  preferencespage {
+    clamp > box > preferencesgroup > box {
+      padding: 6px;
+
+      > box > widget {
+        > list {
+          margin: 4px;
+        }
+      }
+    }
+  }
+}
+
 
 /*****************
  * Gnome Weather *
@@ -839,33 +854,41 @@ window.background.csd.unified {
   min-height: 24px;
   min-width: 24px;
   padding: ($medium-size - 24px) / 2;
-  margin: 0;
+  // margin: 0;
 }
 
-.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
-  button.image-button {
-    border-radius: $circular-radius;
+.sidebar-paned {
+  > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar {
+    border-top: 1px solid $border;
 
-    &:not(:first-child), &:not(:last-child) {
-      border-top-left-radius: $circular-radius;
-      border-bottom-left-radius: $circular-radius;
-      border-top-right-radius: $circular-radius;
-      border-bottom-right-radius: $circular-radius;
+    .linked > button {
+      @extend %button-flat;
     }
 
-    &.image-button:not(.text-button) {
-      &:first-child {
+    button.image-button {
+      border-radius: $circular-radius;
+
+      &:not(:first-child), &:not(:last-child) {
         border-top-left-radius: $circular-radius;
         border-bottom-left-radius: $circular-radius;
-      }
-
-      &:last-child {
         border-top-right-radius: $circular-radius;
         border-bottom-right-radius: $circular-radius;
       }
-    }
 
-    > widget > box > image { padding: 0; }
+      &.image-button:not(.text-button) {
+        &:first-child {
+          border-top-left-radius: $circular-radius;
+          border-bottom-left-radius: $circular-radius;
+        }
+
+        &:last-child {
+          border-top-right-radius: $circular-radius;
+          border-bottom-right-radius: $circular-radius;
+        }
+      }
+
+      > widget > box > image { padding: 0; }
+    }
   }
 }
 
@@ -874,8 +897,9 @@ window.csd > box.vertical > box.vertical,
 window.solid-csd > box.vertical > box.vertical {
   > toolbar.horizontal {
     padding: $space-size;
-    // margin: -1px 0;
+    margin: -1px 0;
     border-bottom: none;
+    border-top: 1px solid $border;
     box-shadow: none;
     background-color: transparent;
 
@@ -883,6 +907,7 @@ window.solid-csd > box.vertical > box.vertical {
     > toolitem > box.horizontal > button {
       @extend %circular-button;
       @extend %image-button;
+      @extend %button-flat;
     }
   }
 
@@ -897,16 +922,19 @@ window.solid-csd > box.vertical > box.vertical {
 // hard-coded spacing depends on non-scalable unit,
 // seems cover-art widget is the most biggest thing?
 window.background > box.vertical > toolbar.primary-toolbar {
+  padding: 0 $space-size;
+
   > toolitem {
     > .linked > button.image-button.raised { // 'shuffle/repeat'
-      @extend %circular-button;
+      // @extend %circular-button;
       @extend %image-button;
+      border-radius: $corner-radius;
 
       > widget > box > image { padding: 0; }
     }
 
     button.flat.scale { // 'volume'
-      @extend %circular-button;
+      // @extend %circular-button;
       @extend %image-button;
     }
 
@@ -914,6 +942,10 @@ window.background > box.vertical > toolbar.primary-toolbar {
     > .linked > button:not(.toggle):not(.raised):not(.flat) {
       @extend %circular-button;
       @extend %image-button;
+    }
+
+    .linked > button {
+      @extend %button-flat;
     }
   }
 }

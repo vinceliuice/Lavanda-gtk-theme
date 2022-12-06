@@ -267,7 +267,7 @@ spinner {
 /****************
  * Text Entries *
  ****************/
-%entry,
+
 entry {
   @at-root %entry-basic, & {
     min-height: $medium-size;
@@ -280,7 +280,7 @@ entry {
 
     &:focus-within { @include entry(checked); }
 
-    &:drop(active), &:hover:not(:focus-within) { @include entry(hover); }
+    &:drop(active), &:drop(active):focus-within, &:hover:not(:focus-within) { @include entry(hover); }
 
     &:disabled { @include entry(disabled); }
 

@@ -366,21 +366,3 @@ window.background.csd {
     }
   }
 }
-
-//
-// Preferences window
-//
-
-window.preferences {
-  preferencespage {
-    clamp > box > preferencesgroup > box {
-      padding: 6px;
-
-      > box > widget {
-        > list {
-          margin: 4px;
-        }
-      }
-    }
-  }
-}

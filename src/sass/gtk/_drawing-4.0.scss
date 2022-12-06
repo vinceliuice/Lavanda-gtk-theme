@@ -37,13 +37,11 @@
 
   @if $t == normal {
     transition: $transition,
-                outline $ripple-fade-out-duration $ease-in,
-                box-shadow $ripple-fade-out-duration $ease-out;
-    box-shadow: inset 0 0 0 2px transparent;
+                $transition-outline;
     background-color: if($fc == $primary, $entry, rgba($fc, 0.1));
     color: if($fc == $primary, $text-secondary, rgba($fc, 0.75));
     outline: 0 solid transparent;
-    outline-offset: 2px;
+    outline-offset: 4px;
   }
 
   @if $t == hover {
@@ -54,18 +52,13 @@
 
   @if $t == focus {
     background-color: $overlay-focus;
-    box-shadow: inset 0 0 0 2px transparent;
     color: if($fc == $primary, $text, $fc);
     outline: 2px solid if($fc == $primary, $track, $fc);
     outline-offset: -2px;
   }
 
   @if $t == checked {
-    transition: $transition,
-                outline $ripple-fade-out-duration $ease-out,
-                box-shadow $ripple-fade-out-duration $ease-out;
     background-color: if($fc == $primary, $entry, rgba($fc, 0.1));
-    box-shadow: inset 0 0 0 2px transparent;
     color: if($fc == $primary, $text, $fc);
     outline: 2px solid if($fc == $primary, $primary, $fc);
     outline-offset: -2px;
@@ -91,7 +84,8 @@
     transition: $transition,
                 background-size 0ms,
                 background-image 0ms,
-                background-color 0ms;
+                background-color 0ms,
+                $transition-outline;
     outline: 0 solid transparent;
     outline-offset: 2px;
     background-color: $button;
@@ -116,8 +110,6 @@
   }
 
   @if $t == focus {
-    transition: $transition,
-                outline $ripple-fade-in-duration $ease-in;
     outline: 2px solid rgba($primary, 0.35);
     outline-offset: 0;
   }

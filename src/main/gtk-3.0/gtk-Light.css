@@ -664,7 +664,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   color: rgba(255, 255, 255, 0.5);
 }
 
-.thunar .path-bar.linked:not(.vertical) > button.path-bar-button, actionbar > revealer > box .linked > button:not(.suggested-action):not(.destructive-action), button {
+.thunar .path-bar.linked:not(.vertical) > button.path-bar-button, actionbar > revealer > box .linked > button:not(.suggested-action):not(.destructive-action), toolbar .linked > button, button {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms;
   outline: none;
   background-color: rgba(0, 0, 0, 0.04);
@@ -673,11 +673,11 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   color: rgba(0, 0, 0, 0.87);
 }
 
-.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:focus, actionbar > revealer > box .linked > button:focus:not(.suggested-action):not(.destructive-action), button:focus {
+.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:focus, actionbar > revealer > box .linked > button:focus:not(.suggested-action):not(.destructive-action), toolbar .linked > button:focus, button:focus {
   box-shadow: 0 0 0 2px rgba(123, 136, 255, 0.35);
 }
 
-.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:hover, actionbar > revealer > box .linked > button:hover:not(.suggested-action):not(.destructive-action), button:hover {
+.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:hover, actionbar > revealer > box .linked > button:hover:not(.suggested-action):not(.destructive-action), toolbar .linked > button:hover, button:hover {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-color 300ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
   background-image: radial-gradient(circle, transparent 10%, transparent 0%);
   background-repeat: no-repeat;
@@ -686,7 +686,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   background-color: alpha(currentColor, 0.1);
 }
 
-.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:active, actionbar > revealer > box .linked > button:active:not(.suggested-action):not(.destructive-action), button:active {
+.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:active, actionbar > revealer > box .linked > button:active:not(.suggested-action):not(.destructive-action), toolbar .linked > button:active, button:active {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, border 0ms;
   animation: ripple 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
   background-image: radial-gradient(circle, rgba(106, 88, 240, 0.75) 10%, rgba(207, 84, 208, 0.75) 0%);
@@ -695,13 +695,13 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
   color: #FFFFFF;
 }
 
-.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:disabled, actionbar > revealer > box .linked > button:disabled:not(.suggested-action):not(.destructive-action), button:disabled {
+.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:disabled, actionbar > revealer > box .linked > button:disabled:not(.suggested-action):not(.destructive-action), toolbar .linked > button:disabled, button:disabled {
   box-shadow: none;
   background-color: alpha(currentColor, 0.05);
   color: rgba(0, 0, 0, 0.38);
 }
 
-.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:checked, actionbar > revealer > box .linked > button:checked:not(.suggested-action):not(.destructive-action), button:checked {
+.thunar .path-bar.linked:not(.vertical) > button.path-bar-button:checked, actionbar > revealer > box .linked > button:checked:not(.suggested-action):not(.destructive-action), toolbar .linked > button:checked, button:checked {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, background-color 0ms, box-shadow 0ms;
   background-image: linear-gradient(to right, #6a58f0, #cf54d0);
   background-repeat: no-repeat;
@@ -718,7 +718,7 @@ treeview entry.flat, treeview entry.flat:focus, treeview entry, treeview entry:f
 }
 
 .raven .expander-button, window.background > box.vertical > toolbar.primary-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle,
-window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), window.background > box.vertical > toolbar.primary-toolbar > toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button,
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat), window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button,
 window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button, .nautilus-window headerbar revealer > button, button.titlebutton:not(.suggested-action):not(.destructive-action), filechooser #pathbarbox > stack > box > button, button.close, button.circular, .inline-toolbar button:not(.text-button) {
@@ -726,7 +726,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem >
 }
 
 .raven .expander-button label, window.background > box.vertical > toolbar.primary-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle label,
-window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat) label, window.background > box.vertical > toolbar.primary-toolbar > toolitem button.flat.scale label, window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised label, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button label,
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat) label, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button label,
 window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button label,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button label,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button label, .nautilus-window headerbar revealer > button label, button.titlebutton:not(.suggested-action):not(.destructive-action) label, filechooser #pathbarbox > stack > box > button label, button.close label, button.circular label, .inline-toolbar button:not(.text-button) label {
@@ -761,7 +761,10 @@ button:drop(active) {
 .budgie-polkit-dialog .linked.horizontal > button,
 .budgie-run-dialog .linked.horizontal > button, .drop-shadow button, .budgie-panel button, .budgie-popover row button, .budgie-settings-window buttonbox.inline-toolbar button, #mate-menu button, #MatePanelPopupWindow button, popover.messagepopover .popover-action-area button, tabbar tabbox > tab button.tab-close-button, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button, calendar.button, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular, treeview.view header button button.circular, row.activatable button.circular, scrollbar button, notebook > header > tabs > arrow, spinbutton.vertical button, spinbutton:not(.vertical) button, modelbutton.flat,
 .menuitem.button.flat, .nemo-window .toolbar button, #buttonbox_frame button, .xfce4-panel.background button, .raven stackswitcher.linked > button, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button, .lock-dialog button, .mate-panel-menu-bar button, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button, layouttabbar button, filechooser #pathbarbox > stack > box > button, messagedialog .dialog-action-box button, messagedialog .dialog-action-box .linked:not(.vertical) > button, .app-notification button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action), popover.background.menu button,
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button, layouttabbar button, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button, filechooser #pathbarbox > stack > box > button, messagedialog .dialog-action-box button, messagedialog .dialog-action-box .linked:not(.vertical) > button, .app-notification button, actionbar > revealer > box button:not(.suggested-action):not(.destructive-action), popover.background.menu button,
 popover.background button.model, toolbar button, combobox > .linked:not(.vertical) > button:not(:only-child), button.flat {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1);
   outline: none;
@@ -775,7 +778,10 @@ popover.background button.model, toolbar button, combobox > .linked:not(.vertica
 .budgie-polkit-dialog .linked.horizontal > button:focus,
 .budgie-run-dialog .linked.horizontal > button:focus, .drop-shadow button:focus, .budgie-panel button:focus, .budgie-popover row button:focus, .budgie-settings-window buttonbox.inline-toolbar button:focus, #mate-menu button:focus, #MatePanelPopupWindow button:focus, popover.messagepopover .popover-action-area button:focus, tabbar tabbox > tab button.tab-close-button:focus, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:focus:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:focus, calendar.button:focus, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:focus, treeview.view header button button.circular:focus, row.activatable button.circular:focus, scrollbar button:focus, notebook > header > tabs > arrow:focus, spinbutton.vertical button:focus, spinbutton:not(.vertical) button:focus, modelbutton.flat:focus,
 .menuitem.button.flat:focus, .nemo-window .toolbar button:focus, #buttonbox_frame button:focus, .xfce4-panel.background button:focus, .raven stackswitcher.linked > button:focus, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:focus, .lock-dialog button:focus, .mate-panel-menu-bar button:focus, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:focus,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:focus, layouttabbar button:focus, filechooser #pathbarbox > stack > box > button:focus, messagedialog .dialog-action-box button:focus, messagedialog .dialog-action-box .linked:not(.vertical) > button:focus, .app-notification button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action), popover.background.menu button:focus,
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:focus, layouttabbar button:focus, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:focus, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:focus,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:focus,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:focus,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:focus, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button:focus, filechooser #pathbarbox > stack > box > button:focus, messagedialog .dialog-action-box button:focus, messagedialog .dialog-action-box .linked:not(.vertical) > button:focus, .app-notification button:focus, actionbar > revealer > box button:focus:not(.suggested-action):not(.destructive-action), popover.background.menu button:focus,
 popover.background button.model:focus, toolbar button:focus, combobox > .linked:not(.vertical) > button:focus:not(:only-child), button.flat:focus {
   box-shadow: inset 0 0 0 2px alpha(currentColor, 0.08);
   color: rgba(0, 0, 0, 0.87);
@@ -785,7 +791,10 @@ popover.background button.model:focus, toolbar button:focus, combobox > .linked:
 .budgie-polkit-dialog .linked.horizontal > button:hover,
 .budgie-run-dialog .linked.horizontal > button:hover, .drop-shadow button:hover, .budgie-panel button:hover, .budgie-popover row button:hover, .budgie-settings-window buttonbox.inline-toolbar button:hover, #mate-menu button:hover, #MatePanelPopupWindow button:hover, popover.messagepopover .popover-action-area button:hover, tabbar tabbox > tab button.tab-close-button:hover, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:hover:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:hover, calendar.button:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:hover, treeview.view header button button.circular:hover, row.activatable button.circular:hover, scrollbar button:hover, notebook > header > tabs > arrow:hover, spinbutton.vertical button:hover, spinbutton:not(.vertical) button:hover, modelbutton.flat:hover,
 .menuitem.button.flat:hover, .nemo-window .toolbar button:hover, #buttonbox_frame button:hover, .xfce4-panel.background button:hover, .raven stackswitcher.linked > button:hover, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:hover, .lock-dialog button:hover, .mate-panel-menu-bar button:hover, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:hover,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:hover, layouttabbar button:hover, filechooser #pathbarbox > stack > box > button:hover, messagedialog .dialog-action-box button:hover, messagedialog .dialog-action-box .linked:not(.vertical) > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action), popover.background.menu button:hover,
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:hover, layouttabbar button:hover, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:hover, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:hover,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:hover,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:hover,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:hover, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button:hover, filechooser #pathbarbox > stack > box > button:hover, messagedialog .dialog-action-box button:hover, messagedialog .dialog-action-box .linked:not(.vertical) > button:hover, .app-notification button:hover, actionbar > revealer > box button:hover:not(.suggested-action):not(.destructive-action), popover.background.menu button:hover,
 popover.background button.model:hover, toolbar button:hover, combobox > .linked:not(.vertical) > button:hover:not(:only-child), button.flat:hover {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-size 300ms cubic-bezier(0, 0, 0.2, 1), background-image 1200ms cubic-bezier(0, 0, 0.2, 1);
   background-color: alpha(currentColor, 0.08);
@@ -801,7 +810,10 @@ popover.background button.model:hover, toolbar button:hover, combobox > .linked:
 .budgie-polkit-dialog .linked.horizontal > button:active,
 .budgie-run-dialog .linked.horizontal > button:active, .drop-shadow button:active, .budgie-panel button:active, .budgie-popover row button:active, .budgie-settings-window buttonbox.inline-toolbar button:active, #mate-menu button:active, #MatePanelPopupWindow button:active, popover.messagepopover .popover-action-area button:active, tabbar tabbox > tab button.tab-close-button:active, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:active:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:active, calendar.button:active, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:active, treeview.view header button button.circular:active, row.activatable button.circular:active, scrollbar button:active, notebook > header > tabs > arrow:active, spinbutton.vertical button:active, spinbutton:not(.vertical) button:active, modelbutton.flat:active,
 .menuitem.button.flat:active, .nemo-window .toolbar button:active, #buttonbox_frame button:active, .xfce4-panel.background button:active, .raven stackswitcher.linked > button:active, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:active, .lock-dialog button:active, .mate-panel-menu-bar button:active, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:active,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:active, layouttabbar button:active, filechooser #pathbarbox > stack > box > button:active, messagedialog .dialog-action-box button:active, messagedialog .dialog-action-box .linked:not(.vertical) > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action), popover.background.menu button:active,
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:active, layouttabbar button:active, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:active, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:active,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:active,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:active,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:active, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button:active, filechooser #pathbarbox > stack > box > button:active, messagedialog .dialog-action-box button:active, messagedialog .dialog-action-box .linked:not(.vertical) > button:active, .app-notification button:active, actionbar > revealer > box button:active:not(.suggested-action):not(.destructive-action), popover.background.menu button:active,
 popover.background button.model:active, toolbar button:active, combobox > .linked:not(.vertical) > button:active:not(:only-child), button.flat:active {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), border-image 225ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms;
   animation: ripple 225ms cubic-bezier(0, 0, 0.2, 1) forwards;
@@ -816,7 +828,10 @@ popover.background button.model:active, toolbar button:active, combobox > .linke
 .budgie-polkit-dialog .linked.horizontal > button:disabled,
 .budgie-run-dialog .linked.horizontal > button:disabled, .drop-shadow button:disabled, .budgie-panel button:disabled, .budgie-popover row button:disabled, .budgie-settings-window buttonbox.inline-toolbar button:disabled, #mate-menu button:disabled, #MatePanelPopupWindow button:disabled, popover.messagepopover .popover-action-area button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, .windowhandle .linked.nautilus-path-bar .path-buttons-box button:disabled:not(.suggested-action):not(.destructive-action), placessidebar.sidebar row button.sidebar-button:disabled, calendar.button:disabled, .budgie-popover scrolledwindow.sidebar:not(.categories) list > row.activatable button.circular:disabled, treeview.view header button button.circular:disabled, row.activatable button.circular:disabled, scrollbar button:disabled, notebook > header > tabs > arrow:disabled, spinbutton.vertical button:disabled, spinbutton:not(.vertical) button:disabled, modelbutton.flat:disabled,
 .menuitem.button.flat:disabled, .nemo-window .toolbar button:disabled, #buttonbox_frame button:disabled, .xfce4-panel.background button:disabled, .raven stackswitcher.linked > button:disabled, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:disabled, .lock-dialog button:disabled, .mate-panel-menu-bar button:disabled, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:disabled,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:disabled, layouttabbar button:disabled, filechooser #pathbarbox > stack > box > button:disabled, messagedialog .dialog-action-box button:disabled, messagedialog .dialog-action-box .linked:not(.vertical) > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action), popover.background.menu button:disabled,
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:disabled, layouttabbar button:disabled, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:disabled,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:disabled,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:disabled,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:disabled, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button:disabled, filechooser #pathbarbox > stack > box > button:disabled, messagedialog .dialog-action-box button:disabled, messagedialog .dialog-action-box .linked:not(.vertical) > button:disabled, .app-notification button:disabled, actionbar > revealer > box button:disabled:not(.suggested-action):not(.destructive-action), popover.background.menu button:disabled,
 popover.background button.model:disabled, toolbar button:disabled, combobox > .linked:not(.vertical) > button:disabled:not(:only-child), button.flat:disabled {
   box-shadow: none;
   background-color: transparent;
@@ -824,8 +839,11 @@ popover.background button.model:disabled, toolbar button:disabled, combobox > .l
 }
 
 .nemo-window .toolbar button:checked, #buttonbox_frame button:checked, .xfce4-panel.background button:checked, .raven stackswitcher.linked > button:checked, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:checked, .lock-dialog button:checked, .mate-panel-menu-bar button:checked, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:checked,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:checked, layouttabbar button:checked, filechooser #pathbarbox > stack > box > button:checked, messagedialog .dialog-action-box button:checked, messagedialog .dialog-action-box .linked:not(.vertical) > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action), popover.background.menu button:checked,
-popover.background button.model:checked, toolbar button:checked, combobox > .linked:not(.vertical) > button:checked:not(:only-child), button.flat:checked, button.flat:checked:hover {
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:checked, layouttabbar button:checked, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:checked, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:checked,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:checked,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:checked,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:checked, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button:checked, filechooser #pathbarbox > stack > box > button:checked, messagedialog .dialog-action-box button:checked, messagedialog .dialog-action-box .linked:not(.vertical) > button:checked, .app-notification button:checked, actionbar > revealer > box button:checked:not(.suggested-action):not(.destructive-action), popover.background.menu button:checked,
+popover.background button.model:checked, toolbar button:checked, combobox > .linked:not(.vertical) > button:checked:not(:only-child), window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:checked:hover, button.flat:checked, button.flat:checked:hover {
   background-color: alpha(currentColor, 0.1);
   background-image: none;
   color: rgba(0, 0, 0, 0.87);
@@ -833,7 +851,10 @@ popover.background button.model:checked, toolbar button:checked, combobox > .lin
 }
 
 .nemo-window .toolbar button:checked:disabled, #buttonbox_frame button:checked:disabled, .xfce4-panel.background button:checked:disabled, .raven stackswitcher.linked > button:checked:disabled, .budgie-popover.budgie-menu scrolledwindow.sidebar.categories button.flat.radio.category-button:checked:disabled, .lock-dialog button:checked:disabled, .mate-panel-menu-bar button:checked:disabled, window.background.csd.geary-main-window stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:checked:disabled,
-window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:checked:disabled, layouttabbar button:checked:disabled, filechooser #pathbarbox > stack > box > button:checked:disabled, messagedialog .dialog-action-box button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action), popover.background.menu button:checked:disabled,
+window#GearyMainWindow.background.csd stack#conversation_viewer .geary-expanded > .geary-composer-embed headerbar button:checked:disabled, layouttabbar button:checked:disabled, window.background > box.vertical > toolbar.primary-toolbar > toolitem .linked > button:checked:disabled, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:checked:disabled,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:checked:disabled,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:checked:disabled,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:checked:disabled, .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar .linked > button:checked:disabled, filechooser #pathbarbox > stack > box > button:checked:disabled, messagedialog .dialog-action-box button:checked:disabled, .app-notification button:checked:disabled, actionbar > revealer > box button:checked:disabled:not(.suggested-action):not(.destructive-action), popover.background.menu button:checked:disabled,
 popover.background button.model:checked:disabled, toolbar button:checked:disabled, combobox > .linked:not(.vertical) > button:checked:disabled:not(:only-child), button.flat:checked:disabled {
   background-color: alpha(currentColor, 0.1);
   color: rgba(0, 0, 0, 0.38);
@@ -1288,7 +1309,7 @@ toolbar {
 frame.documents-dropdown, .app-notification, toolbar.osd {
   transition: box-shadow 75ms cubic-bezier(0, 0, 0.2, 1);
   padding: 6px;
-  border-radius: 6px;
+  border-radius: 12px;
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.25);
   background-color: #FFFFFF;
 }
@@ -3523,6 +3544,7 @@ list.content:not(.conversation-listbox) > row.expander list.nested {
 
 list.content:not(.conversation-listbox) > row.expander list.nested > row {
   background-color: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 list.content:not(.conversation-listbox) > row.expander list.nested > row:first-child {
@@ -3588,11 +3610,15 @@ row:selected:disabled label {
  * App Notifications *
  *********************/
 .app-notification {
-  margin: 8px;
+  margin: 6px 6px 10px;
 }
 
 .app-notification button.text-button:not(:disabled) {
   color: #7b88ff;
+}
+
+.app-notification > box > label {
+  margin-left: 9px;
 }
 
 .app-notification.frame,
@@ -5178,6 +5204,14 @@ tabbar .end-action button {
   border-radius: 0;
 }
 
+window.preferences preferencespage clamp > box > preferencesgroup > box {
+  padding: 6px;
+}
+
+window.preferences preferencespage clamp > box > preferencesgroup > box > box > widget > list {
+  margin: 4px;
+}
+
 /*****************
  * Gnome Weather *
  *****************/
@@ -5212,38 +5246,43 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem >
   min-height: 24px;
   min-width: 24px;
   padding: 6px;
-  margin: 0;
 }
 
-.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button {
+.sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar button.image-button {
   border-radius: 9999px;
 }
 
-.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:not(:first-child), .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button:not(:last-child) {
+.sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar button.image-button:not(:first-child), .sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar button.image-button:not(:last-child) {
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-top-right-radius: 9999px;
   border-bottom-right-radius: 9999px;
 }
 
-.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button.image-button:not(.text-button):first-child {
+.sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar button.image-button.image-button:not(.text-button):first-child {
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
 }
 
-.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button.image-button:not(.text-button):last-child {
+.sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar button.image-button.image-button:not(.text-button):last-child {
   border-top-right-radius: 9999px;
   border-bottom-right-radius: 9999px;
 }
 
-.sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar button.image-button > widget > box > image {
+.sidebar-paned > box > paned > grid > toolbar.inline-toolbar.sidebar-toolbar button.image-button > widget > box > image {
   padding: 0;
 }
 
 window.csd > box.vertical > box.vertical > toolbar.horizontal,
 window.solid-csd > box.vertical > box.vertical > toolbar.horizontal {
   padding: 6px;
+  margin: -1px 0;
   border-bottom: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: none;
   background-color: transparent;
 }
@@ -5257,6 +5296,14 @@ window.solid-csd > box.vertical > box.vertical > frame {
 window.csd > box.vertical > box.vertical > frame > border,
 window.solid-csd > box.vertical > box.vertical > frame > border {
   border: none;
+}
+
+window.background > box.vertical > toolbar.primary-toolbar {
+  padding: 0 6px;
+}
+
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised {
+  border-radius: 6px;
 }
 
 window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised > widget > box > image {
@@ -6532,14 +6579,6 @@ window.background.csd > box.vertical > overlay > stack > box.vertical > box.hori
 window.background.csd > box.vertical > overlay > stack > box.vertical > box.horizontal > revealer > stack > scrolledwindow > viewport.frame > list > row.activatable,
 window.background.csd > box.vertical > overlay > stack > box.vertical > box.horizontal > revealer > stack > box.vertical > stack > scrolledwindow > viewport.frame > list > row.activatable {
   border-radius: 6px;
-}
-
-window.preferences preferencespage clamp > box > preferencesgroup > box {
-  padding: 6px;
-}
-
-window.preferences preferencespage clamp > box > preferencesgroup > box > box > widget > list {
-  margin: 4px;
 }
 
 /*********

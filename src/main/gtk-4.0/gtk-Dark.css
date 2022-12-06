@@ -264,8 +264,7 @@ spinner:checked:disabled {
 /****************
  * Text Entries *
  ****************/
-headerbar popover.background entry,
-entry {
+headerbar popover.background entry, entry {
   min-height: 36px;
   padding: 0 8px;
   border-spacing: 6px;
@@ -276,11 +275,10 @@ entry {
   background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.7);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
-headerbar popover.background entry:focus-within,
-entry:focus-within {
+headerbar popover.background entry:focus-within, entry:focus-within {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   background-color: rgba(255, 255, 255, 0.08);
   box-shadow: inset 0 0 0 2px transparent;
@@ -289,26 +287,19 @@ entry:focus-within {
   outline-offset: -2px;
 }
 
-headerbar popover.background entry:drop(active), headerbar popover.background entry:hover:not(:focus-within),
-entry:drop(active),
-entry:hover:not(:focus-within) {
+headerbar popover.background entry:drop(active), headerbar popover.background entry:hover:not(:focus-within), entry:drop(active), entry:hover:not(:focus-within) {
   background-color: alpha(currentColor, 0.08);
   color: #FFFFFF;
 }
 
-headerbar popover.background entry:disabled,
-entry:disabled {
+headerbar popover.background entry:disabled, entry:disabled {
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.5);
   outline: none;
 }
 
-headerbar popover.background entry.flat:focus-within, headerbar popover.background entry.flat:disabled, headerbar popover.background entry.flat:hover, headerbar popover.background entry.flat,
-entry.flat:focus-within,
-entry.flat:disabled,
-entry.flat:hover,
-entry.flat {
+headerbar popover.background entry.flat:focus-within, headerbar popover.background entry.flat:disabled, headerbar popover.background entry.flat:hover, headerbar popover.background entry.flat, entry.flat:focus-within, entry.flat:disabled, entry.flat:hover, entry.flat {
   min-height: 0;
   padding: 2px;
   background-color: transparent;
@@ -317,34 +308,27 @@ entry.flat {
   outline: none;
 }
 
-headerbar popover.background entry image,
-entry image {
+headerbar popover.background entry image, entry image {
   color: rgba(255, 255, 255, 0.7);
 }
 
-headerbar popover.background entry image:hover, headerbar popover.background entry image:active,
-entry image:hover,
-entry image:active {
+headerbar popover.background entry image:hover, headerbar popover.background entry image:active, entry image:hover, entry image:active {
   color: #FFFFFF;
 }
 
-headerbar popover.background entry image:disabled,
-entry image:disabled {
+headerbar popover.background entry image:disabled, entry image:disabled {
   color: rgba(255, 255, 255, 0.5);
 }
 
-headerbar popover.background entry image.left,
-entry image.left {
+headerbar popover.background entry image.left, entry image.left {
   margin: 0 6px 0 2px;
 }
 
-headerbar popover.background entry image.right,
-entry image.right {
+headerbar popover.background entry image.right, entry image.right {
   margin: 0 2px 0 6px;
 }
 
-headerbar popover.background entry undershoot.left,
-entry undershoot.left {
+headerbar popover.background entry undershoot.left, entry undershoot.left {
   background-color: transparent;
   background-image: linear-gradient(to top, transparent 50%, rgba(255, 255, 255, 0.3) 50%);
   padding-left: 1px;
@@ -356,8 +340,7 @@ entry undershoot.left {
   margin: 4px 0;
 }
 
-headerbar popover.background entry undershoot.right,
-entry undershoot.right {
+headerbar popover.background entry undershoot.right, entry undershoot.right {
   background-color: transparent;
   background-image: linear-gradient(to top, transparent 50%, rgba(255, 255, 255, 0.3) 50%);
   padding-right: 1px;
@@ -369,19 +352,17 @@ entry undershoot.right {
   margin: 4px 0;
 }
 
-headerbar popover.background entry.error,
-entry.error {
+headerbar popover.background entry.error, entry.error {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0.4, 0, 1, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(244, 67, 54, 0.1);
   color: rgba(244, 67, 54, 0.75);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
   outline: none;
 }
 
-headerbar popover.background entry.error:focus-within,
-entry.error:focus-within {
+headerbar popover.background entry.error:focus-within, entry.error:focus-within {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   background-color: rgba(244, 67, 54, 0.1);
   box-shadow: inset 0 0 0 2px transparent;
@@ -391,16 +372,13 @@ entry.error:focus-within {
   outline: none;
 }
 
-headerbar popover.background entry.error:drop(active), headerbar popover.background entry.error:hover:not(:focus-within),
-entry.error:drop(active),
-entry.error:hover:not(:focus-within) {
+headerbar popover.background entry.error:drop(active), headerbar popover.background entry.error:hover:not(:focus-within), entry.error:drop(active), entry.error:hover:not(:focus-within) {
   background-color: alpha(currentColor, 0.08);
   color: #F44336;
   outline: none;
 }
 
-headerbar popover.background entry.error:disabled,
-entry.error:disabled {
+headerbar popover.background entry.error:disabled, entry.error:disabled {
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(244, 67, 54, 0.1);
   color: rgba(244, 67, 54, 0.35);
@@ -408,41 +386,34 @@ entry.error:disabled {
   outline: none;
 }
 
-headerbar popover.background entry.error > text > selection,
-entry.error > text > selection {
+headerbar popover.background entry.error > text > selection, entry.error > text > selection {
   background-color: rgba(244, 67, 54, 0.25);
   color: #F44336;
 }
 
-headerbar popover.background entry.error image,
-entry.error image {
+headerbar popover.background entry.error image, entry.error image {
   color: rgba(244, 67, 54, 0.75);
 }
 
-headerbar popover.background entry.error image:hover, headerbar popover.background entry.error image:active,
-entry.error image:hover,
-entry.error image:active {
+headerbar popover.background entry.error image:hover, headerbar popover.background entry.error image:active, entry.error image:hover, entry.error image:active {
   color: #F44336;
 }
 
-headerbar popover.background entry.error image:disabled,
-entry.error image:disabled {
+headerbar popover.background entry.error image:disabled, entry.error image:disabled {
   color: rgba(244, 67, 54, 0.35);
 }
 
-headerbar popover.background entry.warning,
-entry.warning {
+headerbar popover.background entry.warning, entry.warning {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0.4, 0, 1, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(251, 192, 45, 0.1);
   color: rgba(251, 192, 45, 0.75);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
   outline: none;
 }
 
-headerbar popover.background entry.warning:focus-within,
-entry.warning:focus-within {
+headerbar popover.background entry.warning:focus-within, entry.warning:focus-within {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   background-color: rgba(251, 192, 45, 0.1);
   box-shadow: inset 0 0 0 2px transparent;
@@ -452,16 +423,13 @@ entry.warning:focus-within {
   outline: none;
 }
 
-headerbar popover.background entry.warning:drop(active), headerbar popover.background entry.warning:hover:not(:focus-within),
-entry.warning:drop(active),
-entry.warning:hover:not(:focus-within) {
+headerbar popover.background entry.warning:drop(active), headerbar popover.background entry.warning:hover:not(:focus-within), entry.warning:drop(active), entry.warning:hover:not(:focus-within) {
   background-color: alpha(currentColor, 0.08);
   color: #FBC02D;
   outline: none;
 }
 
-headerbar popover.background entry.warning:disabled,
-entry.warning:disabled {
+headerbar popover.background entry.warning:disabled, entry.warning:disabled {
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(251, 192, 45, 0.1);
   color: rgba(251, 192, 45, 0.35);
@@ -469,41 +437,34 @@ entry.warning:disabled {
   outline: none;
 }
 
-headerbar popover.background entry.warning > text > selection,
-entry.warning > text > selection {
+headerbar popover.background entry.warning > text > selection, entry.warning > text > selection {
   background-color: rgba(251, 192, 45, 0.25);
   color: #FBC02D;
 }
 
-headerbar popover.background entry.warning image,
-entry.warning image {
+headerbar popover.background entry.warning image, entry.warning image {
   color: rgba(251, 192, 45, 0.75);
 }
 
-headerbar popover.background entry.warning image:hover, headerbar popover.background entry.warning image:active,
-entry.warning image:hover,
-entry.warning image:active {
+headerbar popover.background entry.warning image:hover, headerbar popover.background entry.warning image:active, entry.warning image:hover, entry.warning image:active {
   color: #FBC02D;
 }
 
-headerbar popover.background entry.warning image:disabled,
-entry.warning image:disabled {
+headerbar popover.background entry.warning image:disabled, entry.warning image:disabled {
   color: rgba(251, 192, 45, 0.35);
 }
 
-headerbar popover.background entry.success,
-entry.success {
+headerbar popover.background entry.success, entry.success {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0.4, 0, 1, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(102, 187, 106, 0.1);
   color: rgba(102, 187, 106, 0.75);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
   outline: none;
 }
 
-headerbar popover.background entry.success:focus-within,
-entry.success:focus-within {
+headerbar popover.background entry.success:focus-within, entry.success:focus-within {
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1), outline 300ms cubic-bezier(0, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0, 0, 0.2, 1);
   background-color: rgba(102, 187, 106, 0.1);
   box-shadow: inset 0 0 0 2px transparent;
@@ -513,16 +474,13 @@ entry.success:focus-within {
   outline: none;
 }
 
-headerbar popover.background entry.success:drop(active), headerbar popover.background entry.success:hover:not(:focus-within),
-entry.success:drop(active),
-entry.success:hover:not(:focus-within) {
+headerbar popover.background entry.success:drop(active), headerbar popover.background entry.success:hover:not(:focus-within), entry.success:drop(active), entry.success:hover:not(:focus-within) {
   background-color: alpha(currentColor, 0.08);
   color: #66BB6A;
   outline: none;
 }
 
-headerbar popover.background entry.success:disabled,
-entry.success:disabled {
+headerbar popover.background entry.success:disabled, entry.success:disabled {
   box-shadow: inset 0 0 0 2px transparent;
   background-color: rgba(102, 187, 106, 0.1);
   color: rgba(102, 187, 106, 0.35);
@@ -530,28 +488,22 @@ entry.success:disabled {
   outline: none;
 }
 
-headerbar popover.background entry.success > text > selection,
-entry.success > text > selection {
+headerbar popover.background entry.success > text > selection, entry.success > text > selection {
   background-color: rgba(102, 187, 106, 0.25);
   color: #66BB6A;
 }
 
-headerbar popover.background entry.success image,
-entry.success image {
+headerbar popover.background entry.success image, entry.success image {
   color: rgba(102, 187, 106, 0.75);
 }
 
-headerbar popover.background entry.success image:hover, headerbar popover.background entry.success image:active,
-entry.success image:hover,
-entry.success image:active {
+headerbar popover.background entry.success image:hover, headerbar popover.background entry.success image:active, entry.success image:hover, entry.success image:active {
   color: #66BB6A;
 }
 
-headerbar popover.background entry.success image:disabled,
-entry.success image:disabled {
+headerbar popover.background entry.success image:disabled, entry.success image:disabled {
   color: rgba(102, 187, 106, 0.35);
 }
-
 
 entry > progress,
 entry progress > trough > progress {
@@ -559,7 +511,6 @@ entry progress > trough > progress {
   border-bottom: 2px solid #5565ff;
   background-color: transparent;
 }
-
 
 entry button.image-button {
   min-height: 24px;
@@ -617,7 +568,7 @@ editablelabel > stack > text {
   background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.7);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
 /***********
@@ -1552,7 +1503,7 @@ spinbutton {
   background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.7);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
 spinbutton:focus-within {
@@ -1762,7 +1713,7 @@ button.combo:only-child {
   background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.7);
   outline: 0 solid transparent;
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
 button.combo:only-child:focus {
@@ -4564,14 +4515,18 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
  *********************/
 .app-notification {
   margin: 6px;
-  border-spacing: 6px;
-  padding: 6px;
+  border-spacing: 0;
+  padding: 0;
   border: none;
   background-image: none;
 }
 
 .app-notification button.text-button:not(:disabled) {
   color: #5565ff;
+}
+
+.app-notification > box > label {
+  margin-left: 9px;
 }
 
 .app-notification.frame,
@@ -5342,17 +5297,17 @@ colorchooser .popover.osd:backdrop {
  **********************/
 window {
   border: none;
+  outline: none;
 }
 
 window.csd {
   border-radius: 12px;
-  outline: none;
   box-shadow: 0 8px 6px -5px rgba(0, 0, 0, 0.2), 0 16px 15px 2px rgba(0, 0, 0, 0.14), 0 6px 18px 5px rgba(0, 0, 0, 0.12), 0 0 36px transparent;
-  transition: box-shadow 75ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 window.csd:backdrop {
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 0 36px transparent;
+  transition: box-shadow 75ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 window.csd.maximized, window.csd.fullscreen, window.csd.tiled, window.csd.tiled-top, window.csd.tiled-right, window.csd.tiled-bottom, window.csd.tiled-left {
@@ -5434,8 +5389,7 @@ flowbox > flowboxchild:selected, calendar > grid > label.today {
   background-color: rgba(85, 101, 255, 0.2);
 }
 
-textview text selection:focus, textview text selection, label > selection,
-entry > text > selection, spinbutton > text > selection, headerbar popover.background entry > text > selection, calendar > grid > label.today:selected {
+textview text selection:focus, textview text selection, label > selection, entry > text > selection, spinbutton > text > selection, headerbar popover.background entry > text > selection, calendar > grid > label.today:selected {
   color: #FFFFFF;
   background-color: #5565ff;
 }
