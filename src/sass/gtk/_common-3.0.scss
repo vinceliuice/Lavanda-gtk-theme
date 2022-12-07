@@ -1729,6 +1729,8 @@ menu,
 
     &:disabled accelerator { color: $divider; }
 
+    > image { margin-left: $space-size; }
+
     // submenu indicators
     arrow {
       min-height: 16px;
@@ -1770,7 +1772,7 @@ menu,
     }
 
     &.bottom {
-      margin: 8px $space-size -12px;
+      margin: (8px + $space-size / 2) $space-size -12px;
       // border-top: 1px solid $divider;
       border-radius: $corner-radius;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
