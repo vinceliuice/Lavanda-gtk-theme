@@ -673,8 +673,8 @@ $menu_item_radius: $corner-radius;
 //
 
 //calendar-background allows the date applet calendar to be themed separately from other applet menus*/
-.calendar-background {
-}
+// .calendar-background {
+// }
 
 .calendar-main-box {
   margin: 0 $space-size;
@@ -838,9 +838,6 @@ $menu_item_radius: $corner-radius;
   color: $text-secondary;
 }
 
-.calendar-events-no-events-box {
-}
-
 .calendar-events-no-events-button {
   margin: $space-size 0;
   padding: $space-size;
@@ -876,9 +873,6 @@ $menu_item_radius: $corner-radius;
 
 .calendar-events-event-container {
   padding: 2px;
-}
-
-.calendar-events-scrollbox {
 }
 
 .calendar-events-main-box .separator {
@@ -1655,6 +1649,11 @@ $menu_item_radius: $corner-radius;
 
   &-thumbnail-menu {
     padding: $space-size;
+    padding: $space-size;
+    margin: $space-size;
+    background-color: $popover;
+    box-shadow: 0 1px 3px rgba(black, 0.1), inset 0 1px highlight($popover);
+    border-radius: $window-radius;
 
     .item-box {
       padding: $space-size;
