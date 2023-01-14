@@ -1,7 +1,7 @@
 .quick-settings {
   padding: $base_padding * 3 !important;
-  border-radius: $base_radius + $base_padding * 3 !important;
-  margin-top: $base_padding / 2 !important;
+  border-radius: 20px + $base_padding * 3 !important;
+  margin-top: 4px !important;
 
   .icon-button, .button {
     padding: $base_padding * 1.5;
@@ -14,7 +14,7 @@
 }
 
 .quick-toggle {
-  border-radius: $base_radius;
+  border-radius: $circular_radius;
   min-width: 12em;
   max-width: 12em;
   min-height: 40px;
@@ -72,8 +72,8 @@
       background-color: $divider !important;
     }
 
-    &:ltr { border-radius: 0 $base_radius $base_radius 0; }
-    &:rtl { border-radius: $base_radius 0 0 $base_radius; }
+    &:ltr { border-radius: 0 $circular_radius $circular_radius 0; }
+    &:rtl { border-radius: $circular_radius 0 0 $circular_radius; }
   }
 }
 
@@ -112,7 +112,7 @@
   color: $text !important;
   border-radius: $base_radius + $base_padding * 2 !important;
   padding: $base_padding * 2;
-  margin: $base_padding * 2 $base_padding * 3 0;
+  margin: $base_padding * 2 $base_padding * 4 0 !important;
 
   .popup-menu-item {
     border-radius: $base_radius !important;
@@ -137,7 +137,7 @@
 
     & .icon {
       icon-size: $base_icon_size * 1.5; // a non-standard symbolic size but ok
-      border-radius: $base_radius;
+      border-radius: $circular_radius;
       padding: 1.5 * $base_padding;
       background-color: on($popover, divider) !important;
 
@@ -166,7 +166,7 @@
   .icon-button {
     background-color: $button;
     color: $text;
-    border-radius: $base_radius;
+    border-radius: $circular_radius;
     @extend %button;
 
     > StIcon { -st-icon-style: symbolic; }
