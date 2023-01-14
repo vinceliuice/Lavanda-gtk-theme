@@ -2638,51 +2638,54 @@ scrollbar {
   $_slider_min_length: 24px;
 
   transition: $transition;
-  background-color: $base;
+  background-color: transparent;
   box-shadow: none;
   outline: none;
-
-  // scrollbar border
-  &.top { border-bottom: 1px solid $divider; }
-  &.bottom { border-top: 1px solid $divider; }
-  &.left { border-right: 1px solid $divider; }
-  &.right { border-left: 1px solid $divider; }
+  border: none;
+  margin: 0;
+  padding: 0;
 
   // slider
   > range > trough {
-    border: none;
-    background: none;
+    background-color: $divider;
     padding: 0;
+    margin: $space-size;
     outline: none;
+    border: none;
+    border-radius: $circular-radius;
 
     > slider {
       transition: background-color $duration $ease-out;
       min-width: 8px;
       min-height: 8px;
-      border: 4px solid transparent;
+      margin: 0;
+      padding: 0;
+      border: none;
       border-radius: $circular-radius;
       background-clip: padding-box;
       background-color: $text-disabled;
       box-shadow: none;
       outline: none;
 
-      &:hover { background-color: $text-secondary; }
+      &:hover { background-color: $primary-right; }
 
-      &:active { background-color: $text; }
+      &:active { background-image: linear-gradient(to top, $primary-left, $primary-right); }
 
       &:disabled { background-color: $text-secondary-disabled; }
     }
   }
 
   > range.fine-tune {
-    > trough > slider {
-      min-width: 4px;
-      min-height: 4px;
+    > trough {
+      > slider {
+        min-width: 4px;
+        min-height: 4px;
+      }
     }
 
-    &.horizontal > trough > slider { margin: 2px 0; }
+    &.horizontal > trough > slider { margin: 0; }
 
-    &.vertical > trough > slider { margin: 0 2px; }
+    &.vertical > trough > slider { margin: 0; }
   }
 
   &.overlay-indicator {
@@ -2694,18 +2697,22 @@ scrollbar {
       border-color: transparent;
       background-color: transparent;
 
-      > range > trough > slider {
-        min-width: 4px;
-        min-height: 4px;
-        margin: 4px - 1px;
-        border: 1px solid rgba($base, 0.3);
+      > range > trough {
+        margin: $space-size / 2;
+
+        > slider {
+          min-width: 4px;
+          min-height: 4px;
+          margin: 0;
+          border: none;
+        }
       }
 
       button {
         min-width: 4px;
         min-height: 4px;
-        margin: 4px - 1px;
-        border: 1px solid rgba($base, 0.3);
+        margin: 0;
+        border: none;
         border-radius: $circular-radius;
         background-color: $text-disabled;
         background-clip: padding-box;
@@ -2726,9 +2733,6 @@ scrollbar {
         button { min-height: 8px; }
       }
     }
-
-    &.dragging,
-    &.hovering { background-color: rgba($surface, 0.9); }
   }
 
   &.horizontal > range > trough > slider { min-width: $_slider_min_length; }

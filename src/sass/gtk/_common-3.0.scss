@@ -2100,30 +2100,48 @@ scrollbar {
     -GtkScrollbar-has-forward-stepper: false;
   }
 
-  transition: $transition;
-  background-color: $base;
+  transition: all 200ms $ease-out;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
 
-  // scrollbar border
-  &.top { border-bottom: 1px solid $divider; }
-  &.bottom { border-top: 1px solid $divider; }
-  &.left { border-right: 1px solid $divider; }
-  &.right { border-left: 1px solid $divider; }
-
-  // slider
-  slider {
-    transition: background-color $duration $ease-out;
-    min-width: 8px;
-    min-height: 8px;
-    border: 4px solid transparent;
+  trough {
+    background-color: $divider;
+    padding: 0;
+    margin: $space-size / 2;
+    outline: none;
+    border: none;
     border-radius: $circular-radius;
-    background-clip: padding-box;
-    background-color: $text-disabled;
+    transition: all 200ms $ease-out;
 
-    &:hover { background-color: $text-secondary; }
+    > slider {
+      transition: all 200ms $ease-out;
+      min-width: 8px;
+      min-height: 8px;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: $circular-radius;
+      background-clip: padding-box;
+      background-color: $text-disabled;
+      box-shadow: none;
+      outline: none;
 
-    &:active { background-color: $text; }
+      &:hover { background-color: $primary-right; }
 
-    &:disabled { background-color: $text-secondary-disabled; }
+      &:active { background-image: linear-gradient(to top, $primary-left, $primary-right); }
+
+      &:disabled { background-color: $text-secondary-disabled; }
+    }
+  }
+
+  &.dragging, &.hovering {
+    trough {
+      margin: $space-size;
+    }
   }
 
   &.fine-tune {
@@ -2132,9 +2150,9 @@ scrollbar {
       min-height: 4px;
     }
 
-    &.horizontal slider { margin: 2px 0; }
+    &.horizontal slider { margin: 0; }
 
-    &.vertical slider { margin: 0 2px; }
+    &.vertical slider { margin: 0; }
   }
 
   &.overlay-indicator {
@@ -2149,15 +2167,15 @@ scrollbar {
       slider {
         min-width: 4px;
         min-height: 4px;
-        margin: 4px - 1px;
-        border: 1px solid rgba($base, 0.3);
+        margin: 0;
+        border: none;
       }
 
       button {
         min-width: 4px;
         min-height: 4px;
-        margin: 4px - 1px;
-        border: 1px solid rgba($base, 0.3);
+        margin: 0;
+        border: none;
         border-radius: $circular-radius;
         background-color: $text-disabled;
         background-clip: padding-box;
@@ -2178,9 +2196,6 @@ scrollbar {
         button { min-height: 8px; }
       }
     }
-
-    &.dragging,
-    &.hovering { background-color: rgba($surface, 0.9); }
   }
 
   &.horizontal slider { min-width: $_slider_min_length; }
