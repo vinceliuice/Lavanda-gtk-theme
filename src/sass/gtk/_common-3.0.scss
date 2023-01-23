@@ -1693,7 +1693,7 @@ menu,
 .menu,
 .context-menu {
   margin: $space-size; // See https://bugzilla.gnome.org/show_bug.cgi?id=591258
-  padding: $space-size 0;
+  padding: $space-size;
   background-color: $surface;
   background-clip: border-box;
   border-radius: $menu-radius;
@@ -1709,7 +1709,6 @@ menu,
     min-height: 24px;
     min-width: 40px;
     padding: $space-size / 2 $space-size;
-    margin: 0 $space-size;
     color: $text;
     font: initial;
     text-shadow: none;

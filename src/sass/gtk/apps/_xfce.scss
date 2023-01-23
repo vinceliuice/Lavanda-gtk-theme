@@ -79,7 +79,7 @@ window#whiskermenu-window {
     margin: $space-size;
     border: none;
     background-color: $popover;
-    box-shadow: $shadow-z4, 0 0 0 1px $window-border, inset 0 0 0 1px highlight($popover);
+    box-shadow: $shadow-z4, inset 0 1px highlight($popover);
   }
 
   box.categories > button.radio { // sidebar categories button
@@ -199,6 +199,10 @@ menubar.-vala-panel-background {
 
     &:disabled {
       color: $panel-text-secondary-disabled;
+    }
+
+    > window.popup {
+      margin: $space-size;
     }
   }
 }
