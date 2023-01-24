@@ -5,13 +5,26 @@
    version="1.1"
    id="svg6"
    sodipodi:docname="toggle-on.svg"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs10">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient819">
+      <stop
+         style="stop-color:#6a58f0;stop-opacity:1;"
+         offset="0"
+         id="stop815" />
+      <stop
+         style="stop-color:#cf54d0;stop-opacity:1;"
+         offset="1"
+         id="stop817" />
+    </linearGradient>
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
@@ -25,6 +38,15 @@
          stdDeviation="0.81"
          id="feGaussianBlur900" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient819"
+       id="linearGradient821"
+       x1="0"
+       y1="11.990006"
+       x2="46"
+       y2="11.990006"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="namedview8"
@@ -36,9 +58,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="true"
-     inkscape:zoom="5.9"
-     inkscape:cx="18.38983"
-     inkscape:cy="-12.79661"
+     inkscape:zoom="8.34386"
+     inkscape:cx="5.0336415"
+     inkscape:cy="5.2134144"
      inkscape:window-width="1920"
      inkscape:window-height="1012"
      inkscape:window-x="0"
@@ -60,7 +82,7 @@
      ry="12.009994"
      fill="#3c84f7"
      stroke-width="0"
-     style="paint-order:stroke fill markers"
+     style="paint-order:stroke fill markers;fill-opacity:1;fill:url(#linearGradient821)"
      id="rect2" />
   <circle
      cx="34"
