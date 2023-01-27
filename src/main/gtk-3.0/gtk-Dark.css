@@ -2178,7 +2178,7 @@ popover.background:backdrop, .csd popover.background:backdrop {
 }
 
 popover.background > stack {
-  margin: 0;
+  margin: -4px;
 }
 
 popover.background > toolbar {

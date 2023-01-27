@@ -1812,7 +1812,7 @@ popover.background {
     &:backdrop { box-shadow: $shadow-z3; }
   }
 
-  > stack { margin: 0; } // remove extra padding from menu style popovers
+  > stack { margin: -4px; } // remove extra padding from menu style popovers
 
   > toolbar { margin: 0; }
 
