@@ -2013,7 +2013,7 @@ menu,
 .menu,
 .context-menu {
   margin: 6px;
-  padding: 6px 0;
+  padding: 6px;
   background-color: #FFFFFF;
   background-clip: border-box;
   border-radius: 12px;
@@ -2032,7 +2032,6 @@ menu menuitem,
   min-height: 24px;
   min-width: 40px;
   padding: 3px 6px;
-  margin: 0 6px;
   color: rgba(0, 0, 0, 0.87);
   font: initial;
   text-shadow: none;
@@ -7895,7 +7894,7 @@ window#whiskermenu-window > frame > border {
   margin: 6px;
   border: none;
   background-color: #FFFFFF;
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.25);
 }
 
 window#whiskermenu-window box.categories > button.radio {
@@ -7941,7 +7940,7 @@ window#whiskermenu-window .title-area > .commands-area > button.flat.command-but
 }
 
 #XfceNotifyWindow {
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.15), 0 4px 3px 0 rgba(0, 0, 0, 0.18), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 
 #XfceNotifyWindow buttonbox {
@@ -8017,6 +8016,17 @@ menubar.-vala-panel-background > menuitem:hover {
 menubar.-vala-panel-appmenu-private > menuitem:disabled,
 menubar.-vala-panel-background > menuitem:disabled {
   color: rgba(255, 255, 255, 0.32);
+}
+
+menubar.-vala-panel-appmenu-private > menuitem > window.popup,
+menubar.-vala-panel-background > menuitem > window.popup {
+  margin: 6px;
+}
+
+dialog.xfsm-logout-dialog {
+  box-shadow: none;
+  border: none;
+  background-color: #FFFFFF;
 }
 
 /************************

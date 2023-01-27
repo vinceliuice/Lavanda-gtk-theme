@@ -79,7 +79,7 @@ window#whiskermenu-window {
     margin: $space-size;
     border: none;
     background-color: $popover;
-    box-shadow: $shadow-z4, 0 0 0 1px $window-border, inset 0 0 0 1px highlight($popover);
+    box-shadow: $shadow-z4, inset 0 1px highlight($popover);
   }
 
   box.categories > button.radio { // sidebar categories button
@@ -122,7 +122,7 @@ window#whiskermenu-window {
 }
 
 #XfceNotifyWindow {
-  box-shadow: $shadow-z4, 0 0 0 1px $window-border;
+  box-shadow: $shadow-z4;
 
   buttonbox { padding: 0; }
 
@@ -200,5 +200,15 @@ menubar.-vala-panel-background {
     &:disabled {
       color: $panel-text-secondary-disabled;
     }
+
+    > window.popup {
+      margin: $space-size;
+    }
   }
+}
+
+dialog.xfsm-logout-dialog {
+  box-shadow: none;
+  border: none;
+  background-color: $base;
 }

@@ -573,26 +573,26 @@ $menu_item_radius: $corner-radius;
   &-overview-background-shade { background-color: rgba(0,0,0,0.5); }
 }
 
-.workspace-close-button,
-.window-close {
+.window-close,
+.workspace-close-button {
   background-image: url("#{$asset_path}/close.svg");
-  background-size: 26px;
-  height: 26px;
-  width: 26px;
-  -cinnamon-close-overlap: 13px;
+  background-size: 48px;
+  height: 48px;
+  width: 48px;
+  -cinnamon-close-overlap: 24px;
 
   &:hover {
     background-image: url("#{$asset_path}/close-hover.svg");
-    background-size: 26px;
-    height: 26px;
-    width: 26px;
+    background-size: 48px;
+    height: 48px;
+    width: 48px;
   }
 
   &:active {
     background-image: url("#{$asset_path}/close-active.svg");
-    background-size: 26px;
-    height: 26px;
-    width: 26px;
+    background-size: 48px;
+    height: 48px;
+    width: 48px;
   }
 }
 

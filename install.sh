@@ -121,7 +121,6 @@ install() {
   mkdir -p                                                                                   "${THEME_DIR}/cinnamon"
   cp -r "${SRC_DIR}/assets/cinnamon/common-assets"                                           "${THEME_DIR}/cinnamon/assets"
   cp -r "${SRC_DIR}/assets/cinnamon/assets${ELSE_DARK:-}/"*'.svg'                            "${THEME_DIR}/cinnamon/assets"
-  cp -r "${SRC_DIR}/assets/cinnamon/theme/"*'.svg'                                           "${THEME_DIR}/cinnamon/assets"
   sassc $SASSC_OPT "${SRC_DIR}/main/cinnamon/cinnamon${color}.scss"                          "${THEME_DIR}/cinnamon/cinnamon.css"
   cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${color}.png"                        "${THEME_DIR}/cinnamon/thumbnail.png"
 
