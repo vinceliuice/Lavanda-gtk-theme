@@ -1764,14 +1764,14 @@ menu,
     color: $text-secondary;
 
     &.top {
-      margin: 0 $space-size;
+      margin: 0;
       // border-bottom: 1px solid $divider;
       border-radius: $corner-radius;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
     }
 
     &.bottom {
-      margin: (8px + $space-size / 2) $space-size -12px;
+      margin: (8px + $space-size / 2) 0 -12px;
       // border-top: 1px solid $divider;
       border-radius: $corner-radius;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
