@@ -169,7 +169,10 @@
     border-radius: $circular_radius;
     @extend %button;
 
-    > StIcon { -st-icon-style: symbolic; }
+    > StIcon {
+      -st-icon-style: symbolic;
+      icon-size: $base_icon_size;
+    }
   }
 
   & .power-item {
