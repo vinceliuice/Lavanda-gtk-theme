@@ -28,16 +28,9 @@
 
 // Budgie popover
 .budgie-popover {
-  @if $variant == 'dark' {
-    border: 1px solid highlight($surface);
-    box-shadow: $shadow-z4, 0 0 0 1px $window-border;
-    background-clip: border-box;
-  } @else {
-    border: 1px solid $border;
-    box-shadow: $shadow-z4;
-    background-clip: padding-box;
-  }
-
+  border: 0 none transparent;
+  box-shadow: $shadow-z4;
+  background-clip: padding-box;
   background-color: $popover;
   border-radius: $menu-radius;
 
@@ -124,6 +117,23 @@
 
     scrolledwindow > viewport.frame > list > row.activatable > button.flat {
       border-radius: 0;
+    }
+
+    list.left-overlay-menu {
+      border-radius: $menu-radius;
+      margin: $space-size;
+      padding: $space-size;
+      background-color: $popover;
+      box-shadow: $shadow-z3, inset 0 1px highlight($surface);
+    }
+
+    .budgie-menu-footer {
+      padding: $space-size;
+      border-top: 1px solid $border;
+
+      button {
+        border-radius: $circular-radius;
+      }
     }
   }
 

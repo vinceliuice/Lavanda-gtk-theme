@@ -2122,7 +2122,7 @@ menu > arrow,
 menu > arrow.top,
 .menu > arrow.top,
 .context-menu > arrow.top {
-  margin: 0 6px;
+  margin: 0;
   border-radius: 6px;
   -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
@@ -2130,7 +2130,7 @@ menu > arrow.top,
 menu > arrow.bottom,
 .menu > arrow.bottom,
 .context-menu > arrow.bottom {
-  margin: 11px 6px -12px;
+  margin: 11px 0 -12px;
   border-radius: 6px;
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }

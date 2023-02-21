@@ -653,29 +653,29 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.workspace-close-button,
-.window-close {
+.window-close,
+.workspace-close-button {
   background-image: url("assets/close.svg");
-  background-size: 26px;
-  height: 26px;
-  width: 26px;
-  -cinnamon-close-overlap: 13px;
+  background-size: 48px;
+  height: 48px;
+  width: 48px;
+  -cinnamon-close-overlap: 24px;
 }
 
-.workspace-close-button:hover,
-.window-close:hover {
+.window-close:hover,
+.workspace-close-button:hover {
   background-image: url("assets/close-hover.svg");
-  background-size: 26px;
-  height: 26px;
-  width: 26px;
+  background-size: 48px;
+  height: 48px;
+  width: 48px;
 }
 
-.workspace-close-button:active,
-.window-close:active {
+.window-close:active,
+.workspace-close-button:active {
   background-image: url("assets/close-active.svg");
-  background-size: 26px;
-  height: 26px;
-  width: 26px;
+  background-size: 48px;
+  height: 48px;
+  width: 48px;
 }
 
 .workspace-thumbnail-indicator {
