@@ -80,6 +80,12 @@
   box-shadow: none;
 }
 
+.show-apps:active .overview-icon, .show-apps:checked .overview-icon {
+  background-color: transparent;
+  background-gradient-start: #6a58f0;
+  background-gradient-end: #cf54d0;
+}
+
 .app-well-app.app-folder {
   border-radius: 16px;
 }

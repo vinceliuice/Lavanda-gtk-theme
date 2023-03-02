@@ -28,6 +28,15 @@
   }
 }
 
+.show-apps {
+  &:active .overview-icon,
+  &:checked .overview-icon {
+    background-color: transparent;
+    background-gradient-start: #6a58f0;
+    background-gradient-end: #cf54d0;
+  }
+}
+
 // App Folders
 .app-well-app.app-folder {
   border-radius: $icon_radius;

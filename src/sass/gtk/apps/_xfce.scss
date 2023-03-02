@@ -149,7 +149,8 @@ window#whiskermenu-window {
     padding: $space-size;
   }
 
-  .standard-view.frame { border-style: none; }
+  .standard-view.frame,
+  .sidebar.frame { border: none; }
 
   .sidebar .view:not(:selected) { background-color: transparent; }
 

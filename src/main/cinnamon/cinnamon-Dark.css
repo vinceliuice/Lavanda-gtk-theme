@@ -282,10 +282,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .popup-combo-menu {
   padding: 0;
   color: #FFFFFF;
-  background-color: #1a1f26;
-  border-radius: 12px;
-  margin: 6px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+  background-color: transparent;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
 }
 
 .menu-arrow,
@@ -331,8 +331,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 12px;
   background-clip: padding-box;
   background-color: #1a1f26;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.75);
+  margin: 6px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
 }
 
 .menu .popup-menu-item,
