@@ -394,7 +394,7 @@ headerbar label:disabled, tab label:disabled, button label:disabled {
 
 label.osd {
   border-radius: 6px;
-  background-color: rgba(38, 41, 46, 0.9);
+  background-color: rgba(20, 23, 27, 0.9);
   color: #FFFFFF;
 }
 
@@ -905,7 +905,7 @@ button.osd {
   min-width: 24px;
   min-width: 24px;
   padding: 6px;
-  background-color: #22262c;
+  background-color: #25292f;
   color: #FFFFFF;
 }
 
@@ -914,12 +914,12 @@ button.osd:focus {
 }
 
 button.osd:hover {
-  background-color: #43474c;
+  background-color: #46494e;
   color: #FFFFFF;
 }
 
 button.osd:active {
-  background-color: #595c61;
+  background-color: #5c5f63;
   color: #FFFFFF;
 }
 
@@ -4161,7 +4161,7 @@ tooltip {
 }
 
 tooltip.background {
-  background-color: rgba(38, 41, 46, 0.9);
+  background-color: rgba(20, 23, 27, 0.9);
   color: #FFFFFF;
   border-radius: 6px;
 }
@@ -5969,7 +5969,7 @@ list.categories {
   min-height: 24px;
   padding: 0 4px;
   border-radius: 6px;
-  background-color: #14181d;
+  background-color: #2d3036;
   color: #FFFFFF;
 }
 
@@ -6365,7 +6365,7 @@ window.background.chromium menu menuitem {
 }
 
 tooltip.background.chromium {
-  background-color: #26292e;
+  background-color: #14171b;
 }
 
 /***********
@@ -7017,7 +7017,7 @@ na-tray-applet {
 }
 
 .caja-desktop.view .entry {
-  background-color: #25292f;
+  background-color: #22262c;
   color: #FFFFFF;
   caret-color: currentColor;
 }
@@ -7119,7 +7119,7 @@ na-tray-applet {
 /* multimedia OSD */
 MsdOsdWindow.background.osd {
   border-radius: 6px;
-  background-color: rgba(38, 41, 46, 0.9);
+  background-color: rgba(20, 23, 27, 0.9);
   color: #FFFFFF;
 }
 
@@ -7685,7 +7685,7 @@ calendar.raven-calendar:selected {
 }
 
 .raven-mpris {
-  background-color: #14181d;
+  background-color: #2d3036;
   color: #FFFFFF;
 }
 
@@ -8051,7 +8051,7 @@ dialog.xfsm-logout-dialog {
  * LightDM GTK+ Greeter *
  ************************/
 #panel_window {
-  background-color: #25292f;
+  background-color: #22262c;
   color: #FFFFFF;
 }
 

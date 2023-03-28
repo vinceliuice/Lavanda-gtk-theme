@@ -110,7 +110,7 @@
 .app-folder-dialog {
   border-radius: 36px;
   padding: 12px;
-  background-color: #22262c;
+  background-color: #25292f;
   border: none;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
 }
@@ -212,7 +212,7 @@ StWidget.focused .app-well-app-running-dot {
 
 .system-action-icon {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  background-color: #22262c;
+  background-color: #25292f;
   color: #FFFFFF;
   border-radius: 9999px;
   icon-size: 48px;
@@ -1247,7 +1247,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 /* Login Dialog */
 #lockDialogGroup {
-  background-color: #22262c;
+  background-color: #25292f;
 }
 
 .login-dialog-banner-view {
@@ -2133,7 +2133,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 /* OSD */
 .workspace-switcher-container, .switcher-list, .resize-popup, .osd-window {
   color: rgba(255, 255, 255, 0.7);
-  background-color: #22262c;
+  background-color: #25292f;
   border: none;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
   margin: 5px 8px 11px;
@@ -2171,7 +2171,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .pad-osd-window {
   padding: 32px;
-  background-color: #22262c;
+  background-color: #25292f;
 }
 
 .pad-osd-window .pad-osd-title-box {
@@ -2613,14 +2613,14 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .unlock-dialog-notifications-container .unlock-dialog-notification-source {
   padding: 12px 6px;
   border: none;
-  background-color: #22262c;
+  background-color: #25292f;
   color: #FFFFFF;
   border-radius: 12px;
 }
 
 .unlock-dialog-notifications-container .notification.critical,
 .unlock-dialog-notifications-container .unlock-dialog-notification-source.critical {
-  background-color: #343a43;
+  background-color: #373d46;
 }
 
 .unlock-dialog-notification-label {
@@ -3065,7 +3065,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .workspace-animation {
-  background-color: #22262c;
+  background-color: #25292f;
 }
 
 .calendar .calendar-change-month-back,
@@ -3097,7 +3097,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #overviewGroup {
-  background-color: #22262c;
+  background-color: #25292f;
 }
 
 .osd-window {
@@ -3175,13 +3175,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .window-caption {
   color: #FFFFFF;
-  background-color: #22262c;
+  background-color: #25292f;
   border-radius: 9999px;
   padding: 6px 12px;
 }
 
 .window-close {
-  background-color: #14181d;
+  background-color: #2d3036;
   color: #FFFFFF;
   border-radius: 21px;
   padding: 3px;
@@ -3193,17 +3193,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .window-close:hover {
   color: #FFFFFF;
-  background-color: #20272f;
+  background-color: #3b3f47;
 }
 
 .window-close:active {
   color: #FFFFFF;
-  background-color: #08090b;
+  background-color: #1f2125;
 }
 
 .workspace-background {
   border-radius: 30px;
-  background-color: #22262c;
+  background-color: #25292f;
   box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.3);
 }
 

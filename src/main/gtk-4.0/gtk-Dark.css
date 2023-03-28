@@ -130,7 +130,7 @@ headerbar label:disabled, tab label:disabled, button label:disabled {
 
 label.osd {
   border-radius: 6px;
-  background-color: rgba(14, 17, 20, 0.9);
+  background-color: rgba(38, 41, 46, 0.9);
   color: #FFFFFF;
 }
 
@@ -1924,7 +1924,7 @@ headerbar entry image:disabled {
 headerbar {
   transition: background-color 75ms cubic-bezier(0, 0, 0.2, 1), color 75ms cubic-bezier(0, 0, 0.2, 1);
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
-  background-color: #22262c;
+  background-color: #1b1e24;
   color: #FFFFFF;
   min-height: 48px;
   padding: 0;
@@ -1936,7 +1936,7 @@ headerbar:disabled {
 }
 
 headerbar:backdrop {
-  background-color: #25292f;
+  background-color: #22262c;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2108,11 +2108,11 @@ headerbar.default-decoration windowcontrols menubutton button {
 }
 
 window.devel headerbar {
-  background: #22262c cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(85, 101, 255, 0.1)), linear-gradient(to top, #292d35 3px, #2d323a);
+  background: #1b1e24 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(85, 101, 255, 0.1)), linear-gradient(to top, #22252d 3px, #262a33);
 }
 
 window.devel headerbar:backdrop {
-  background: #22262c cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, image(#22262c);
+  background: #1b1e24 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, image(#1b1e24);
   /* background-color would flash */
 }
 
@@ -2348,12 +2348,12 @@ stack.view treeview.view {
  *********/
 menubar {
   padding: 0;
-  background-color: #22262c;
+  background-color: #1b1e24;
   color: #FFFFFF;
 }
 
 menubar:backdrop {
-  background-color: #25292f;
+  background-color: #22262c;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2903,11 +2903,11 @@ tabbar:not(.inline) scrolledwindow.pinned undershoot {
 }
 
 tabbar:not(.inline) undershoot.left {
-  background: linear-gradient(to right, #22262c, rgba(0, 0, 0, 0) 20px);
+  background: linear-gradient(to right, #1b1e24, rgba(0, 0, 0, 0) 20px);
 }
 
 tabbar:not(.inline) undershoot.right {
-  background: linear-gradient(to left, #22262c, rgba(0, 0, 0, 0) 20px);
+  background: linear-gradient(to left, #1b1e24, rgba(0, 0, 0, 0) 20px);
 }
 
 tabbar:not(.inline) .needs-attention-left undershoot.left {
@@ -2919,23 +2919,23 @@ tabbar:not(.inline) .needs-attention-right undershoot.right {
 }
 
 tabbar:not(.inline) tabbox > background {
-  background-color: #22262c;
+  background-color: #1b1e24;
 }
 
 tabbar:not(.inline) .start-action,
 tabbar:not(.inline) .end-action {
-  background-color: alpha(#22262c, 0.6);
+  background-color: alpha(#1b1e24, 0.6);
   border-color: rgba(255, 255, 255, 0.12);
 }
 
 tabbar:not(.inline):backdrop .box {
-  background-color: #25292f;
+  background-color: #22262c;
   transition: all 75ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 dnd tab {
   min-height: 24px;
-  background-color: #22262c;
+  background-color: #1b1e24;
   color: #FFFFFF;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09), 0 2px 14px 3px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
   outline: 1px solid rgba(0, 0, 0, 0.75);
@@ -5138,7 +5138,7 @@ tooltip {
 }
 
 tooltip.background {
-  background-color: rgba(14, 17, 20, 0.9);
+  background-color: rgba(38, 41, 46, 0.9);
   color: #FFFFFF;
   box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.05), 0 2px 3px -1px rgba(0, 0, 0, 0.06), 0 1px 4px 0 rgba(0, 0, 0, 0.05);
   border-radius: 6px;
@@ -5291,12 +5291,12 @@ window.solid-csd {
   margin: 0;
   padding: 2px;
   border-radius: 0;
-  background-color: #22262c;
+  background-color: #1b1e24;
   border: 1px solid #3f4348;
 }
 
 window.solid-csd:backdrop {
-  background-color: #25292f;
+  background-color: #22262c;
 }
 
 window.ssd {
@@ -6090,7 +6090,7 @@ datechooser {
 }
 
 datechooser .current-week {
-  background: alpha(#22262c, 0.7);
+  background: alpha(#1b1e24, 0.7);
   color: #FFFFFF;
   border-radius: 6px;
 }
@@ -7566,8 +7566,8 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_unfocused_title rgba(255, 255, 255, 0.7);
 @define-color wm_highlight rgba(255, 255, 255, 0.08);
 @define-color wm_border #070809;
-@define-color wm_bg #22262c;
-@define-color wm_unfocused_bg #25292f;
+@define-color wm_bg #1b1e24;
+@define-color wm_unfocused_bg #22262c;
 @define-color wm_button_icon white;
 @define-color wm_button_close_hover_bg #cf54d0;
 @define-color wm_button_close_active_bg #b432b5;
@@ -7702,10 +7702,10 @@ FIXME this is really an API */
 @define-color window_fg_color #FFFFFF;
 @define-color view_bg_color #25292f;
 @define-color view_fg_color #FFFFFF;
-@define-color headerbar_bg_color #22262c;
+@define-color headerbar_bg_color #1b1e24;
 @define-color headerbar_fg_color #FFFFFF;
 @define-color headerbar_border_color rgba(255, 255, 255, 0.12);
-@define-color headerbar_backdrop_color #25292f;
+@define-color headerbar_backdrop_color #22262c;
 @define-color headerbar_shade_color rgba(255, 255, 255, 0.12);
 @define-color card_bg_color #25292f;
 @define-color card_fg_color #FFFFFF;

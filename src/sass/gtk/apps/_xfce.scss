@@ -122,7 +122,9 @@ window#whiskermenu-window {
 }
 
 #XfceNotifyWindow {
-  box-shadow: $shadow-z4;
+  box-shadow: none;
+  border: none;
+  border-radius: $window-radius;
 
   buttonbox { padding: 0; }
 
