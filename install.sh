@@ -22,7 +22,9 @@ SIZE_VARIANTS=('' '-Compact')
 if [[ "$(command -v gnome-shell)" ]]; then
   gnome-shell --version
   SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
+  if [[ "${SHELL_VERSION:-}" -ge "44" ]]; then
+    GS_VERSION="44-0"
+  elif [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
     GS_VERSION="42-0"
   elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
     GS_VERSION="40-0"
@@ -31,7 +33,7 @@ if [[ "$(command -v gnome-shell)" ]]; then
   fi
   else
     echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-    GS_VERSION="42-0"
+    GS_VERSION="44-0"
 fi
 
 usage() {
@@ -322,9 +324,15 @@ install_theme() {
       install "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
     done
   done
+}
 
-  if [[ "$DESKTOP_SESSION" == 'xfce' ]]; then
-    sed -i "s|.*menu-opacity=.*|menu-opacity=95|" "$HOME/.config/xfce4/panel/whiskermenu"*".rc"
+xfce4_fix() {
+  if (which xfce4-popup-whiskermenu 2> /dev/null); then
+    sed -i "s|.*menu-opacity=.*|menu-opacity=0|" "$HOME/.config/xfce4/panel/whiskermenu"*".rc"
+  fi
+
+  if (pgrep xfce4-session &> /dev/null); then
+    xfce4-panel -r
   fi
 }
 
@@ -358,7 +366,7 @@ if [[ "$uninstall" == 'true' ]]; then
     echo && uninstall_theme && uninstall_link
   fi
 else
-  install_package && gnome_shell_version && install_theme
+  install_package && gnome_shell_version && install_theme && xfce4_fix
   if [[ "$libadwaita" == 'true' ]]; then
     uninstall_link && link_theme
   fi

@@ -47,21 +47,24 @@
       font-weight: normal;
       border: none;
       box-shadow: none;
-      color: $text !important;
-      background-color: $divider !important;
+      color: on($primary) !important;
+      background-color: $primary !important;
+      background-gradient-direction: horizontal;
+      background-gradient-start: $primary-left;
+      background-gradient-end: $primary-right;
       border-radius: $base_radius $base_radius 0 0;
 
       &:focus, &:hover, &.selected {
-        color: $text !important;
-        background-color: $overlay-hover !important;
+        background-color: $primary-left !important;
+        color: on($primary) !important;
       }
 
       &:active {
-        color: $text !important;
-        background-color: $overlay-active !important;
+        background-color: $primary-right !important;
+        color: on($primary) !important;
       }
 
-      &:insensitive { color: $text-secondary-disabled !important; }
+      &:insensitive { color: on($primary, disabled) !important; }
     }
 
     &:focus, &:hover, &.selected {
@@ -71,8 +74,11 @@
     }
 
     &:active, &.selected:active {
-      color: $text !important;
-      background-color: $track !important;
+      color: on($primary) !important;
+      background-color: $primary !important;
+      background-gradient-direction: horizontal;
+      background-gradient-start: $primary-left;
+      background-gradient-end: $primary-right;
     }
 
     &:insensitive { color: $text-secondary-disabled !important; }

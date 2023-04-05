@@ -32,6 +32,7 @@
   min-height: 20px;
   min-width: 20px;
   padding: $base_padding;
+  border-radius: $circular_radius;
   @extend %flat_button;
 }
 
@@ -43,5 +44,6 @@
   &:focus { @include button(focus, $tc:on($osd), $bc:$osd);}
   &:hover { @include button(hover, $tc:on($osd), $bc:$osd);}
   &:active { @include button(active, $tc:on($osd), $bc:$osd);}
+  &:checked { @include button(checked, $tc:on($osd), $bc:$osd);}
   &:outlined, &:checked { @include button(checked, $tc:on($osd), $bc:$osd);}
 }

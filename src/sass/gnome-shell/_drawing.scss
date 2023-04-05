@@ -92,6 +92,15 @@
     box-shadow: none !important;
   }
 
+  @if $t == checked {
+    background-color: $primary;
+    color: on($primary);
+    background-gradient-direction: horizontal;
+    background-gradient-start: $primary-left;
+    background-gradient-end: $primary-right;
+    box-shadow: none !important;
+  }
+
   @if $t == insensitive {
     color: rgba($tc, 0.35);
     background-color: $bc;
