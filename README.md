@@ -2,6 +2,12 @@
 
 ![Lavanda](screenshot.png?raw=true)
 
+## Donate
+
+If you like my project, you can buy me a coffee:
+
+<span class="paypal"><a href="https://www.paypal.me/vinceliuice" title="Donate to this project using Paypal"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal donate button" /></a></span>
+
 ## Requirements
 
 - GTK `>=3.20`
@@ -30,8 +36,9 @@ Run the following commands in the terminal:
 > Tip: `./install.sh` allows the following options:
 
 ```
--d, --dest DIR          Specify destination directory (Default: ~/.themes)
+-d, --dest DIR          Specify destination directory (Default: $HOME/.themes)
 -n, --name NAME         Specify theme name (Default: Lavanda)
+-t, --theme VARIANT     Specify theme variant [standard|sea] (Default: standard variant)
 -c, --color VARIANT...  Specify color variant(s) [standard|light|dark] (Default: All variants)
 -s, --size VARIANT...   Specify size variant [standard|compact] (Default: standard variant)
 
