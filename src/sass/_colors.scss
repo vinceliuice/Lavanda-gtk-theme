@@ -16,32 +16,37 @@
   $brightness: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
 
   @if ($brightness >= 156) {
-    @if ($state == 'primary') { @return rgba($black, 0.87); }
-    @if ($state == 'secondary') { @return rgba($black, 0.6); }
-    @if ($state == 'disabled') { @return rgba($black, 0.45); }
+    @if ($state == 'primary')            { @return rgba($black, 0.87); }
+    @if ($state == 'secondary')          { @return rgba($black, 0.60); }
+    @if ($state == 'disabled')           { @return rgba($black, 0.45); }
     @if ($state == 'secondary-disabled') { @return rgba($black, 0.35); }
-    @if ($state == 'track') { @return rgba($black, 0.30); }
-    @if ($state == 'track-disabled') { @return rgba($black, 0.15); }
-    @if ($state == 'divider') { @return rgba($black, 0.15); }
-    @if ($state == 'secondary-fill') { @return rgba($black, 0.1); }
-    @if ($state == 'fill') { @return rgba($black, 0.05); }
+    @if ($state == 'track')              { @return rgba($black, 0.30); }
+    @if ($state == 'track-disabled')     { @return rgba($black, 0.17); }
+    @if ($state == 'divider')            { @return rgba($black, 0.15); }
+    @if ($state == 'secondary-fill')     { @return rgba($black, 0.1); }
+    @if ($state == 'fill')               { @return rgba($black, 0.05); }
   } @else {
-    @if ($state == 'primary') { @return $white; }
-    @if ($state == 'secondary') { @return rgba($white, 0.7); }
-    @if ($state == 'disabled') { @return rgba($white, 0.4); }
+    @if ($state == 'primary')            { @return $white; }
+    @if ($state == 'secondary')          { @return rgba($white, 0.70); }
+    @if ($state == 'disabled')           { @return rgba($white, 0.40); }
     @if ($state == 'secondary-disabled') { @return rgba($white, 0.30); }
-    @if ($state == 'track') { @return rgba($white, 0.26); }
-    @if ($state == 'track-disabled') { @return rgba($white, 0.12); }
-    @if ($state == 'divider') { @return rgba($white, 0.12); }
-    @if ($state == 'secondary-fill') { @return rgba($white, 0.08); }
-    @if ($state == 'fill') { @return rgba($white, 0.04); }
+    @if ($state == 'track')              { @return rgba($white, 0.26); }
+    @if ($state == 'track-disabled')     { @return rgba($white, 0.14); }
+    @if ($state == 'divider')            { @return rgba($white, 0.12); }
+    @if ($state == 'secondary-fill')     { @return rgba($white, 0.08); }
+    @if ($state == 'fill')               { @return rgba($white, 0.04); }
   }
 }
 
-@function highlight($color) {
-  @if (lightness($color) >= 80%) { @return rgba($white, 0.25); }
-  @else if (lightness($color) >= 40%) { @return rgba($white, 0.15); }
-  @else { @return rgba($white, 0.08); }
+@function highlight($color, $state: 'default') {
+  @if ($state == 'default') {
+    @if (lightness($color) >= 80%) { @return rgba($white, 0.25); }
+    @else if (lightness($color) >= 40%) { @return rgba($white, 0.15); }
+    @else { @return rgba($white, 0.08); }
+  } @else if ($state == 'list') {
+    @if (lightness($color) >= 80%) { @return rgba($white, 0.25); }
+    @else { @return rgba($white, 0.05); }
+  }
 }
 
 @function background($type) {
@@ -58,11 +63,11 @@
 }
 
 @function overlay($color, $state: 'normal') {
-  @if ($state == 'normal') { @return rgba(on($color), 0.06); }
-  @if ($state == 'hover') { @return rgba(on($color), 0.12); }
-  @if ($state == 'focus') { @return rgba(on($color), 0.08); }
-  @if ($state == 'active') { @return rgba(on($color), 0.20); }
-  @if ($state == 'checked') { @return rgba(on($color), 0.15); }
+  @if ($state == 'normal')   { @return rgba(on($color), 0.06); }
+  @if ($state == 'hover')    { @return rgba(on($color), 0.12); }
+  @if ($state == 'focus')    { @return rgba(on($color), 0.08); }
+  @if ($state == 'active')   { @return rgba(on($color), 0.20); }
+  @if ($state == 'checked')  { @return rgba(on($color), 0.15); }
   @if ($state == 'selected') { @return rgba(on($color), 0.1); }
 }
 
@@ -73,7 +78,14 @@
 $primary:                               if($variant == 'light', $default-dark, $default-light);
 $primary-left:                          #6a58f0;
 $primary-right:                         #cf54d0;
-$accent:                                #cf54d0;
+
+@if $theme == 'sea' {
+  $primary:                             if($variant == 'light', $blue-dark, $blue-light);
+  $primary-left:                        #297dff;
+  $primary-right:                       #31c4b6;
+}
+
+$accent:                                $primary-right;
 $drop_target_color:                     $orange-dark;
 $indicator:                             $primary;
 $titlebar-indicator:                    if($variant == 'dark', currentColor, $primary);

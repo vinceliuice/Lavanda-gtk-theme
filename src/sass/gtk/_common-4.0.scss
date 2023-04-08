@@ -601,7 +601,7 @@ button {
     background-color: $fill;
     background-clip: padding-box;
     font-weight: inherit;
-    border: 1px solid $border;
+    // border: 1px solid $border;
     background-clip: border-box;
 
     &:hover {
@@ -1520,12 +1520,13 @@ searchbar > revealer > box {
 
 headerbar {
   transition: background-color $duration $ease-out, color $duration $ease-out;
-  box-shadow: inset 0 -1px $divider;
+  box-shadow: inset 0 -1px $divider, inset 0 1px highlight($titlebar);
   background-color: $titlebar;
   color: $titlebar-text;
   min-height: $large-size;
   padding: 0;
   margin: 0;
+  border-radius: $window-radius $window-radius 0 0;
 
   &:disabled { color: $titlebar-text-disabled; }
 
@@ -1538,7 +1539,7 @@ headerbar {
 
   &.flat, &.flat:backdrop {
     background: none;
-    box-shadow: none;
+    box-shadow: inset 0 1px highlight($titlebar);
     transition: none;
   }
 
@@ -1691,8 +1692,8 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: $small-size;
-    padding: $space-size;
+    min-height: $medium-size;
+    // padding: $space-size;
     box-shadow: inset 0 1px highlight($titlebar);
 
     windowcontrols {
@@ -1718,6 +1719,17 @@ headerbar {
       border-radius: 0;
       box-shadow: none; // just remove the highlight
     }
+  }
+}
+
+leaflet {
+  > box:last-child > headerbar {
+    border-top-right-radius: 0;
+  }
+
+  > box:not(:last-child) > headerbar,
+  > box > stack > widget > box > widget > headerbar {
+    border-top-left-radius: 0;
   }
 }
 
@@ -2102,6 +2114,20 @@ popover.background {
     stack > box { padding: 0; }
 
     > box > button { margin: 0; }
+
+    stack > scrolledwindow > viewport > list {
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+
+      > row.activatable {
+        margin: 0;
+
+        + row.activatable {
+          margin-top: 2px;
+        }
+      }
+    }
   }
 
   // FIXME: Use the popover color instead of transparent as a workaround for .view
@@ -2448,6 +2474,14 @@ tabbar {
           box-shadow: inset 1px 0 $border;
         }
       }
+
+      > tabboxchild {
+        margin: 0;
+
+        > tab {
+          margin: 3px 0;
+        }
+      }
     }
   }
 
@@ -2630,6 +2664,16 @@ tabbox:drop(active) {
   box-shadow: none;
 }
 
+taboverview {
+  tabgrid {
+    .thumbnail > .card {
+      > picture {
+        border-radius: $corner-radius;
+      }
+    }
+  }
+}
+
 
 /**************
  * Scrollbars *
@@ -2669,11 +2713,13 @@ scrollbar {
 
       &:hover { background-color: $primary-right; }
 
-      &:active { background-image: linear-gradient(to top, $primary-left, $primary-right); }
-
       &:disabled { background-color: $text-secondary-disabled; }
     }
   }
+
+  &.vertical > range > trough > slider { &:active { background-image: linear-gradient(to top, $primary-left, $primary-right); } }
+
+  &.horizontal > range > trough > slider { &:active { background-image: linear-gradient(to right, $primary-left, $primary-right); } }
 
   > range.fine-tune {
     > trough {
@@ -3526,7 +3572,7 @@ separator {
 listview,
 list {
   border-color: $border;
-  background-color: $base;
+  background-color: $surface;
   background-clip: padding-box;
 
   > row {
@@ -3832,6 +3878,10 @@ row.combo {
     &.has-open-popup {
       background-color: gtkalpha(currentColor, .03);
     }
+  }
+
+  &:first-child {
+    box-shadow: inset 0 1px highlight($surface, list);
   }
 }
 
@@ -4280,7 +4330,7 @@ filechooserbutton:drop(active) {
  * Sidebar *
  ***********/
 .sidebar {
-  border-style: none;
+  border: none;
   background-color: $base-alt;
 
   &:not(separator) {
@@ -4288,13 +4338,13 @@ filechooserbutton:drop(active) {
     &.left,
     &.left:dir(rtl) {
       border-right: 1px solid $border;
-      border-left-style: none;
+      border-left: none;
     }
 
     &:dir(rtl),
     &.right {
       border-left: 1px solid $border;
-      border-right-style: none;
+      border-right: none;
     }
   }
 
@@ -4311,8 +4361,15 @@ stacksidebar {
   + separator.vertical,
   separator.horizontal { @extend %hide_separators; }
 
+  flap > &.sidebar,
   leaflet.unfolded > box > &.sidebar {
-    border: none;
+    &:dir(ltr) {
+      border-right: none;
+    }
+
+    &:dir(rtl) {
+      border-left: none;
+    }
   }
 
   list {
@@ -4814,17 +4871,19 @@ colorchooser .popover.osd {
 window {
   border: none;
   outline: none;
+  padding: 0;
+  margin: 0;
 
   &.csd {
     border-radius: $window-radius;
-    box-shadow: $shadow-z16, 0 0 36px transparent;
+    box-shadow: $shadow-z16, 0 0 0 100px transparent;
 
     &:backdrop {
       // the transparent shadow here is to enforce that the shadow extents don't
       // change when we go to backdrop, to prevent jumping windows.
       // The biggest shadow should be in the same order then in the active state
       // or the jumping will happen during the transition.
-      box-shadow: $shadow-z4, 0 0 36px transparent;
+      box-shadow: $shadow-z4, 0 0 0 100px transparent;
       transition: $transition-shadow;
     }
 
@@ -4835,6 +4894,11 @@ window {
     &.tiled-right,
     &.tiled-bottom,
     &.tiled-left { border-radius: 0; }
+
+    &.maximized,
+    &.fullscreen {
+      box-shadow: none;
+    }
   }
 
   &.solid-csd {
@@ -4845,11 +4909,6 @@ window {
     border: 1px solid $solid-border;
 
     &:backdrop { background-color: $titlebar-backdrop; }
-  }
-
-  &.ssd {
-    // just doing borders, wm draws actual shadows
-    box-shadow: 0 0 0 1px $border;
   }
 }
 

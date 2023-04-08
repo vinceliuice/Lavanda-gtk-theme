@@ -4,7 +4,7 @@
 .notification-banner {
   width: 34em;
   min-height: 64px;
-  margin: $base_padding 6px 8px !important;
+  margin: $base_padding * 2 6px 8px !important;
   border-radius: $base_radius;
   color: $text-secondary;
   background-color: $popover;
@@ -17,7 +17,7 @@
     color: $text;
     background-color: $popover;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    margin: $base_padding 10px 12px !important;
+    margin: $base_padding * 2 10px 12px !important;
   }
 
   &:focus {

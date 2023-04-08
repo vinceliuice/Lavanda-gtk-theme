@@ -33,11 +33,7 @@
     background-color: overlay($base, hover) !important;
   }
 
-  &:active {
-    background-color: overlay($base, active) !important;
-  }
-
-  &:checked {
+  &:active, &:checked {
     background-color: $primary !important;
     color: on($primary);
     background-gradient-direction: horizontal;
@@ -98,12 +94,26 @@
     }
 
     &:active {
-      background-color: overlay($base, active) !important;
+      background-color: $primary !important;
+      color: on($primary);
+      background-gradient-direction: horizontal;
+      background-gradient-start: $primary-left;
+      background-gradient-end: $primary-right;
     }
 
     &:checked {
-      background-color: $accent !important;
-      color: on($accent);
+      background-color: $primary-right !important;
+      color: on($primary-right);
+  
+      &:hover {
+        background-color: mix($text, $primary-right, 6%) !important;
+        color: on($primary-right);
+      }
+  
+      &:active {
+        background-color: mix($text, $primary-right, 15%) !important;
+        color: on($primary-right);
+      }
     }
 
     &:ltr {
@@ -135,17 +145,7 @@
   }
 
   .icon-button {
-    background-color: transparent;
-    color: $text !important;
     padding: $base_padding;
-
-    &:hover {
-      background-color: $fill;
-    }
-
-    &:active {
-      background-color: $divider;
-    }
   }
 }
 
@@ -187,8 +187,8 @@
         background-color: $primary !important;
         color: on($primary);
         background-gradient-direction: horizontal;
-        background-gradient-start: #6a58f0;
-        background-gradient-end: #cf54d0;
+        background-gradient-start: $primary-left;
+        background-gradient-end: $primary-right;
       }
     }
 

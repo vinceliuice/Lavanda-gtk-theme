@@ -34,9 +34,9 @@ for color in '' '-Dark'; do
     done
 done
 
-for color in '' '-Dark'; do
-      ASSETS_DIR="assets${color}"
-      SRC_FILE="assets${color}.svg"
+for theme in '' '-Sea'; do
+      ASSETS_DIR="assets${theme}"
+      SRC_FILE="assets${theme}.svg"
 
       # [[ -d $ASSETS_DIR ]] && rm -rf $ASSETS_DIR
       mkdir -p $ASSETS_DIR

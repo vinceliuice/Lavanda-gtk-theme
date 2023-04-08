@@ -411,7 +411,7 @@ window.org-gnome-gedit {
   padding: $space-size;
   background-color: $surface;
   border-radius: 0 0 $menu-radius $menu-radius;
-  box-shadow: $shadow-z5, 0 0 0 1px $window-border;
+  box-shadow: $shadow-z5;
 
   .linked:not(.vertical) > entry {
     .gedit-search-entry-occurrences-tag {

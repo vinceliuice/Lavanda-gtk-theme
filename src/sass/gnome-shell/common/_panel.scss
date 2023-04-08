@@ -74,8 +74,8 @@
         color: on($primary);
         background-color: transparent;
         box-shadow: 0 2px 3px -1px rgba(black, 0.08);
-        background-gradient-start: #6a58f0;
-        background-gradient-end: #cf54d0;
+        background-gradient-start: $primary-left;
+        background-gradient-end: $primary-right;
       }
 
       &.clock-display {
@@ -89,8 +89,8 @@
           color: on($primary);
           background-color: transparent;
           box-shadow: 0 2px 3px -1px rgba(black, 0.08);
-          background-gradient-start: #6a58f0;
-          background-gradient-end: #cf54d0;
+          background-gradient-start: $primary-left;
+          background-gradient-end: $primary-right;
         }
       }
     }
@@ -164,8 +164,8 @@
         color: on($osd);
         background-color: transparent;
         box-shadow: none;
-        background-gradient-start: #6a58f0;
-        background-gradient-end: #cf54d0;
+        background-gradient-start: $primary-left;
+        background-gradient-end: $primary-right;
 
         &.clock-display {
           box-shadow: none;
@@ -178,8 +178,8 @@
             box-shadow: none;
             color: on($osd);
             background-color: transparent;
-            background-gradient-start: #6a58f0;
-            background-gradient-end: #cf54d0;;
+            background-gradient-start: $primary-left;
+            background-gradient-end: $primary-right;
           }
         }
       }

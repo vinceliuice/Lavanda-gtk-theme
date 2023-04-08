@@ -49,9 +49,9 @@ avatar {
     border: none;
     background-clip: padding-box;
     color: $text-secondary;
-    box-shadow: $shadow-z2;
+    box-shadow: $shadow-z2, inset 0 1px highlight($surface);
     outline: none;
-    background-color: $base;
+    background-color: $surface;
     color: $text;
   }
 

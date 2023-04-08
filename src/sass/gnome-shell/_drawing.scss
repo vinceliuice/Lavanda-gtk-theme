@@ -87,14 +87,17 @@
   }
 
   @if $t == active {
-    color: $tc;
-    background-color: overlay($bc, active);
+    background-color: $primary-left;
+    color: on($primary-left);
+    background-gradient-direction: horizontal;
+    background-gradient-start: $primary-left;
+    background-gradient-end: $primary-right;
     box-shadow: none !important;
   }
 
   @if $t == checked {
-    background-color: $primary;
-    color: on($primary);
+    background-color: $primary-left;
+    color: on($primary-left);
     background-gradient-direction: horizontal;
     background-gradient-start: $primary-left;
     background-gradient-end: $primary-right;
@@ -125,8 +128,11 @@
   }
 
   @if $t == flat-active {
-    color: $tc;
-    background-color: overlay($bc, active);
+    background-color: $primary-left;
+    color: on($primary-left);
+    background-gradient-direction: horizontal;
+    background-gradient-start: $primary-left;
+    background-gradient-end: $primary-right;
     box-shadow: none !important;
   }
 

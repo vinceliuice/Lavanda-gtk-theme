@@ -92,19 +92,6 @@
   .quick-toggle-icon {
     icon-size: $base_icon_size;
   }
-
-  .icon-button {
-    background-color: transparent;
-    color: $text !important;
-
-    &:hover {
-      background-color: $fill;
-    }
-
-    &:active {
-      background-color: $divider;
-    }
-  }
 }
 
 .quick-toggle-menu {
@@ -145,8 +132,8 @@
         background-color: $primary !important;
         color: on($primary);
         background-gradient-direction: horizontal;
-        background-gradient-start: #6a58f0;
-        background-gradient-end: #cf54d0;
+        background-gradient-start: $primary-left;
+        background-gradient-end: $primary-right;
       }
     }
 

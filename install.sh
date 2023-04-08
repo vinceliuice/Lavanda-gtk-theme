@@ -18,6 +18,7 @@ SASSC_OPT="-M -t expanded"
 THEME_NAME=Lavanda
 COLOR_VARIANTS=('' '-Light' '-Dark')
 SIZE_VARIANTS=('' '-Compact')
+THEME_VARIANTS=('' '-Sea')
 
 if [[ "$(command -v gnome-shell)" ]]; then
   gnome-shell --version
@@ -45,6 +46,8 @@ OPTIONS:
 
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
 
+  -t, --theme VARIANT     Specify theme variant [standard|sea] (Default: standard variant)
+
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants))
 
   -s, --size VARIANT      Specify size variant [standard|compact] (Default: standard variant)
@@ -61,13 +64,14 @@ EOF
 install() {
   local dest="${1}"
   local name="${2}"
-  local color="${3}"
-  local size="${4}"
+  local theme="${3}"
+  local color="${4}"
+  local size="${5}"
 
   [[ "${color}" == '-Light' ]] && local ELSE_LIGHT="${color}"
   [[ "${color}" == '-Dark' ]] && local ELSE_DARK="${color}"
 
-  local THEME_DIR="${1}/${2}${3}${4}"
+  local THEME_DIR="${1}/${2}${3}${4}${5}"
 
   [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"
 
@@ -77,23 +81,24 @@ install() {
 
   echo "[Desktop Entry]" >>                                                                  "${THEME_DIR}/index.theme"
   echo "Type=X-GNOME-Metatheme" >>                                                           "${THEME_DIR}/index.theme"
-  echo "Name=${2}${3}${4}" >>                                                                "${THEME_DIR}/index.theme"
+  echo "Name=${2}${3}${4}${5}" >>                                                            "${THEME_DIR}/index.theme"
   echo "Comment=An Clean Gtk+ theme based on Elegant Design" >>                              "${THEME_DIR}/index.theme"
   echo "Encoding=UTF-8" >>                                                                   "${THEME_DIR}/index.theme"
   echo "" >>                                                                                 "${THEME_DIR}/index.theme"
   echo "[X-GNOME-Metatheme]" >>                                                              "${THEME_DIR}/index.theme"
-  echo "GtkTheme=${2}${3}${4}" >>                                                            "${THEME_DIR}/index.theme"
-  echo "MetacityTheme=${2}${3}${4}" >>                                                       "${THEME_DIR}/index.theme"
+  echo "GtkTheme=${2}${3}${4}${5}" >>                                                        "${THEME_DIR}/index.theme"
+  echo "MetacityTheme=${2}${3}${4}${5}" >>                                                   "${THEME_DIR}/index.theme"
   echo "IconTheme=Tela-circle${ELSE_DARK:-}" >>                                              "${THEME_DIR}/index.theme"
   echo "CursorTheme=${2}-cursors" >>                                                         "${THEME_DIR}/index.theme"
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 
   mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
   cp -r "${SRC_DIR}/main/gnome-shell/pad-osd.css"                                            "${THEME_DIR}/gnome-shell"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gnome-shell/gnome-shell${color}.scss"                    "${THEME_DIR}/gnome-shell/gnome-shell.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gnome-shell/gnome-shell${theme}${color}.scss"            "${THEME_DIR}/gnome-shell/gnome-shell.css"
 
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${ELSE_DARK:-}/"*.svg                           "${THEME_DIR}/gnome-shell/assets"
+  cp -r "${SRC_DIR}/assets/gnome-shell/theme-assets${theme}/"*.svg                           "${THEME_DIR}/gnome-shell/assets"
 
   cd "${THEME_DIR}/gnome-shell"
   ln -s assets/no-events.svg no-events.svg
@@ -104,27 +109,28 @@ install() {
   cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${ELSE_DARK:-}"                                        "${THEME_DIR}/gtk-2.0/gtkrc"
   cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                              "${THEME_DIR}/gtk-2.0"
   cp -r "${SRC_DIR}/assets/gtk-2.0/assets-common${ELSE_DARK:-}"                              "${THEME_DIR}/gtk-2.0/assets"
-  cp -r "${SRC_DIR}/assets/gtk-2.0/assets${ELSE_DARK:-}/"*"png"                              "${THEME_DIR}/gtk-2.0/assets"
+  cp -r "${SRC_DIR}/assets/gtk-2.0/assets${theme}/"*"png"                                    "${THEME_DIR}/gtk-2.0/assets"
 
   mkdir -p                                                                                   "${THEME_DIR}/gtk-3.0"
-  cp -r "${SRC_DIR}/assets/gtk/assets${ctype}"                                               "${THEME_DIR}/gtk-3.0/assets"
+  cp -r "${SRC_DIR}/assets/gtk/assets${theme}"                                               "${THEME_DIR}/gtk-3.0/assets"
   cp -r "${SRC_DIR}/assets/gtk/scalable"                                                     "${THEME_DIR}/gtk-3.0/assets"
-  cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${ELSE_DARK:-}.png"                       "${THEME_DIR}/gtk-3.0/thumbnail.png"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-3.0/gtk${color}.scss"                                "${THEME_DIR}/gtk-3.0/gtk.css"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-3.0/gtk-Dark.scss"                                   "${THEME_DIR}/gtk-3.0/gtk-dark.css"
+  cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${theme}${ELSE_DARK:-}.png"               "${THEME_DIR}/gtk-3.0/thumbnail.png"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-3.0/gtk${theme}${color}.scss"                        "${THEME_DIR}/gtk-3.0/gtk.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-3.0/gtk${theme}-Dark.scss"                           "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/gtk-4.0"
-  cp -r "${SRC_DIR}/assets/gtk/assets${ctype}"                                               "${THEME_DIR}/gtk-4.0/assets"
+  cp -r "${SRC_DIR}/assets/gtk/assets${theme}"                                               "${THEME_DIR}/gtk-4.0/assets"
   cp -r "${SRC_DIR}/assets/gtk/scalable"                                                     "${THEME_DIR}/gtk-4.0/assets"
-  cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${ELSE_DARK:-}.png"                       "${THEME_DIR}/gtk-4.0/thumbnail.png"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${color}.scss"                                "${THEME_DIR}/gtk-4.0/gtk.css"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk-Dark.scss"                                   "${THEME_DIR}/gtk-4.0/gtk-dark.css"
+  cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${theme}${ELSE_DARK:-}.png"               "${THEME_DIR}/gtk-4.0/thumbnail.png"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${theme}${color}.scss"                        "${THEME_DIR}/gtk-4.0/gtk.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${theme}-Dark.scss"                           "${THEME_DIR}/gtk-4.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/cinnamon"
   cp -r "${SRC_DIR}/assets/cinnamon/common-assets"                                           "${THEME_DIR}/cinnamon/assets"
   cp -r "${SRC_DIR}/assets/cinnamon/assets${ELSE_DARK:-}/"*'.svg'                            "${THEME_DIR}/cinnamon/assets"
-  sassc $SASSC_OPT "${SRC_DIR}/main/cinnamon/cinnamon${color}.scss"                          "${THEME_DIR}/cinnamon/cinnamon.css"
-  cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${color}.png"                        "${THEME_DIR}/cinnamon/thumbnail.png"
+  cp -r "${SRC_DIR}/assets/cinnamon/theme-assets${theme}/"*'.svg'                            "${THEME_DIR}/cinnamon/assets"
+  sassc $SASSC_OPT "${SRC_DIR}/main/cinnamon/cinnamon${theme}${color}.scss"                  "${THEME_DIR}/cinnamon/cinnamon.css"
+  cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${theme}${color}.png"                "${THEME_DIR}/cinnamon/thumbnail.png"
 
   mkdir -p                                                                                   "${THEME_DIR}/metacity-1"
   cp -r "${SRC_DIR}/main/metacity-1/metacity-theme-3.xml"                                    "${THEME_DIR}/metacity-1/metacity-theme-3.xml"
@@ -152,6 +158,7 @@ install() {
   fi
 }
 
+themes=()
 colors=()
 lcolors=()
 sizes=()
@@ -177,6 +184,29 @@ while [[ $# -gt 0 ]]; do
     -l|--libadwaita)
       libadwaita="true"
       shift
+      ;;
+    -t|--theme)
+      shift
+      for theme in "${@}"; do
+        case "${theme}" in
+          standard)
+            themes+=("${THEME_VARIANTS[0]}")
+            shift
+            ;;
+          sea)
+            themes+=("${THEME_VARIANTS[1]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized theme variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
       ;;
     -c|--color)
       shift
@@ -244,6 +274,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ "${#themes[@]}" -eq 0 ]] ; then
+  themes=("${THEME_VARIANTS[@]}")
+fi
+
 if [[ "${#colors[@]}" -eq 0 ]] ; then
   colors=("${COLOR_VARIANTS[@]}")
 fi
@@ -297,10 +331,11 @@ uninstall_link() {
 link_libadwaita() {
   local dest="${1}"
   local name="${2}"
-  local color="${3}"
-  local size="${4}"
+  local theme="${3}"
+  local color="${4}"
+  local size="${5}"
 
-  local THEME_DIR="${1}/${2}${3}${4}"
+  local THEME_DIR="${1}/${2}${3}${4}${5}"
 
   echo -e "\nLink '$THEME_DIR/gtk-4.0' to '${HOME}/.config/gtk-4.0' for libadwaita..."
 
@@ -311,17 +346,21 @@ link_libadwaita() {
 }
 
 link_theme() {
-  for color in "${lcolors[@]}"; do
-    for size in "${sizes[@]}"; do
-      link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
+  for theme in "${themes[0]}"; do
+    for color in "${lcolors[@]}"; do
+      for size in "${sizes[@]}"; do
+        link_libadwaita "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size"
+      done
     done
   done
 }
 
 install_theme() {
-  for color in "${colors[@]}"; do
-    for size in "${sizes[@]}"; do
-      install "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
+  for theme in "${themes[@]}"; do
+    for color in "${colors[@]}"; do
+      for size in "${sizes[@]}"; do
+        install "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size"
+      done
     done
   done
 }
@@ -339,10 +378,11 @@ xfce4_fix() {
 uninstall() {
   local dest="${1}"
   local name="${2}"
-  local color="${3}"
-  local size="${4}"
+  local theme="${3}"
+  local color="${4}"
+  local size="${5}"
 
-  local THEME_DIR="${1}/${2}${3}${4}"
+  local THEME_DIR="${1}/${2}${3}${4}${5}"
 
   if [[ -d "${THEME_DIR}" ]]; then
     echo -e "Uninstall ${THEME_DIR}... "
@@ -351,9 +391,11 @@ uninstall() {
 }
 
 uninstall_theme() {
-  for color in "${colors[@]}"; do
-    for size in "${sizes[@]}"; do
-      uninstall "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$color" "$size"
+  for theme in "${themes[@]}"; do
+    for color in "${colors[@]}"; do
+      for size in "${sizes[@]}"; do
+        uninstall "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size"
+      done
     done
   done
 }

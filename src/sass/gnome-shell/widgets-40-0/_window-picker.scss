@@ -10,6 +10,9 @@
   background-color: $osd;
   border-radius: $circular_radius;
   padding: $base_padding $base_padding * 2;
+  box-shadow: inset 0 1px highlight($osd);
+  border: none;
+  outline: none;
 }
 
 $window_close_button_size: 30px;

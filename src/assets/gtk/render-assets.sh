@@ -5,13 +5,17 @@ INKSCAPE="$(command -v inkscape)" || true
 OPTIPNG="$(command -v optipng)" || true
 
 INDEX="assets.txt"
-ASSETS_DIR="assets"
-SRC_FILE="assets.svg"
+
+for theme in '' '-Sea'; do
+
+ASSETS_DIR="assets${theme}"
+SRC_FILE="assets${theme}.svg"
 
 #[[ -d $ASSETS_DIR ]] && rm -rf $ASSETS_DIR
 mkdir -p $ASSETS_DIR
 
 for i in `cat $INDEX`; do
+
 echo "Rendering '$ASSETS_DIR/$i.png'"
 
 if [[ -f "$ASSETS_DIR/$i.png" ]]; then
@@ -47,6 +51,7 @@ else
   fi
 fi
 
+done
 done
 
 echo -e "DONE!"
