@@ -5134,10 +5134,18 @@ popover.emoji-picker {
 }
 
 .emoji-toolbar {
-  padding: 0;
+  padding: $space-size / 2;
   border-spacing: $space-size / 2;
   border-top: 1px solid $divider;
   background: none;
+
+  > flowboxchild {
+    padding: $space-size / 2;
+
+    > button.emoji-section {
+      padding: $space-size;
+    }
+  }
 }
 
 button.emoji-section {
