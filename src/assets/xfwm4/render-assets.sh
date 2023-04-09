@@ -6,10 +6,11 @@ OPTIPNG="/usr/bin/optipng"
 INDEX="assets.txt"
 
 for i in `cat $INDEX`; do
-  for color in '' '-Light'; do
-    for screen in '' '-hdpi' '-xhdpi'; do
-          ASSETS_DIR="assets${color}${screen}"
-          SRC_FILE="assets${color}${window}.svg"
+  for theme in '' '-Sea'; do
+    for color in '' '-Light'; do
+      for screen in '' '-hdpi' '-xhdpi'; do
+          ASSETS_DIR="assets${theme}${color}${screen}"
+          SRC_FILE="assets${theme}${color}.svg"
 
           case "${screen}" in
             -hdpi)
@@ -36,6 +37,7 @@ for i in `cat $INDEX`; do
                         --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
               && $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
           fi
+      done
     done
   done
 done

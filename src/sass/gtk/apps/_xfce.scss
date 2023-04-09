@@ -66,8 +66,8 @@ XfdesktopIconView.view {
 }
 
 window#whiskermenu-window {
-  border-radius: $window-radius;
-  background-color: transparent;
+  border-radius: 0;
+  background-color: $background;
   border: none;
 
   entry.search:focus { background-color: $base; }

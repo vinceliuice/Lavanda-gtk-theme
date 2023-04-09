@@ -53,6 +53,10 @@ Run the following commands in the terminal:
 
 > For more information, run: `./install.sh --help`
 
+### Fix for Xfce Whiskermenu black background
+
+Open Whiskermenu setting and set the background opacity to 0
+
 ### Flatpak Installation
 
 Automatically install your host GTK+ theme as a Flatpak. Use this:
