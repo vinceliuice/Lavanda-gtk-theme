@@ -22,7 +22,7 @@ If you like my project, you can buy me a coffee:
 
 - `Icon theme` [Colloid](https://github.com/vinceliuice/Colloid-icon-theme)
 
-- `Wallpaper` [Download here](other/wallpaper)
+- `Wallpaper` [Download here](wallpaper)
 
 ## Installation
 
