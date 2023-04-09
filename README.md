@@ -1,6 +1,7 @@
 ## Lavanda gtk theme
 
-![Lavanda](screenshot.png?raw=true)
+![Lavanda](screenshot-01.png?raw=true)
+![Lavanda-sea](screenshot-02.png?raw=true)
 
 ## Donate
 

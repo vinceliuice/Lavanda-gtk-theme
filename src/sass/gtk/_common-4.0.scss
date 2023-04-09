@@ -2166,9 +2166,6 @@ magnifier {
  *************/
 
 %tabs_tab {
-  min-height: $small-size;
-  min-width: $small-size;
-  padding: $space-size / 2 $space-size;
   border: none;
   background-clip: padding-box;
   font-weight: 500;
@@ -2297,6 +2294,9 @@ notebook {
 
       > tab {
         @extend %tabs_tab;
+        min-height: $small-size;
+        min-width: $small-size;
+        padding: $space-size / 2 $space-size;
         margin: $space-size / 2;
 
         // FIXME: The tab node doesn't have :drop(active), instead its child box has it.
@@ -2533,6 +2533,9 @@ tabbar {
       > tab {
         @extend %tabs_tab;
         margin: 3px;
+        min-width: $small-size;
+        min-height: $small-size;
+        padding: $space-size / 2;
 
         &:selected {
           button.flat, button {
@@ -2622,7 +2625,6 @@ tabbar {
 }
 
 dnd tab {
-  min-height: $small-size;
   background-color: $titlebar;
   color: $titlebar-text;
 
@@ -2643,7 +2645,7 @@ dnd tab {
 tabbar,
 dnd {
   tab {
-    padding: $space-size;
+    padding: $space-size / 2 $space-size;
 
     button.image-button {
       padding: 0;
@@ -2651,10 +2653,6 @@ dnd {
       min-width: $small-size;
       min-height: $small-size;
       border-radius: $circular-radius;
-
-      &.tab-close-button {
-        margin-right: -$space-size / 2;
-      }
     }
   }
 }
