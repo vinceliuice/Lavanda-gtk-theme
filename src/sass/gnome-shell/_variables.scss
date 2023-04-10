@@ -16,7 +16,7 @@ $base_radius: 6px;
 $icon_radius: 16px;
 $window_radius: 12px;
 $menu_radius: $base_radius + $base_padding;
-$modal_radius: $menu_radius;
+$modal_radius: $base_radius + $base_padding * 1.5;
 
 // icons
 $base_icon_size: 16px;

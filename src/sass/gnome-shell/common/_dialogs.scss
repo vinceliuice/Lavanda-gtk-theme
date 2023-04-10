@@ -34,7 +34,7 @@
 // modal dialog
 .modal-dialog {
   color: $text-secondary;
-  padding: 0 $base_padding $base_padding $base_padding;
+  padding: 0 $base_padding $base_padding;
   @extend %theme_dialogs;
 
   &-linked-button {
@@ -44,17 +44,17 @@
     border: none !important;
     border-radius: $base_radius;
     @extend %flat_button;
-  }
 
-  &-linked-button:first-child {
-    background-color: $fill;
-    &:focus { @include button(flat-focus); }
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-  }
-
-  &-linked-button:last-child {
-    @extend %last_dialog_button;
+    &:first-child {
+      background-color: $fill;
+      &:focus { @include button(flat-focus); }
+      &:hover { @include button(flat-hover); }
+      &:active { @include button(flat-active); }
+    }
+  
+    &:last-child {
+      @extend %last_dialog_button;
+    }
   }
 
   .modal-dialog-content-box {

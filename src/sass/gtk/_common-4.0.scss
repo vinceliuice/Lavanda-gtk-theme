@@ -1694,7 +1694,12 @@ headerbar {
   &.default-decoration {
     min-height: $medium-size;
     // padding: $space-size;
+    background-image: image($titlebar);
     box-shadow: inset 0 1px highlight($titlebar);
+
+    &:backdrop {
+      background-image: image($titlebar-backdrop);
+    }
 
     windowcontrols {
       button,
