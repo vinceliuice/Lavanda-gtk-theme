@@ -52,7 +52,7 @@
       background-gradient-direction: horizontal;
       background-gradient-start: $primary-left;
       background-gradient-end: $primary-right;
-      border-radius: $base_radius $base_radius 0 0;
+      border-radius: $base_radius $base_radius 0 0 !important;
 
       &:focus, &:hover, &.selected {
         background-color: $primary-left !important;
@@ -90,7 +90,7 @@
     border: none;
     box-shadow: none;
     margin: 0;
-    border-radius: 0 0 $base_radius $base_radius;
+    border-radius: 0 0 $base_radius $base_radius !important;
 
     .popup-menu-item {
       margin: 0;

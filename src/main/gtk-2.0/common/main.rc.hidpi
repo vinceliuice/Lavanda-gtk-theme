@@ -41,10 +41,10 @@ style "default" {
 
   GtkButton::default-border         = {0, 0, 0, 0}
   GtkButton::default-outside-border = {0, 0, 0, 0}
-  GtkButton::inner-border           = {8, 8, 8, 8}
+  GtkButton::inner-border           = {0, 0, 0, 0}
 
   GtkEntry::state-hint   = 1
-  GtkEntry::inner-border = {8, 8, 8, 8}
+  GtkEntry::inner-border = {0, 0, 0, 0}
 
   GtkPaned::handle-size  = 16
   GtkHPaned::handle-size = 16
@@ -1656,6 +1656,7 @@ style "menubar" {
   fg[NORMAL]      = mix(0.7, @titlebar_fg_color, @titlebar_bg_color)
   fg[PRELIGHT]    = @titlebar_fg_color
   fg[INSENSITIVE] = mix(0.3, @titlebar_fg_color, @titlebar_bg_color)
+  bg[INSENSITIVE] = @bg_color
   # Needed to fix Firefox's menubar text
   bg[SELECTED]    = mix(0.12, @titlebar_fg_color, @titlebar_bg_color)
   fg[SELECTED]    = @titlebar_fg_color
@@ -2232,6 +2233,7 @@ style "combo_button_padding" {
 style "notebook" {
   xthickness = 6
   ythickness = 6
+  bg[NORMAL] = @base_color
 }
 
 style "notebook_tab_label" {
@@ -2568,6 +2570,7 @@ style "toolbar_separator" {
 
 style "inline_toolbar" {
   # GtkToolbar::button-relief = GTK_RELIEF_NORMAL
+  bg[NORMAL]   = @base_color
 
   engine "pixmap" {
     image {

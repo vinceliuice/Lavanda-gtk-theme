@@ -32,7 +32,36 @@
 // system status popover menu
 .aggregate-menu {
   .popup-sub-menu .popup-menu-item > :first-child {
-    &:ltr { padding-left: $base_padding * 2 !important; margin-left: 0 !important; }
-    &:rtl { padding-right: $base_padding * 2 !important; margin-right: 0 !important; }
+    &:ltr { padding-left: $base_padding * 3 !important; margin-left: 0 !important; }
+    &:rtl { padding-right: $base_padding * 3 !important; margin-right: 0 !important; }
+  }
+}
+
+// right-click (and panel) app menu
+.app-menu {
+  .popup-menu-item > :first-child {
+    &:ltr {
+      padding-left: $base_padding; margin-left: 0;
+    }
+
+    &:rtl {
+      padding-right: $base_padding; margin-right: 0;
+    }
+  }
+
+  .popup-inactive-menu-item:first-child {
+    // "Open Windows" label
+    > StLabel {
+      font-weight: bold;
+      font-size: $font_size;
+
+      &:ltr { margin-right: 0; }
+      &:rtl { margin-left: 0; }
+    }
+
+    .popup-separator-menu-item-separator {
+      height: 0;
+      background-color: transparent;
+    }
   }
 }
