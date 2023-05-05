@@ -3993,7 +3993,7 @@ stackswitcher,
   border: none;
 
   &.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action) {
-    margin: 0 0;
+    margin: 0;
     background-color: transparent;
     border-radius: $corner-radius;
     padding: ($medium-size - 24px - $space-size) / 2 ($medium-size - 16px) / 2;

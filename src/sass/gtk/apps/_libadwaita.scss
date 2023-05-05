@@ -102,17 +102,6 @@ toast {
 viewswitcher {
   margin: 0;
 
-  &.wide {
-    border-spacing: $space-size / 2;
-  }
-
-  &.narrow button.toggle {
-    border-radius: 0;
-    margin: 0;
-
-    &:focus-within, &:focus { box-shadow: none; }
-  }
-
   button.toggle {
     font-weight: bold;
     padding: 0;
@@ -136,11 +125,94 @@ viewswitcher {
       }
     }
   }
+
+  &.wide {
+    border-spacing: 0;
+
+    button.toggle {
+      @extend %linked;
+
+      &.flat:focus {
+        outline: none;
+        box-shadow: 0 2px 3px -1px rgba(black, 0.05);
+      }
+    }
+  }
+
+  &.narrow button.toggle {
+    transition: $transition, border-image $ripple-fade-in-duration $ease-out;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    color: $titlebar-text-secondary;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  transparent 0%,
+                                  transparent 0%)
+                                  0 0 0 / 0 0 0px;
+
+    &:hover {
+      color: $titlebar-text;
+      transition: $transition, border-image $ripple-fade-in-duration $ease-out;
+      background-image: none;
+      box-shadow: none;
+      box-shadow: inset 0 -2px mix($primary-left, $titlebar, 50%);
+    }
+
+    &:active {
+      color: $titlebar-text;
+      background-image: none;
+      box-shadow: none;
+      transition: $transition, border-image $ripple-fade-in-duration $ease-out;
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary-right 100%,
+                                    mix($primary-left, $titlebar, 50%) 0%)
+                                    0 0 2 / 0 0 2px;
+    }
+
+    &:checked {
+      color: $titlebar-text;
+      background-image: none;
+      box-shadow: none;
+      border-image: linear-gradient(to right,
+                                    $primary-left,
+                                    $primary-right)
+                                    0 0 2 / 0 0 2px;
+
+       &:disabled, &:backdrop {
+         color: $titlebar-text-disabled;
+       }
+    }
+
+    &:focus { box-shadow: none; outline: none; }
+  }
 }
 
 // AdwViewSwitcherBar
 viewswitcherbar actionbar > revealer > box {
   padding: 0;
+
+  viewswitcher.narrow button.toggle {
+    &:hover {
+      box-shadow: inset 0 2px mix($primary-left, $base, 50%);
+    }
+
+    &:active {
+      border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                    $primary-right 100%,
+                                    mix($primary-left, $base, 50%) 0%)
+                                    2 0 0 / 2px 0 0;
+    }
+
+    &:checked {
+      border-image: linear-gradient(to right,
+                                    $primary-left,
+                                    $primary-right)
+                                    2 0 0 / 2px 0 0;
+    }
+  }
 }
 
 // AdwViewSwitcherTitle

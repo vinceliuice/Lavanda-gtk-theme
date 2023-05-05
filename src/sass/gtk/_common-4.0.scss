@@ -1693,7 +1693,7 @@ headerbar {
 
   &.default-decoration {
     min-height: $medium-size;
-    // padding: $space-size;
+    padding: 0;
     background-image: image($titlebar);
     box-shadow: inset 0 1px highlight($titlebar);
 
@@ -4879,15 +4879,23 @@ window {
 
   &.csd {
     border-radius: $window-radius;
-    box-shadow: $shadow-z16, 0 0 0 100px transparent;
+    box-shadow: $shadow-z16,
+                0 2px 3px -1px transparent,
+                0 4px 3px 0 transparent,
+                0 1px 6px 0 transparent;
+    transition: none;
 
     &:backdrop {
       // the transparent shadow here is to enforce that the shadow extents don't
       // change when we go to backdrop, to prevent jumping windows.
       // The biggest shadow should be in the same order then in the active state
       // or the jumping will happen during the transition.
-      box-shadow: $shadow-z4, 0 0 0 100px transparent;
-      transition: $transition-shadow;
+      box-shadow: $shadow-z4,
+                  0 8px 6px -5px transparent,
+                  0 16px 15px 2px transparent,
+                  0 6px 18px 5px transparent;
+      // transition: $transition-shadow;
+      transition: none;
     }
 
     &.maximized,
