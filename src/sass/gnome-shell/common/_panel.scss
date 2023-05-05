@@ -4,11 +4,13 @@
 #panel {
   background-color: $panel;
   font-weight: bold;
-  height: $item_size;
+  height: 2.4em;
   color: $panel-text-secondary;
   font-feature-settings: "tnum";
   transition-duration: 250ms;
-  @include fontsize($font_size - 1);
+  border: none;
+  box-shadow: none;
+  // @include fontsize($font_size - 1);
 
   // the rounded outset corners
   .panel-corner {
@@ -29,7 +31,7 @@
     transition-duration: 150ms;
     border-radius: $circular_radius;
     text-shadow: none;
-    border: 2px solid transparent;
+    border: $base_padding / 2 solid transparent;
     background-gradient-direction: horizontal;
     background-gradient-start: transparent;
     background-gradient-end: transparent;
@@ -37,7 +39,7 @@
     &.clock-display {
       .clock {
         transition-duration: 150ms;
-        border: 2px solid transparent;
+        border: $base_padding / 2 solid transparent;
         border-radius: $circular_radius;
         background-gradient-direction: horizontal;
         background-gradient-start: transparent;
@@ -194,7 +196,7 @@
 
   .panel-status-indicators-box,
   .panel-status-menu-box {
-    spacing: 2px;
+    spacing: $base_padding / 2;
   }
 
   // spacing between power icon and (optional) percentage label
