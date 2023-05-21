@@ -39,7 +39,7 @@ Run the following commands in the terminal:
 ```
 -d, --dest DIR          Specify destination directory (Default: $HOME/.themes)
 -n, --name NAME         Specify theme name (Default: Lavanda)
--t, --theme VARIANT     Specify theme variant [standard|sea] (Default: standard variant)
+-t, --theme VARIANT     Specify theme variant [standard|sea] (Default: all variants)
 -c, --color VARIANT...  Specify color variant(s) [standard|light|dark] (Default: All variants)
 -s, --size VARIANT...   Specify size variant [standard|compact] (Default: standard variant)
 

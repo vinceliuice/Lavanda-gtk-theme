@@ -46,7 +46,7 @@ OPTIONS:
 
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
 
-  -t, --theme VARIANT     Specify theme variant [standard|sea] (Default: standard variant)
+  -t, --theme VARIANT     Specify theme variant [standard|sea] (Default: all variants)
 
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants))
 
