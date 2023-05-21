@@ -50,8 +50,7 @@
 }
 
 .datemenu-today-button,
-.datemenu-displays-box,
-.message-list-sections {
+.datemenu-displays-box {
   margin: $base_margin $base_spacing;
 }
 
@@ -247,11 +246,13 @@
 .events-button {
   .events-box {
     spacing: $base_spacing;
+    color: $text-secondary;
   }
 
   .events-list {
     spacing: 2 * $base_spacing;
     text-shadow: none;
+    color: $text-secondary;
   }
 
   .events-title {

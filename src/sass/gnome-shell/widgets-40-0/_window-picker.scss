@@ -30,13 +30,13 @@ $window_close_button_padding: 3px;
   transition-duration: 300ms;
 
   &:hover {
-    color: on($scrim);
-    background-color: lighten($scrim, 6%);
+    color: on($primary-left);
+    background-color: $primary-left;
   }
 
   &:active {
-    color: on($scrim);
-    background-color: darken($scrim, 6%);
+    color: on($primary-right);
+    background-color: $primary-right;
   }
 }
 
