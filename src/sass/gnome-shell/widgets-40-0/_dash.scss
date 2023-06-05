@@ -1,4 +1,4 @@
-$dash_background_color: on($panel, track);
+$dash_background_color: on($osd, track);
 $dash_placeholder_size: 32px;
 $dash_padding: 10px; // 10px
 $dash_spacing: 2px;
@@ -36,5 +36,5 @@ $dash_border_radius: $icon_radius + $dash_padding - $dash_spacing;
 .dash-separator {
   width: 1px;
   margin: 0 ($dash_spacing + ($dash_padding / 2)) $dash_bottom_margin;
-  background-color: on($panel, divider);
+  background-color: on($osd, divider);
 }

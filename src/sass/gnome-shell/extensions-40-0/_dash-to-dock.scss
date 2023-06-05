@@ -101,11 +101,19 @@
   }
 
   &:overview #dash .app-well-app-running-dot {
-    background-color: on(dark, track) !important;
+    background-color: on($osd, track) !important;
   }
 
   &:overview #dash StWidget.focused .app-well-app-running-dot {
     background-color: $inverse-indicator !important;
+  }
+
+  .dash-separator {
+    background-color: on($panel, divider) !important;
+  }
+
+  &:overview #dash .dash-separator {
+    background-color: on($osd, divider) !important;
   }
 
   .show-apps,
