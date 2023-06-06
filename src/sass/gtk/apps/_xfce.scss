@@ -15,25 +15,28 @@
 .xfce4-panel.background {
   border: none; // Sadly the border is hard-coded
   background-color: $panel;
-  color: on($panel, secondary);
+  color: $panel-text-secondary;
   font-weight: 500;
 
   button {
-    @extend %button-flat;
-    @extend %button-on-dark;
-
     min-height: 16px;
     min-width: 16px;
     padding: 0;
     border-radius: 0;
+    @extend %button-flat;
+    color: $panel-text-secondary;
+
+    &:hover, &:active, &:checked { color: $panel-text; }
+
+    &:disabled { color: $panel-text-secondary-disabled; }
   }
 
   .tasklist button {
     // border-image: image(transparent) 0 0 2 / 0 0 2px;
-    //
+
     // &:checked { border-image: image(currentColor) 0 0 2 / 0 0 2px; }
 
-    image { padding: 4px; }
+    image { padding: $space-size; }
   }
 }
 
@@ -53,7 +56,7 @@ XfdesktopIconView.view {
 
   // XfdesktopIconView uses :active instead of :selected for selection
   &:active {
-    @extend %selected_items;
+    @extend %selected_items_color;
 
     box-shadow: none;
   }
