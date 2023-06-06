@@ -5,8 +5,6 @@
 
 $asset_path: assets;
 $font-size: 10;
-$panel_bg: rgba($panel-solid, 0.75);
-$panel_fg: on($panel-solid, secondary);
 
 stage {
   // @include fontsize($font-size);
@@ -263,72 +261,6 @@ StScrollBar {
 $sub_menu_bg: mix($text, $popover, 10%);
 $menu_item_radius: $corner-radius;
 
-.menu,
-.popup-menu,
-%menu {
-  padding: 0;
-  color: $text;
-  background-color: transparent;
-  border-radius: 0;
-  margin: 0;
-  box-shadow: none;
-
-  &-arrow { icon-size: 16px; }
-
-  .popup-sub-menu {
-    border-radius: $menu_item_radius;
-    background-gradient-direction: none;
-    box-shadow: none;
-    background-color: $sub_menu_bg;
-    color: on($sub_menu_bg, secondary);
-
-    .popup-menu-item:active {
-      background-color: on($sub_menu_bg, divider);
-      color: on($sub_menu_bg);
-    }
-
-    StScrollBar {
-      padding: 4px;
-      StBin#trough, StBin#vhandle { border-width: 0; }
-    }
-  }
-
-  .popup-menu-content {
-    padding: $space-size;
-    border-radius: $menu-radius;
-    background-clip: padding-box;
-    background-color: $popover;
-    margin: $space-size;
-    box-shadow: 0 5px 12px rgba(black, 0.35);
-  }
-
-  .popup-menu-item {
-    padding: $space-size $space-size*2;
-    spacing: $space-size*2;
-    border-radius: $menu_item_radius;
-
-    &:hover, &:active {
-      color: $text;
-      background-color: $divider;
-    }
-
-    &:insensitive {
-      color: $text-disabled;
-      background: none;
-    }
-  }
-
-  .popup-inactive-menu-item { //all icons and other graphical elements
-    color: $text-disabled;
-
-    &:insensitive { color: $track-disabled; }
-  }
-
-  .popup-menu-item:active .popup-inactive-menu-item { color: $text-disabled; }
-
-  &-icon { icon-size: 16px; }
-}
-
 .popup-menu-boxpointer {
   -arrow-border-radius: $corner-radius;
   -arrow-background-color:  rgba(0,0,0,0.0);
@@ -338,9 +270,96 @@ $menu_item_radius: $corner-radius;
   -arrow-rise: 0;
 }
 
-.popup-combo-menu {
-  @extend %menu;
+.menu,
+.popup-combo-menu,
+.popup-menu {
+  padding: 0;
+  color: $text;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  box-shadow: none;
+  min-width: 100px;
+
+  &-arrow, &-icon { icon-size: 16px; }
+}
+
+.popup-menu-content {
   padding: $space-size;
+  border-radius: $menu-radius;
+  background-clip: padding-box;
+  background-color: $popover;
+  margin: $space-size;
+  box-shadow: 0 5px 12px rgba(black, 0.35);
+}
+
+.popup-menu-item {
+  padding: $space-size $space-size * 2;
+  spacing: $space-size * 2;
+  border-radius: $menu_item_radius;
+
+  &:hover {
+    color: $text;
+    background-color: $secondary-fill;
+  }
+
+  &:active {
+    color: $text;
+    background-color: $divider;
+  }
+
+  &:insensitive {
+    color: $text-disabled;
+    background: none;
+  }
+}
+
+.popup-inactive-menu-item { //all icons and other graphical elements
+  color: $text-disabled;
+
+  &:insensitive { color: $track-disabled; }
+}
+
+.popup-menu-item:active .popup-inactive-menu-item { color: $text-disabled; }
+
+.popup-submenu-menu-item:open {
+  color: on($primary);
+  background-color: transparent;
+  background-gradient-direction: horizontal;
+  background-gradient-start: $primary-left;
+  background-gradient-end: $primary-right;
+  border-radius: $menu_item_radius $menu_item_radius 0 0;
+}
+
+.popup-sub-menu {
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 $menu_item_radius $menu_item_radius;
+  background-gradient-direction: horizontal;
+  background-gradient-start: $sub_menu_bg;
+  background-gradient-end: $sub_menu_bg;
+  box-shadow: none;
+  color: on($sub_menu_bg, secondary);
+  transition: none;
+
+  .popup-menu-item:active {
+    background-gradient-start: on($sub_menu_bg, divider);
+    background-gradient-end: on($sub_menu_bg, divider);
+    color: on($sub_menu_bg);
+  }
+
+  StScrollBar {
+    padding: 4px;
+    StBin#trough, StBin#vhandle { border-width: 0; }
+  }
+}
+
+.popup-sub-menu .popup-menu-item:ltr {
+  padding-right: 1.75em;
+}
+
+.popup-sub-menu .popup-menu-item:rtl {
+  padding-left: 1.75em;
 }
 
 // .popup-image-menu-item {}
@@ -362,12 +381,12 @@ $menu_item_radius: $corner-radius;
 }
 
 .popup-alternating-menu-item:alternate {
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .popup-device-menu-item { spacing: .5em; }
 
-.popup-subtitle-menu-item { font-weight: normal; }
+.popup-subtitle-menu-item { font-weight: bold; }
 
 .nm-menu-item-icons { spacing: .5em; }
 
@@ -435,16 +454,16 @@ $menu_item_radius: $corner-radius;
 
 .panel {
   &-top, &-bottom, &-left, &-right {
-    color: $panel_fg;
+    color: $panel-text-secondary;
     font-size: 1em;
     padding: 0px;
-    background-color: $panel_bg;
+    background-color: $panel;
     box-shadow: 0 0 5px rgba(#000, 0.5), 0 0 16px rgba(#000, 0.24);
 
     .panel-button,
     .panel-status-button {
       &:hover {
-        color: $text;
+        color: $panel-text;
         background-color: $fill;
       }
 
@@ -467,7 +486,7 @@ $menu_item_radius: $corner-radius;
     -minimum-hpadding: 3px;
     font-weight: bold;
     height: 22px;
-    color: $panel_fg;
+    color: $panel-text-secondary;
   }
 
   &-button {
@@ -475,7 +494,7 @@ $menu_item_radius: $corner-radius;
     -minimum-hpadding: 2px;
     font-weight: bold;
     transition-duration: 100ms;
-    color: $panel_fg;
+    color: $panel-text-secondary;
   }
 }
 
@@ -952,13 +971,13 @@ $menu_item_radius: $corner-radius;
 //
 #notification {
   border-radius: $window-radius;
-  padding: $space-size*2;
-  spacing-rows: $space-size*1.5;
-  spacing-columns: $space-size*1.5;
-  margin-from-right-edge-of-screen: $space-size*3;
+  padding: $space-size * 2;
+  spacing-rows: $space-size * 1.5;
+  spacing-columns: $space-size * 1.5;
+  margin-from-right-edge-of-screen: $space-size * 3;
   width: 28em;
   color: $text;
-  background-color: rgba($base, 0.8);
+  background-color: rgba($base, 0.97);
   box-shadow: 0 5px 12px rgba(black, 0.35);
   margin: 7px 12px 17px 12px;
 
@@ -1081,7 +1100,7 @@ $menu_item_radius: $corner-radius;
 
   &:highlighted {
     border-color: rgba(0,0,0,0);
-    color: $panel_fg;
+    color: $panel-text-secondary;
   }
 }
 
@@ -1475,8 +1494,8 @@ $menu_item_radius: $corner-radius;
   font-weight: bold;
   spacing: 1em;
   padding: 16px;
-  color: $panel_fg;
-  background-color: $panel_bg;
+  color: $panel-text-secondary;
+  background-color: $panel;
 }
 
 .osd-window {
@@ -1486,9 +1505,9 @@ $menu_item_radius: $corner-radius;
   padding: 20px;
   min-width: 64px;
   min-height: 64px;
-  color: $panel_fg;
+  color: $panel-text-secondary;
   border-radius: 0;
-  background-color: $panel_bg;
+  background-color: $panel;
   border: none;
 
   .osd-monitor-label { font-size: 3em; }
@@ -1542,7 +1561,7 @@ $menu_item_radius: $corner-radius;
     font-weight: normal;
     background-image: none;
     transition-duration: 100ms;
-    color: rgba($panel_fg, 0.9);
+    color: rgba($panel-text-secondary, 0.9);
     border-radius: 0;
 
     .panel-bottom & StLabel { padding-left: $space-size; }
@@ -1561,33 +1580,33 @@ $menu_item_radius: $corner-radius;
     }
 
     &:hover {
-      color: $panel_fg;
+      color: $panel-text;
       background-gradient-direction: none;
-      background-color: rgba($panel_fg, 0.15);
+      background-color: rgba($panel-text, 0.15);
     }
 
     &:active,
     &:checked,
     &:running {
-      color: $panel_fg;
+      color: $panel-text;
       background-gradient-direction: none;
-      background-color: rgba($panel_fg, 0.25);
-      border-color: on($panel_bg, track);
+      background-color: rgba($panel-text, 0.25);
+      border-color: on($panel, track);
 
       &:hover {
-        background-color: rgba($panel_fg, 0.3);
+        background-color: rgba($panel-text, 0.3);
       }
     }
 
     &:focus {
-      color: $panel_fg;
+      color: $panel-text;
       background-gradient-direction: none;
-      background-image: radial-gradient(5px 5px 45deg, circle cover, $panel_fg 0%, $panel_fg 100%);
+      background-image: radial-gradient(5px 5px 45deg, circle cover, $panel-text-secondary 0%, $panel-text-secondary 100%);
       border-color: $applet-primary;
-      background-color: rgba($panel_fg, 0.2);
+      background-color: rgba($panel-text, 0.2);
 
       &:hover {
-        background-color: rgba($panel_fg, 0.3);
+        background-color: rgba($panel-text, 0.3);
       }
 
       @each $position in (top),
@@ -1698,7 +1717,7 @@ $menu_item_radius: $corner-radius;
     transition-duration: 100ms;
     border: none;
     margin: 0;
-    color: rgba($panel_fg, 0.6);
+    color: $panel-text-secondary-disabled;
     border-radius: 0;
     spacing: $space-size;
     border-bottom: 2px solid transparent;
@@ -1708,30 +1727,30 @@ $menu_item_radius: $corner-radius;
     }
 
     &:hover {
-      color: $panel_fg;
+      color: $panel-text;
       background-gradient-direction: none;
-      background-color: rgba($panel_fg, 0.15);
+      background-color: rgba($panel-text, 0.15);
     }
 
     &:active {
-      color: $panel_fg;
+      color: $panel-text;
       background-gradient-direction: none;
       background-color: transparent;
-      border-color: on($panel_bg, track);
+      border-color: on($panel, track);
 
       &:hover {
-        background-color: rgba($panel_fg, 0.15);
+        background-color: rgba($panel-text, 0.15);
       }
     }
 
     &:focus {
-      color: $panel_fg;
+      color: $panel-text;
       background-gradient-direction: none;
-      background-color: rgba($panel_fg, 0.2);
+      background-color: rgba($panel-text, 0.2);
       border-color: $applet-primary;
 
       &:hover {
-        background-color: rgba($panel_fg, 0.3);
+        background-color: rgba($panel-text, 0.3);
       }
     }
 
@@ -1908,7 +1927,7 @@ $menu_item_radius: $corner-radius;
 .workspace-button {
   width: 20px;
   height: 10px;
-  color: $panel_fg;
+  color: $panel-text-secondary;
   padding: 3px;
   padding-top: 4px;
   transition-duration: 300;
@@ -1935,16 +1954,16 @@ $menu_item_radius: $corner-radius;
 }
 
 .workspace-graph .workspace .windows {
-  -active-window-background: lighten($panel_bg, 15%);
+  -active-window-background: lighten($panel, 15%);
   -active-window-border: rgba(0, 0, 0, 0.8);
-  -inactive-window-background: lighten($panel_bg, 15%);
+  -inactive-window-background: lighten($panel, 15%);
   -inactive-window-border: rgba(0, 0, 0, 0.8);
 }
 
 .workspace-graph .workspace:active .windows {
-  -active-window-background: lighten($panel_bg, 20%);
+  -active-window-background: lighten($panel, 20%);
   -active-window-border: rgba(0, 0, 0, 0.8);
-  -inactive-window-background: lighten($panel_bg, 5%);
+  -inactive-window-background: lighten($panel, 5%);
   -inactive-window-border: rgba(0, 0, 0, 0.8);
 }
 
@@ -1966,11 +1985,11 @@ $menu_item_radius: $corner-radius;
 
   &:hover {
     background-gradient-direction: none;
-    background-color: rgba($panel_fg, 0.1);
+    background-color: rgba($panel-text, 0.1);
   }
 
   &:active {
-    background-color: rgba($panel_fg, 0.2);
+    background-color: rgba($panel-text, 0.2);
   }
 }
 
@@ -1983,11 +2002,11 @@ $menu_item_radius: $corner-radius;
 
   &:hover {
     background-gradient-direction: none;
-    background-color: rgba($panel_fg, 0.1);
+    background-color: rgba($panel-text, 0.1);
   }
 
   &:active {
-    background-color: rgba($panel_fg, 0.2);
+    background-color: rgba($panel-text, 0.2);
   }
 
   .icon-box { padding: 2px; }
@@ -2011,12 +2030,12 @@ $menu_item_radius: $corner-radius;
 
   &-separator-line {
     width: 1px;
-    background: rgba($panel_fg, 0.12);
+    background: $panel-divider;
   }
 
   &-box {
     padding: 0 $space-size;
-    color: $panel_fg;
+    color: $panel-text;
     text-shadow: none;
     transition-duration: 100ms;
     border-radius: 0;
@@ -2026,13 +2045,16 @@ $menu_item_radius: $corner-radius;
     }
 
     &:hover {
-      color: $panel_fg;
-      background-color: $fill;
+      color: $panel-text;
+      background-color: $panel-secondary-fill;
     }
 
     &:checked, &:checked:hover {
-      color: $panel_fg;
-      background-color: $divider;
+      color: on($primary);
+      background-color: transparent;
+      background-gradient-direction: horizontal;
+      background-gradient-start: $primary-left;
+      background-gradient-end: $primary-right;
     }
 
     &:highlight {
@@ -2044,20 +2066,20 @@ $menu_item_radius: $corner-radius;
 
   &-label {
     font-weight: bold;
-    color: $panel_fg;
+    color: $panel-text-secondary;
 
     .applet-box:checked & {
-      color: $panel_fg;
+      color: on($primary);
       text-shadow: none;
     }
   }
 
   &-icon {
-    color: $panel_fg;
+    color: $panel-text-secondary;
     icon-size: 16px;
 
     .applet-box:checked & {
-      color: $panel_fg;
+      color: on($primary);
       text-shadow: none;
     }
   }
