@@ -1172,7 +1172,7 @@ searchbar > revealer > box {
   }
 
   // Don't draw titlebar above titlebar
-  .titlebar {
+  .titlebar, headerbar {
     background-color: transparent;
     box-shadow: none;
   }
@@ -1332,7 +1332,7 @@ headerbar {
   min-height: $large-size;
   padding: 0 $space-size;
 
-  box.vertical & {
+  box.vertical:not(.titlebar) & {
     background-color: $titlebar;
   }
 
@@ -1813,7 +1813,7 @@ popover.background {
     &:backdrop { box-shadow: $shadow-z3; }
   }
 
-  > stack { margin: -4px; } // remove extra padding from menu style popovers
+  > stack { margin: -2px; } // remove extra padding from menu style popovers
 
   > toolbar { margin: 0; }
 
