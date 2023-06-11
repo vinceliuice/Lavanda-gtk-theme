@@ -9,11 +9,12 @@
 }
 
 .candidate-popup-content {
-  @extend %theme_dialogs;
+  background-color: $popover;
+  border-radius: $menu_radius;
   color: $text-secondary;
-  box-shadow: 0 3px 6px 0 rgba(black, 0.35);
+  box-shadow: 0 3px 6px 0 rgba(black, 0.2);
   border: none;
-  margin: ($base_padding / 2) 8px;
+  margin: ($base_padding / 2) 8px 10px;
   padding: $base_padding;
   spacing: $base_padding;
 }
