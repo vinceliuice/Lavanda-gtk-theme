@@ -24,8 +24,8 @@
 
   // panel menus
   .panel-button {
-    -natural-hpadding: 12px;
-    -minimum-hpadding: 6px;
+    -natural-hpadding: $base_padding * 2;
+    -minimum-hpadding: $base_padding * 2;
     font-weight: bold;
     color: $panel-text-secondary;
     transition-duration: 150ms;
@@ -116,15 +116,25 @@
       margin: 0;
     }
 
+    .panel-status-indicators-box,
+    .panel-status-menu-box {
+      spacing: $base_padding / 2;
+    }
+  
+    // spacing between power icon and (optional) percentage label
+    .power-status.panel-status-indicators-box {
+      spacing: 0;
+    }
+
     // app menu icon
     .app-menu-icon {
       -st-icon-style: symbolic;
       // dimensions of the icon are hardcoded
     }
 
-    &#panelActivities {
-      -natural-hpadding: $base_padding * 3;
-    }
+    // &#panelActivities {
+    //   -natural-hpadding: $base_padding * 3;
+    // }
   }
 
   // transparent panel on lock & login screens
@@ -192,16 +202,6 @@
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
     }
-  }
-
-  .panel-status-indicators-box,
-  .panel-status-menu-box {
-    spacing: $base_padding / 2;
-  }
-
-  // spacing between power icon and (optional) percentage label
-  .power-status.panel-status-indicators-box {
-    spacing: 0;
   }
 
   // indicator for active

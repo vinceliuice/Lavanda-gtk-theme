@@ -604,6 +604,8 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
       margin-bottom: 4px;
     }
 
+    list { background-color: transparent; }
+
     list.devices-list.sound-devices {
       > row.activatable {
         &:selected, &:checked {
