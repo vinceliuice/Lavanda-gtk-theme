@@ -29,11 +29,17 @@
 }
 
 .show-apps {
-  &:active .overview-icon,
+  &:active .overview-icon {
+    background-color: $primary !important;
+    color: on($primary) !important;
+  }
+
   &:checked .overview-icon {
-    background-color: transparent;
-    background-gradient-start: #6a58f0;
-    background-gradient-end: #cf54d0;
+    background-color: $primary-left !important;
+    background-gradient-direction: horizontal;
+    background-gradient-start: $primary-left;
+    background-gradient-end: $primary-right;
+    color: on($primary-left) !important;
   }
 }
 

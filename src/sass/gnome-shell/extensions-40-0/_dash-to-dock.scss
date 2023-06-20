@@ -116,7 +116,6 @@
     background-color: on($osd, divider) !important;
   }
 
-  .show-apps,
   .app-well-app {
     & .overview-icon {
       color: on($panel, secondary);
@@ -131,6 +130,18 @@
     &:active .overview-icon,
     &:checked .overview-icon {
       background-color: on($panel, track);
+    }
+  }
+
+  .show-apps {
+    & .overview-icon {
+      color: on($panel, secondary);
+    }
+
+    &:hover .overview-icon,
+    &:focus .overview-icon,
+    &:selected .overview-icon {
+      background-color: on($panel, divider);
     }
   }
 

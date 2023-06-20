@@ -73,7 +73,7 @@
 
     &:active, &:overview, &:focus, &:checked {
       &, &:hover {
-        color: on($primary);
+        color: on($primary-left);
         background-color: transparent;
         box-shadow: 0 2px 3px -1px rgba(black, 0.08);
         background-gradient-start: $primary-left;
@@ -88,7 +88,7 @@
         background-gradient-end: transparent;
 
         .clock {
-          color: on($primary);
+          color: on($primary-left);
           background-color: transparent;
           box-shadow: 0 2px 3px -1px rgba(black, 0.08);
           background-gradient-start: $primary-left;
@@ -173,7 +173,7 @@
       }
 
       &:active, &:overview, &:focus, &:checked {
-        color: on($osd);
+        color: on($primary-left);
         background-color: transparent;
         box-shadow: none;
         background-gradient-start: $primary-left;
@@ -188,7 +188,7 @@
 
           .clock {
             box-shadow: none;
-            color: on($osd);
+            color: on($primary-left);
             background-color: transparent;
             background-gradient-start: $primary-left;
             background-gradient-end: $primary-right;

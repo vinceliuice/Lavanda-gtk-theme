@@ -23,9 +23,9 @@
     border-radius: $circular_radius;
     caret-color: on($osd);
 
-    @include entry(flat-normal, $bc: $osd);
-    &:focus { @include entry(flat-focus, $bc: $osd); }
-    &:insensitive { @include entry(flat-insensitive, $bc: $osd); }
+    @include entry(normal, $bc: $osd);
+    &:focus { @include entry(focus, $bc: $osd); }
+    &:insensitive { @include entry(insensitive, $bc: $osd); }
 
     StLabel.hint-text {
       color: on($osd, disabled);
@@ -38,9 +38,9 @@
     padding: 0 16px;
     border: none;
     @include button(flat-normal, $tc: on($osd));
-    &:hover, &:focus { @include button(flat-hover, $tc: on($osd)); }
-    &:active { @include button(flat-active, $tc: on($osd)); }
-    &:insensitive { @include button(flat-insensitive, $tc: on($osd, disabled)); }
+    &:hover, &:focus { @include button(hover, $tc: on($osd)); }
+    &:active { @include button(active, $tc: on($osd)); }
+    &:insensitive { @include button(insensitive, $tc: on($osd, disabled)); }
 
     &:default {
       @include button(normal, $tc: on($osd));

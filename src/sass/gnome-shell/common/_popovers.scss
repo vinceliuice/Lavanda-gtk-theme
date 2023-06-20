@@ -47,8 +47,8 @@
       font-weight: normal;
       border: none;
       box-shadow: none;
-      color: on($primary) !important;
-      background-color: $primary !important;
+      color: on($primary-left) !important;
+      background-color: $primary-left !important;
       background-gradient-direction: horizontal;
       background-gradient-start: $primary-left;
       background-gradient-end: $primary-right;
@@ -56,12 +56,12 @@
 
       &:focus, &:hover, &.selected {
         background-color: $primary-left !important;
-        color: on($primary) !important;
+        color: on($primary-left) !important;
       }
 
       &:active {
         background-color: $primary-right !important;
-        color: on($primary) !important;
+        color: on($primary-right) !important;
       }
 
       &:insensitive { color: on($primary, disabled) !important; }
@@ -74,8 +74,8 @@
     }
 
     &:active, &.selected:active {
-      color: on($primary) !important;
-      background-color: $primary !important;
+      color: on($primary-left) !important;
+      background-color: $primary-left !important;
       background-gradient-direction: horizontal;
       background-gradient-start: $primary-left;
       background-gradient-end: $primary-right;
