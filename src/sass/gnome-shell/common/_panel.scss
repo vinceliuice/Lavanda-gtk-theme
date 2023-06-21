@@ -132,9 +132,32 @@
       // dimensions of the icon are hardcoded
     }
 
-    // &#panelActivities {
-    //   -natural-hpadding: $base_padding * 3;
-    // }
+    &#panelActivities { // Activities button
+      -natural-hpadding: $base_padding * 3;
+      background-image: url("assets/activities.svg");
+      background-position: center center;
+      background-size: 24px 24px;
+      width: 24px;
+      height: 24px;
+      background-gradient-direction: none;
+      font-size: 0;
+
+      > * { width: 24px; }
+
+      &, &:active, &:overview, &:focus, &:checked {
+        color: transparent;
+      }
+
+      &:overview {
+        background-color: transparent;
+      }
+
+      @if $variant == 'light' {
+        &:overview {
+          background-image: url("assets/activities-white.svg");
+        }
+      }
+    }
   }
 
   // transparent panel on lock & login screens

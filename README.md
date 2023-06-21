@@ -40,8 +40,9 @@ Run the following commands in the terminal:
 -d, --dest DIR          Specify destination directory (Default: $HOME/.themes)
 -n, --name NAME         Specify theme name (Default: Lavanda)
 -t, --theme VARIANT     Specify theme variant [standard|sea] (Default: all variants)
--c, --color VARIANT...  Specify color variant(s) [standard|light|dark] (Default: All variants)
--s, --size VARIANT...   Specify size variant [standard|compact] (Default: standard variant)
+-c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
+-s, --size VARIANT      Specify size variant [standard|compact] (Default: standard variant)
+-i, --icon VARIANT      Specify logo icon on nautilus [default|apple|manjaro|ubuntu|fedora|debian|arch|gnome|budgie|popos|gentoo|void|zorin|mxlinux|opensuse|tux] (Default: dot icon)
 
 -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 

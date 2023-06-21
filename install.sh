@@ -20,6 +20,8 @@ COLOR_VARIANTS=('' '-Light' '-Dark')
 SIZE_VARIANTS=('' '-Compact')
 THEME_VARIANTS=('' '-Sea')
 
+icon='default'
+
 if [[ "$(command -v gnome-shell)" ]]; then
   gnome-shell --version
   SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
@@ -52,6 +54,8 @@ OPTIONS:
 
   -s, --size VARIANT      Specify size variant [standard|compact] (Default: standard variant)
 
+  -i, --icon VARIANT      Specify logo icon on nautilus [default|apple|manjaro|ubuntu|fedora|debian|arch|gnome|budgie|popos|gentoo|void|zorin|mxlinux|opensuse|tux] (Default: dot icon)
+
   -l, --libadwaita        Link installed gtk-4.0 theme to config folder for all libadwaita app use this theme
 
   -r, --remove,
@@ -67,6 +71,7 @@ install() {
   local theme="${3}"
   local color="${4}"
   local size="${5}"
+  local icon="${6}"
 
   [[ "${color}" == '-Light' ]] && local ELSE_LIGHT="${color}"
   [[ "${color}" == '-Dark' ]] && local ELSE_DARK="${color}"
@@ -99,6 +104,14 @@ install() {
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${ELSE_DARK:-}/"*.svg                           "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/theme-assets${theme}/"*.svg                           "${THEME_DIR}/gnome-shell/assets"
+
+  if [[ -f "${SRC_DIR}/assets/gnome-shell/activities${ELSE_DARK:-}/activities-${icon}.svg" ]] ; then
+    cp -r "${SRC_DIR}/assets/gnome-shell/activities${ELSE_DARK:-}/activities-${icon}.svg"    "${THEME_DIR}/gnome-shell/assets/activities.svg"
+    cp -r "${SRC_DIR}/assets/gnome-shell/activities-Dark/activities-${icon}.svg"             "${THEME_DIR}/gnome-shell/assets/activities-white.svg"
+  else
+    echo "${icon} icon not supported, default icon will install..."
+    cp -r "${SRC_DIR}/assets/gnome-shell/activities${ELSE_DARK:-}/activities-default.svg"    "${THEME_DIR}/gnome-shell/assets/activities.svg"
+  fi
 
   cd "${THEME_DIR}/gnome-shell"
   ln -s assets/no-events.svg no-events.svg
@@ -175,6 +188,11 @@ while [[ $# -gt 0 ]]; do
       ;;
     -n|--name)
       name="${2}"
+      shift 2
+      ;;
+    -i|--icon)
+      icon="${2}"
+      echo "Installing ${icon} icon on panel..."
       shift 2
       ;;
     -r|--remove|-u|--uninstall)
@@ -359,7 +377,7 @@ install_theme() {
   for theme in "${themes[@]}"; do
     for color in "${colors[@]}"; do
       for size in "${sizes[@]}"; do
-        install "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size"
+        install "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size" "$icon"
       done
     done
   done
