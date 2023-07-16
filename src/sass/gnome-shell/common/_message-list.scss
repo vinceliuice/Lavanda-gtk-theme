@@ -43,7 +43,7 @@
 
   // icon container
   .message-icon-bin {
-    padding: $base_padding * 2;
+    padding: $base_padding * 3.5 $base_padding * 3;
 
     &:ltr { padding-right: $base_padding; }
     &:rtl { padding-left: $base_padding; }
@@ -127,7 +127,7 @@
 
 // album-art
 .media-message-cover-icon {
-  icon-size: 48px;
+  icon-size: 48px !important;
   border-radius: $base_radius;
 
   &.fallback {
@@ -136,5 +136,6 @@
     border-radius: $base_radius;
     background-color: $divider;
     color: $text-disabled;
+    padding: ($base_padding*2 + 2);
   }
 }

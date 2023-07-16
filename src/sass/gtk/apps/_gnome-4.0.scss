@@ -97,26 +97,33 @@
 }
 
 #NautilusPathBar {
-  padding: 2px;
+  // padding: 2px;
   background-color: if($topbar == 'light', white, $overlay-normal);
   border-radius: $corner-radius;
   margin: $space-size 0;
   color: $titlebar-text-secondary;
   box-shadow: 0 2px 3px -1px rgba(black, 0.04);
 
-  > menubutton > button {
-    min-height: 20px;
-    min-width: 20px;
-    margin: 0;
-    padding: $space-size;
-    border-radius: $corner-radius - 2px;
-    @extend %titlebar-flat-button;
+  > menubutton {
+    margin: 3px;
+
+    > button {
+      min-height: 20px;
+      min-width: 20px;
+      margin: 0;
+      padding: $space-size;
+      border-radius: $corner-radius - 2px;
+      @extend %titlebar-flat-button;
+    }
   }
 }
 
 #NautilusPathButton {
-  min-height: 20px;
-  margin: 0;
+  margin: 3px;
+  min-height: 24px;
+  min-width: 24px;
+  padding-top: 0;
+  padding-bottom: 0;
   border-radius: $corner-radius - 2px;
   background-color: transparent;
   @extend %titlebar-flat-button;
