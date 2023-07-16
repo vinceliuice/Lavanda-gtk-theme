@@ -11,14 +11,12 @@
 }
 
 .message-media-control {
-  margin: ($base_padding * 3.5 + 8px) $base_padding !important;
+  margin: ($base_padding * 3 + 8px) $base_padding !important;
   padding: $base_padding * 2 !important;
 }
 
 // album-art
 .media-message-cover-icon {
-  padding: $base_padding * 2;
-
   &.fallback {
     padding: $base_padding * 2;
   }

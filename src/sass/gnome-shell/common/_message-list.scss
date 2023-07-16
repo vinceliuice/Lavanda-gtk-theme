@@ -43,7 +43,7 @@
 
   // icon container
   .message-icon-bin {
-    padding: $base_padding * 3.5 $base_padding * 3;
+    padding: $base_padding * 3;
 
     &:ltr { padding-right: $base_padding; }
     &:rtl { padding-left: $base_padding; }
@@ -136,6 +136,5 @@
     border-radius: $base_radius;
     background-color: $divider;
     color: $text-disabled;
-    padding: ($base_padding*2 + 2);
   }
 }
