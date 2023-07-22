@@ -1728,13 +1728,21 @@ headerbar {
 }
 
 leaflet {
-  > box:last-child > headerbar {
-    border-top-right-radius: 0;
+  &.unfolded {
+    > box:last-child > headerbar {
+      border-top-right-radius: 0;
+    }
+  
+    > box:not(:last-child) > headerbar,
+    > box > stack > widget > box > widget > headerbar {
+      border-top-left-radius: 0;
+    }
   }
 
-  > box:not(:last-child) > headerbar,
-  > box > stack > widget > box > widget > headerbar {
-    border-top-left-radius: 0;
+  &.unfolded &.folded {
+    > box:last-child > headerbar {
+      border-top-left-radius: 0;
+    }
   }
 }
 
@@ -1903,6 +1911,7 @@ treeview.view {
 
       padding: 2px 6px;
       box-shadow: none;
+      background-clip: border-box;
       border-style: none solid none none;
       border-radius: 0;
       border-color: transparent;
@@ -1916,7 +1925,10 @@ treeview.view {
 
       &, &:disabled { background-color: $base; }
 
-      &:last-child { border-right-style: none; }
+      &:last-child, &:only-child {
+        border-right: none;
+        border-image: none;
+      }
     }
   }
 
