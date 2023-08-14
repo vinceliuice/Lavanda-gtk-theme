@@ -107,24 +107,28 @@
     .system-status-icon {
       icon-size: $base_icon_size;
       padding: $base_padding;
-      margin: 0 $base_margin;
+      margin: 0;
       -st-icon-style: symbolic;
     }
 
-    .panel-status-indicators-box .system-status-icon,
-    .panel-status-menu-box .system-status-icon {
-      margin: 0;
+    .appindicator-trayicons-box {
+      margin: 0 $base_padding;
     }
 
-    .panel-status-indicators-box,
-    .panel-status-menu-box {
-      spacing: $base_padding / 2;
-    }
+    // .panel-status-indicators-box .system-status-icon,
+    // .panel-status-menu-box .system-status-icon {
+    //   margin: 0;
+    // }
+
+    // .panel-status-indicators-box,
+    // .panel-status-menu-box {
+    //   spacing: $base_padding / 2;
+    // }
   
-    // spacing between power icon and (optional) percentage label
-    .power-status.panel-status-indicators-box {
-      spacing: 0;
-    }
+    // // spacing between power icon and (optional) percentage label
+    // .power-status.panel-status-indicators-box {
+    //   spacing: 0;
+    // }
 
     // app menu icon
     .app-menu-icon {
@@ -133,7 +137,8 @@
     }
 
     &#panelActivities { // Activities button
-      -natural-hpadding: $base_padding * 3;
+      -natural-hpadding: $base_padding * 3 !important;
+      -minimum-hpadding: $base_padding * 3 !important;
       background-image: url("assets/activities.svg");
       background-position: center center;
       background-size: 24px 24px;
@@ -225,6 +230,27 @@
       -panel-corner-background-color: transparent;
       -panel-corner-border-color: transparent;
     }
+  }
+
+  // Gjs_ui_panel_AggregateMenu.panel-button,
+  Gjs_arcmenu_arcmenu_com_menuButton_Arc_Menu_MenuButton.panel-button,
+  Gjs_arcmenu_arcmenu_com_menuButton_ArcMenu_MenuButton.panel-button,
+  Gjs_arcmenu_arcmenu_com_menuButton_ArcMenuMenuButton.panel-button {
+    -natural-hpadding: $base_padding * 4 !important;
+    -minimum-hpadding: $base_padding * 4 !important;
+
+    .panel-status-menu-box {
+      spacing: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // Input indicators
+  Gjs_status_keyboard_InputSourceIndicator.panel-button, // Ibus
+  Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button { // Fcitx
+    -natural-hpadding: $base_padding * 3 !important;
+    -minimum-hpadding: $base_padding * 3 !important;
   }
 
   // indicator for active
