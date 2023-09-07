@@ -376,7 +376,9 @@ datechooser {
   navigator {
     label { font-weight: bold; }
 
-    button, button.image-button {
+    button,
+    button.image-button,
+    button.toggle {
       min-height: $medium-size;
       min-width: $medium-size;
       padding: 0;
