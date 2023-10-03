@@ -266,9 +266,16 @@
 }
 
 
-@mixin undershoot($p, $c: $border, $neighbor: false) {
+@mixin undershoot($p, $c: $frame, $neighbor: false) {
 //
 // undershoot
+//
+// $p: position
+// $c: shade color
+// $neighbor: use ~ instead of >
+//
+// possible $p values:
+// top, bottom, right, left
 //
 
   $_border_pos: '';
@@ -290,9 +297,41 @@
   } @else {
     @error "Unknown position #{$p}"
   }
-
+  
   #{$_selector} undershoot.#{$p} {
     box-shadow: inset $_border_pos $c;
-    background: linear-gradient(to $_direction, $c, transparent 4px);
+    background: linear-gradient(to $_direction, gtkalpha($c, .75), transparent 4px);
+  }
+}
+
+@mixin background-shadow($direction, $color) {
+  background-image:
+  linear-gradient($direction,
+                  gtkalpha($color, 0.7),
+                  gtkalpha($color, 0.14) 40px,
+                  gtkalpha($color, 0) 56px),
+  linear-gradient($direction,
+                  gtkalpha($color, 0.4),
+                  gtkalpha($color, 0.14) 7px,
+                  gtkalpha($color, 0) 24px);
+}
+
+@mixin transition-shadows($color) {
+  > dimming {
+    background: $color;
+  }
+  
+  > border {
+    background: none;
+  }
+  
+  > shadow {
+    min-width: 56px;
+    min-height: 56px;
+  
+    &.left  { @include background-shadow(to right,  $color); }
+    &.right { @include background-shadow(to left,   $color); }
+    &.up    { @include background-shadow(to bottom, $color); }
+    &.down  { @include background-shadow(to top,    $color); }
   }
 }

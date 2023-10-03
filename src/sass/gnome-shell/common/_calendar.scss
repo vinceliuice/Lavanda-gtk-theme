@@ -130,6 +130,7 @@
     &:active { background-color: $track; }
   }
 
+  .calendar-day,
   .calendar-day-base {
     @include fontsize($font_size - 1);
     text-align: center;
@@ -175,6 +176,15 @@
   .calendar-nonwork-day {
     color: $text-disabled;
     font-weight: bold;
+  }
+
+  &.calendar-weekend {
+    color: $text-disabled;
+  }
+
+  &.calendar-other-month {
+    color: $text-secondary-disabled;
+    font-weight: normal;
   }
 
   // Today

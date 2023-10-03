@@ -44,6 +44,24 @@
 }
 
 .nautilus-window {
+  .content-pane .top-bar headerbar {
+    background-color: transparent;
+    box-shadow: inset 0 1px highlight($titlebar);
+
+    &:backdrop {
+      background-color: transparent;
+    }
+  }
+
+  .content-pane .top-bar headerbar {
+    box-shadow: inset 0 -1px $window-border, inset 0 1px highlight($titlebar);
+    background-color: $titlebar;
+
+    &:backdrop {
+      background-color: $titlebar-backdrop;
+    }
+  }
+
   placesview {
     label { color: $text-secondary; }
   }
@@ -97,7 +115,7 @@
 }
 
 #NautilusPathBar {
-  // padding: 2px;
+  padding: 0;
   background-color: if($topbar == 'light', white, $overlay-normal);
   border-radius: $corner-radius;
   margin: $space-size 0;
@@ -105,7 +123,7 @@
   box-shadow: 0 2px 3px -1px rgba(black, 0.04);
 
   > menubutton {
-    margin: 3px;
+    margin: 2px;
 
     > button {
       min-height: 20px;
@@ -119,7 +137,7 @@
 }
 
 #NautilusPathButton {
-  margin: 3px;
+  margin: 2px;
   min-height: 24px;
   min-width: 24px;
   padding-top: 0;

@@ -139,28 +139,39 @@
     &#panelActivities { // Activities button
       -natural-hpadding: $base_padding * 3 !important;
       -minimum-hpadding: $base_padding * 3 !important;
-      background-image: url("assets/activities.svg");
-      background-position: center center;
-      background-size: 24px 24px;
-      width: 24px;
-      height: 24px;
-      background-gradient-direction: none;
-      font-size: 0;
+      // background-image: url("assets/activities.svg");
+      // background-position: center center;
+      // background-size: 24px 24px;
+      // width: 24px;
+      // height: 24px;
+      // background-gradient-direction: none;
+      // font-size: 0;
 
-      > * { width: 24px; }
+      // > * { width: 24px; }
 
-      &, &:active, &:overview, &:focus, &:checked {
-        color: transparent;
+      // &, &:active, &:overview, &:focus, &:checked {
+      //   color: transparent;
+      // }
+
+      // &:overview {
+      //   background-color: transparent;
+      // }
+
+      // @if $variant == 'light' {
+      //   &:overview {
+      //     background-image: url("assets/activities-white.svg");
+      //   }
+      // }
+
+      StBoxLayout {
+        spacing: $base_padding;
       }
 
-      &:overview {
-        background-color: transparent;
-      }
-
-      @if $variant == 'light' {
-        &:overview {
-          background-image: url("assets/activities-white.svg");
-        }
+      .workspace-dot {
+        border-radius: $circular_radius;
+        min-width: 8px;
+        min-height: 8px;
+        background-color: $panel-text;
       }
     }
   }
@@ -222,6 +233,10 @@
             background-gradient-end: $primary-right;
           }
         }
+      }
+
+      &#panelActivities .workspace-dot {
+        background-color: on(dark);
       }
     }
 

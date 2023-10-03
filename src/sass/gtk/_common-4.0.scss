@@ -1520,7 +1520,7 @@ searchbar > revealer > box {
 
 headerbar {
   transition: background-color $duration $ease-out, color $duration $ease-out;
-  box-shadow: inset 0 -1px $divider, inset 0 1px highlight($titlebar);
+  box-shadow: inset 0 -1px $border, inset 0 1px highlight($titlebar);
   background-color: $titlebar;
   color: $titlebar-text;
   min-height: $large-size;
@@ -1724,6 +1724,17 @@ headerbar {
       border-radius: 0;
       box-shadow: none; // just remove the highlight
     }
+  }
+
+  .maximized &,
+  .fullscreen &,
+  .tiled &,
+  .tiled-top &,
+  .tiled-right &,
+  .tiled-bottom &,
+  .tiled-left & {
+    border-radius: 0;
+    box-shadow: inset 0 -1px $border;
   }
 }
 
