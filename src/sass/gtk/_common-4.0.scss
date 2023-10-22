@@ -1622,6 +1622,13 @@ headerbar {
     }
   }
 
+  button.star.image-button {
+    min-width: 24px;
+    min-height: 24px;
+    padding: ($medium-size - 24px) / 2;
+    border-radius: $circular-radius;
+  }
+
   entry { @extend %titlebar-entry; }
 
   .linked:not(.vertical) > entry:not(:only-child) { border-radius: $corner-radius; }

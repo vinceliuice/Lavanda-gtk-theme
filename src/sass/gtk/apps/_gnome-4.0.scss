@@ -53,12 +53,23 @@
     }
   }
 
-  .content-pane .top-bar headerbar {
-    box-shadow: inset 0 -1px $window-border, inset 0 1px highlight($titlebar);
-    background-color: $titlebar;
+  .content-pane {
+    .top-bar headerbar {
+      box-shadow: inset 0 1px highlight($titlebar);
+      background-color: $titlebar;
+      border-bottom: 1px solid $border;
+  
+      &:backdrop {
+        background-color: $titlebar-backdrop;
+      }
+    }
 
-    &:backdrop {
-      background-color: $titlebar-backdrop;
+    toolbarview.undershoot-top scrolledwindow {
+      @include undershoot(top);
+    }
+    
+    toolbarview.undershoot-bottom scrolledwindow {
+      @include undershoot(bottom);
     }
   }
 

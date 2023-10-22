@@ -568,6 +568,12 @@ themeswitcher { // Gnome console
   }
 }
 
+navigation-view-page .medium {
+  stack {
+    padding-top: $space-size * 2;
+  }
+}
+
 // Transition shadows
 flap,
 leaflet,
