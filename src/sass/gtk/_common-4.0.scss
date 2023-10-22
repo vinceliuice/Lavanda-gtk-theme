@@ -1478,6 +1478,8 @@ searchbar > revealer > box {
   &:checked {
     @include button(checked);
     box-shadow: 0 2px 3px -1px rgba(black, 0.05);
+
+    &:focus { color: on($primary); }
   }
 
   &:disabled {
@@ -1490,7 +1492,11 @@ searchbar > revealer > box {
 
     &:focus, &:hover, &:active { color: $titlebar-text-disabled; }
 
-    &:checked { color: on($primary, disabled); }
+    &:checked {
+      color: on($primary, disabled);
+
+      &:focus { color: on($primary, disabled); }
+    }
 
     &:disabled { color: $divider; }
   }
@@ -4296,9 +4302,11 @@ window.messagedialog {
     border-spacing: 10px;
   }
 
-  .response-area > box > button {
+  .response-area button {
     @extend %button-flat;
     @extend %dialog_action_button;
+    margin: 0;
+    border-radius: 0;
 
     &.suggested {
       color: $primary;
@@ -4307,29 +4315,13 @@ window.messagedialog {
     &.destructive {
       color: $destructive;
     }
-  }
 
-  &.csd:not(.solid-csd) {
-    border-radius: $window-radius;
+    &:first-child {
+      margin-left: 0;
+    }
 
-    .response-area {
-      > box.horizontal > button {
-        margin: 0;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-
-      > box.vertical > button {
-        margin-top: 0;
-        margin-bottom: 0;
-        border-radius: 0;
-      }
+    &:last-child {
+      margin-right: 0;
     }
   }
 }
@@ -4398,6 +4390,7 @@ stacksidebar {
   separator.horizontal { @extend %hide_separators; }
 
   flap > &.sidebar,
+  .sidebar-pane &.sidebar,
   leaflet.unfolded > box > &.sidebar {
     &:dir(ltr) {
       border-right: none;

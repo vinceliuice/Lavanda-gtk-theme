@@ -163,8 +163,8 @@
     // "Open Windows" label
     > StLabel {
       @extend %caption_heading;
-      &:ltr {margin-right: $base_margin * 2;}
-      &:rtl {margin-left: $base_margin * 2;}
+      &:ltr { margin-right: $base_margin * 2; }
+      &:rtl { margin-left: $base_margin * 2; }
     }
   }
 }

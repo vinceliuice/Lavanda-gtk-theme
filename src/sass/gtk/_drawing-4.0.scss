@@ -266,7 +266,7 @@
 }
 
 
-@mixin undershoot($p, $c: $frame, $neighbor: false) {
+@mixin undershoot($p, $c: $frame, $neighbor: false, $style: 'default') {
 //
 // undershoot
 //
@@ -299,7 +299,12 @@
   }
   
   #{$_selector} undershoot.#{$p} {
-    box-shadow: inset $_border_pos $c;
+    @if $style == 'compact' {
+      box-shadow: inset $_border_pos $c;
+    } @else {
+      box-shadow: none;
+    }
+
     background: linear-gradient(to $_direction, gtkalpha($c, .75), transparent 4px);
   }
 }

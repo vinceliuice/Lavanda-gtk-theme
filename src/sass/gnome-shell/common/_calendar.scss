@@ -113,6 +113,7 @@
   .calendar-change-month-forward {
     padding: 0 0 !important;
     margin: ($base_padding / 2) 0 !important;
+    box-shadow: none !important;
 
     StIcon {
       icon-size: $base_icon_size;
@@ -145,13 +146,14 @@
 
     &:hover, &:focus {
       background-color: $divider;
-      box-shadow: none;
+      box-shadow: none !important;
     }
 
     &:active, &:selected {
       color: $text;
       background-color: $track;
       border-color: transparent; //avoid jumparound due to today
+      box-shadow: none !important;
     }
 
     &.calendar-day-heading {  //day of week heading
@@ -197,6 +199,7 @@
     &:hover, &:focus {
       background-color: overlay($base, hover);
       color: $text !important;
+      box-shadow: none !important;
     }
 
     &:active {
@@ -207,6 +210,7 @@
     &:selected {
       background-color: $primary;
       color: on($primary) !important;
+      box-shadow: none !important;
 
       &:hover, &:focus {
         background-color: lighten($primary, 8%);
@@ -225,9 +229,10 @@
     }
   }
 
+  .calendar-other-month,
   .calendar-other-month-day {
-    color: $text-secondary-disabled;
-    opacity: 0.5;
+    color: $text-secondary-disabled !important;
+    opacity: 1;
   }
 
   .calendar-week-number {
