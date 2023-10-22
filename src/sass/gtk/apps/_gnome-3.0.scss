@@ -533,6 +533,10 @@ hdyleaflet.titlebar > .titlebar.tweak-titlebar-right { // Workaround for gnome-t
   transition: color $duration $ease-out;
 }
 
+leaflet > box > scrolledwindow > viewport.frame > list.navigation-sidebar {
+  background-color: transparent;
+}
+
 
 /************************
  * Gnome Control Center *
@@ -677,13 +681,17 @@ hdyleaflet, leaflet, box.horizontal > stack.background {
 
   > box.vertical > scrolledwindow > viewport.frame {
     list:not(.view):not(.tweak-group) {
-      padding: $space-size / 2;
+      padding: $space-size;
 
-      row.activatable {
+      > row {
         border-radius: $corner-radius;
+
+        + row {
+          margin-top: $space-size / 2;
+        }
       }
 
-      separator { @extend %hide_separators; }
+      > separator { @extend %hide_separators; }
     }
   }
 

@@ -344,8 +344,10 @@ compact_size() {
 }
 
 theme_options() {
+  options_temp
+
   if [[ "$compact" = "true" ]]; then
-    options_temp && compact_size
+   compact_size
   fi
 }
 

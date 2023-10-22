@@ -3037,7 +3037,7 @@ list {
   }
 
   &.navigation-sidebar {
-    padding: $space-size / 2;
+    padding: $space-size;
 
     > row {
       border-radius: $corner-radius;
@@ -3317,14 +3317,12 @@ filechooser {
 }
 
 stacksidebar.sidebar {
-  & {
-    &:dir(ltr),
-    &.left,
-    &.left:dir(rtl) { list { @extend %sidebar_left; }}
+  &:dir(ltr),
+  &.left,
+  &.left:dir(rtl) { list { @extend %sidebar_left; }}
 
-    &:dir(rtl),
-    &.right { list { @extend %sidebar_right; }}
-  }
+  &:dir(rtl),
+  &.right { list { @extend %sidebar_right; }}
 
   + separator.vertical,
   separator.horizontal { @extend %hide_separators; }
