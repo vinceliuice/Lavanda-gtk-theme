@@ -695,14 +695,14 @@ screenshot-carousel button,
   padding: $space-size / 2 $space-size * 1.5;
 }
 
-flowboxchild.card {
+.card flowboxchild.card {
   background-color: transparent;
   box-shadow: none;
   border: none;
   padding: 0;
 }
 
-button.card.category-tile {
+.card.category-tile {
   padding: $space-size * 3.5;
   border: none;
   border-radius: $corner-radius;
@@ -796,22 +796,29 @@ button.card.category-tile {
     color: #1c71d8;
     background-color:#fdf8d7;
     background-image: linear-gradient($border 1px, transparent 1px),
-             linear-gradient(90deg, $border 1px, transparent 1px);
+                      linear-gradient(90deg, $border 1px, transparent 1px);
     background-size: 10px 10px, 10px 10px;
     background-position: -1px -4px, center -1px;
+    background-repeat: repeat;
 
     &:hover {
       color: #1c71d8;
       background-color: lighten(#fdf8d7, 5%);
       background-image: linear-gradient($border 1px, transparent 1px),
-               linear-gradient(90deg, $border 1px, transparent 1px);
+                        linear-gradient(90deg, $border 1px, transparent 1px);
+      background-size: 10px 10px, 10px 10px;
+      background-position: -1px -4px, center -1px;
+      background-repeat: repeat;
     }
 
     &:active {
       color: #1c71d8;
       background-color: darken(#fdf8d7, 5%);
       background-image: linear-gradient($border 1px, transparent 1px),
-               linear-gradient(90deg, $border 1px, transparent 1px);
+                        linear-gradient(90deg, $border 1px, transparent 1px);
+      background-size: 10px 10px, 10px 10px;
+      background-position: -1px -4px, center -1px;
+      background-repeat: repeat;
     }
   }
 }
@@ -823,9 +830,6 @@ clamp.large .category-tile:not(.category-tile-iconless) {
 
 // The rest of the featured-tile CSS is loaded at runtime in gs-feature-tile.c
 .featured-tile {
-  all: unset;
-  padding: 0;
-  box-shadow: none;
   color: $text;
 
   label.title-1 {

@@ -1,4 +1,5 @@
-$compact: 'false';
+@import 'options-temp';
+
 $asset-suffix: if($variant == 'dark', '-dark', '');
 
 //

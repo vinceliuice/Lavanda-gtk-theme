@@ -4,7 +4,7 @@
 #panel {
   background-color: $panel;
   font-weight: bold;
-  height: 2.4em;
+  height: if($compact == 'false', 2.4em, 2em);
   color: $panel-text-secondary;
   font-feature-settings: "tnum";
   transition-duration: 250ms;

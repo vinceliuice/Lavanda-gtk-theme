@@ -82,6 +82,8 @@ install() {
 
   echo "Installing '${THEME_DIR}'..."
 
+  theme_options
+
   mkdir -p                                                                                   "${THEME_DIR}"
 
   echo "[Desktop Entry]" >>                                                                  "${THEME_DIR}/index.theme"
@@ -273,7 +275,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized size variant '${1:-}'."
+            echo "ERROR: Unrecognized size variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -331,6 +333,21 @@ install_package() {
   fi
 }
 
+options_temp() {
+  cp -rf "${SRC_DIR}/sass/_options.scss" "${SRC_DIR}/sass/_options-temp.scss"
+  cp -rf "${SRC_DIR}/sass/gnome-shell/_options.scss" "${SRC_DIR}/sass/gnome-shell/_options-temp.scss"
+}
+
+compact_size() {
+  sed -i "/\$compact:/s/false/true/" "${SRC_DIR}/sass/_options-temp.scss"
+  sed -i "/\$compact:/s/false/true/" "${SRC_DIR}/sass/gnome-shell/_options-temp.scss"
+}
+
+theme_options() {
+  if [[ "$compact" = "true" ]]; then
+    options_temp && compact_size
+  fi
+}
 
 gnome_shell_version() {
   cp -rf ${SRC_DIR}/sass/gnome-shell/_common.scss ${SRC_DIR}/sass/gnome-shell/_common-temp.scss
