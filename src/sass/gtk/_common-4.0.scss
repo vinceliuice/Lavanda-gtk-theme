@@ -1749,6 +1749,10 @@ headerbar {
   .tiled-left & {
     border-radius: 0;
     box-shadow: inset 0 -1px $border;
+
+    &.default-decoration {
+      box-shadow: none;
+    }
   }
 }
 
