@@ -39,16 +39,6 @@
 
 // right-click (and panel) app menu
 .app-menu {
-  .popup-menu-item > :first-child {
-    &:ltr {
-      padding-left: $base_padding; margin-left: 0;
-    }
-
-    &:rtl {
-      padding-right: $base_padding; margin-right: 0;
-    }
-  }
-
   .popup-inactive-menu-item:first-child {
     // "Open Windows" label
     > StLabel {
