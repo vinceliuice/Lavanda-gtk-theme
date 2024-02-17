@@ -135,10 +135,10 @@
   .calendar-day-base {
     @include fontsize($font_size - 1);
     text-align: center;
-    width: $item_size + 2px !important;
-    height: $item_size + 2px !important;
+    width: $item_size + 3px !important;
+    height: $item_size + 3px !important;
     padding: 0 !important;
-    margin: 2px !important;
+    margin: 3px !important;
     border-radius: $circular_radius;
     color: $text-secondary;
     border: none;
