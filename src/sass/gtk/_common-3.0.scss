@@ -4006,7 +4006,7 @@ stackswitcher,
       box-shadow: none;
     }
 
-    &:checked {
+    &:checked, &:checked:hover {
       @include button(checked);
 
       @if $topbar == 'light' {
