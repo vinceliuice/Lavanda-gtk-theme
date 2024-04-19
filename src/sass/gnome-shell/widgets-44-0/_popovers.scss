@@ -1,7 +1,13 @@
 
 .popup-menu {
   .popup-menu-item {
-    padding: $base_padding $base_padding * 2;
+    padding: $base_padding $base_padding * 2.5;
+
+  // add margin to switches in menu items
+  .toggle-switch {
+    &:ltr { margin-left: $base_margin; }
+    &:rtl { margin-right: $base_margin; }
+  }
   }
 }
 
@@ -24,6 +30,23 @@
       height: 1px;
     }
   }
+}
+
+.popup-ornamented-menu-item {
+  &:ltr { padding-left: $base_padding; }
+  &:rtl { padding-right: $base_padding; }
+}
+
+// symbolic icons in popover
+.popup-menu-arrow,
+.popup-menu-icon {
+  icon-size: $scalable_icon_size;
+}
+
+// container for radio and check boxes
+.popup-menu-ornament {
+  icon-size: $scalable_icon_size !important;
+  width: $scalable_icon_size;
 }
 
 // right-click (and panel) app menu

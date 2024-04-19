@@ -4,7 +4,7 @@
   margin-top: 4px !important;
 
   .icon-button, .button {
-    padding: $base_padding * 1.5;
+    padding: $base_padding * 2;
 
     > StIcon {
       -st-icon-style: symbolic;
@@ -145,7 +145,7 @@
   }
 
   .icon-button {
-    padding: $base_padding;
+    padding: $base_padding * 1.5;
   }
 }
 
@@ -244,6 +244,12 @@
 }
 
 .device-subtitle { color: $text-disabled; }
+
+.keyboard-brightness-level {
+  spacing: $base_padding;
+
+  .button:checked { @include button(active); }
+}
 
 // background apps
 

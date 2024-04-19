@@ -17,8 +17,8 @@
 }
 
 .button {
-  min-height: 20px;
-  padding: $base_padding $base_padding * 2;
+  min-height: to_em(22px);
+  padding: $scaled_padding $scaled_padding * 2;
   border-radius: $base_radius;
   border: none;
   @extend %button;
@@ -29,11 +29,16 @@
 }
 
 .icon-button {
-  min-height: 20px;
-  min-width: 20px;
-  padding: $base_padding;
+  min-height: $scalable_icon_size;
+  min-width: $scalable_icon_size;
+  padding: $scaled_padding * 2;
   border-radius: $circular_radius;
   @extend %flat_button;
+
+  StIcon {
+    icon-size: $scalable_icon_size;
+    -st-icon-style: symbolic;
+  }
 }
 
 // buttons on OSD elements

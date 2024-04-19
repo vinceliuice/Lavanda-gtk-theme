@@ -1,29 +1,26 @@
 /* Entries */
 
 StEntry, %entry {
-  min-height: $item_size;
-  padding: 2px $base_padding * 2;
-  margin: $base_margin / 2;
-  border-width: 0;
+  padding: $base_padding $base_padding * 1.5;
   border-radius: $base_radius;
   caret-color: $text;
   selection-background-color: $primary;
   selected-color: on($primary);
   @include entry(normal);
-  &:hover { @include entry(hover);}
-  &:focus { @include entry(focus);}
-  &:insensitive { @include entry(insensitive);}
+  &:hover { @include entry(hover); }
+  &:focus { @include entry(focus); }
+  &:insensitive { @include entry(insensitive); }
   StIcon.capslock-warning {
-    icon-size: 16px;
+    icon-size: $scalable_icon_size;
     warning-color: $warning;
-    padding: 0 0;
+    padding: 0 $base_margin;
   }
   StIcon.peek-password {
-    icon-size: 16px;
-    padding: 0 4px;
+    icon-size: $scalable_icon_size;
+    padding: 0 $base_margin;
   }
   StLabel.hint-text {
-    margin-left: 2px;
+    margin-left: $base_margin * 0.5;
     color: $text-disabled;
   }
 }
