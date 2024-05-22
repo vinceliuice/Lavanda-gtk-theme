@@ -1584,7 +1584,7 @@ panelstatusbar {
 }
 
 //
-// dialogs
+// Dialogs
 //
 
 window.dialog {
@@ -1597,5 +1597,15 @@ window.dialog {
         &:first-child, &:last-child { border-radius: 0; }
       }
     }
+  }
+}
+
+//
+// Extensions
+//
+
+popover.details-popover {
+  > contents {
+    padding: $space-size * 2;
   }
 }
