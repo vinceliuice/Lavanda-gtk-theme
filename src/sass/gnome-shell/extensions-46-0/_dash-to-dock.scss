@@ -94,7 +94,8 @@
   }
 
   .app-grid-running-dot {
-    margin: 0 0 6px !important;
+    margin: 0 0 3px !important;
+    offset-y: 0 !important;
     background-color: on($panel, track) !important;
   }
 
