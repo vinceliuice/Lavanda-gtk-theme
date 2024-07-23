@@ -7,8 +7,12 @@ ROOT_UID=0
 DEST_DIR=
 
 # Destination directory
-if [ "$UID" -eq "$ROOT_UID" ]; then
+if [[ "$UID" -eq "$ROOT_UID" ]]; then
   DEST_DIR="/usr/share/themes"
+elif [[ -n "$XDG_DATA_HOME" ]]; then
+  DEST_DIR="$XDG_DATA_HOME/themes"
+elif [[ -d "$HOME/.local/share/themes" ]]; then
+  DEST_DIR="$HOME/.local/share/themes"
 else
   DEST_DIR="$HOME/.themes"
 fi
@@ -425,15 +429,27 @@ uninstall() {
 
   if [[ -d "${THEME_DIR}" ]]; then
     echo -e "Uninstall ${THEME_DIR}... "
-    rm -rf "${THEME_DIR}"
+    rm -rf "${THEME_DIR}"{'','-hdpi','-xhdpi'}
   fi
 }
 
 uninstall_theme() {
-  for theme in "${themes[@]}"; do
-    for color in "${colors[@]}"; do
-      for size in "${sizes[@]}"; do
+  for theme in "${THEME_VARIANTS[@]}"; do
+    for color in "${COLOR_VARIANTS[@]}"; do
+      for size in "${SIZE_VARIANTS[@]}"; do
         uninstall "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size"
+      done
+    done
+  done
+}
+
+clean_theme() {
+  local dest="$HOME/.themes"
+
+  for theme in "${THEME_VARIANTS[@]}"; do
+    for color in "${COLOR_VARIANTS[@]}"; do
+      for size in "${SIZE_VARIANTS[@]}"; do
+        uninstall "${dest}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size"
       done
     done
   done
@@ -447,7 +463,7 @@ if [[ "$uninstall" == 'true' ]]; then
     echo && uninstall_theme && uninstall_link
   fi
 else
-  install_package && gnome_shell_version && install_theme && xfce4_fix
+  install_package && gnome_shell_version && clean_theme && install_theme && xfce4_fix
   if [[ "$libadwaita" == 'true' ]]; then
     uninstall_link && link_theme
   fi
