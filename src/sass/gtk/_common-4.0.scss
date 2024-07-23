@@ -3637,12 +3637,12 @@ list {
   background-clip: padding-box;
 
   > row {
-    padding: $space-size;
+    padding: $space-size / 2;
     background-clip: padding-box;
   }
 
   > row.expander { padding: 0px; }
-  > row.expander .row-header { padding: 2px; }
+  > row.expander .row-header { padding: $space-size / 2; }
 
   &.horizontal row.separator:not(:last-child),
   &.separators.horizontal > row:not(.separator):not(:last-child) {
@@ -3666,6 +3666,7 @@ listview.view {
     border-radius: $corner-radius;
 
     > row {
+      padding: $space-size / 2 $space-size;
       margin-left: 0;
       margin-right: 0;
       border-radius: $corner-radius;
@@ -4475,7 +4476,7 @@ separator.sidebar {
 
   > row {
     min-height: $small-size;
-    padding: $space-size;
+    padding: $space-size / 2;
     border-radius: $corner-radius;
     margin: $space-size / 4 $space-size;
     @include button(normal);
