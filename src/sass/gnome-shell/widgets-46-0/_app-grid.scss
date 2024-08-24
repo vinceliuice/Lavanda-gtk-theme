@@ -66,11 +66,12 @@ $app_folder_size: 720px;
 
 // Running app indicator (also shown in dash)
 .app-grid-running-dot {
-  width: $base_padding;
+  width: $base_padding * 1.5;
   height: 3px;
   border-radius: 2px;
-  background-color: on($osd, track);
+  background-color: on($osd, secondary);
   margin-bottom: 0;
+  offset-y: 3px;
 
   StWidget.focused & {
     width: $base_padding * 4;
