@@ -157,6 +157,7 @@ viewswitcher {
       color: $titlebar-text;
       transition: $transition, border-image $ripple-fade-in-duration $ease-out;
       background-image: none;
+      background-color: transparent;
       box-shadow: none;
       box-shadow: inset 0 -2px mix($primary-left, $titlebar, 50%);
     }
@@ -164,6 +165,7 @@ viewswitcher {
     &:active {
       color: $titlebar-text;
       background-image: none;
+      background-color: transparent;
       box-shadow: none;
       transition: $transition, border-image $ripple-fade-in-duration $ease-out;
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
@@ -175,6 +177,7 @@ viewswitcher {
     &:checked {
       color: $titlebar-text;
       background-image: none;
+      background-color: transparent;
       box-shadow: none;
       border-image: linear-gradient(to right,
                                     $primary-left,
@@ -186,7 +189,11 @@ viewswitcher {
        }
     }
 
-    &:focus { box-shadow: none; outline: none; }
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      background-color: transparent;
+    }
   }
 }
 

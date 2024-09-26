@@ -625,9 +625,15 @@ datechooser {
   padding: $space-size;
 
   .current-week {
-    background: gtkalpha($titlebar, 0.7);
-    color: on($titlebar);
+    background-color: $fill;
+    color: $text;
     border-radius: $corner-radius;
+  }
+
+  .weeknum {
+    background-color: $fill;
+    border-radius: $corner-radius;
+    margin: $space-size;
   }
 }
 
