@@ -72,28 +72,6 @@
   .popup-menu & {
     border-radius: $base_radius;
     @extend %popover_bubble;
-
-    .notification-button {
-      &:first-child:ltr {
-        border-radius: 0 0 0 $base_radius;
-      }
-
-      &:last-child:ltr {
-        border-radius: 0 0 $base_radius;
-      }
-
-      &:first-child:rtl {
-        border-radius: 0 0 $base_radius;
-      }
-
-      &:last-child:rtl {
-        border-radius: 0 0 0 $base_radius;
-      }
-
-      &:first-child:last-child {
-        border-radius: 0 0 $base_radius $base_radius;
-      }
-    }
   }
 
   // message header

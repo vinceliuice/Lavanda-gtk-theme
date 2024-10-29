@@ -1,11 +1,16 @@
 #!/bin/bash
 
 readonly ROOT_UID=0
-readonly MAX_DELAY=20 # max delay for user to enter root password
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-BACKGROUND_DIR="/usr/share/backgrounds"
-PROPERTIES_DIR="/usr/share/gnome-background-properties"
+
+if [[ "$UID" -eq "$ROOT_UID" ]]; then
+  BACKGROUND_DIR="/usr/share/backgrounds"
+  PROPERTIES_DIR="/usr/share/gnome-background-properties"
+else
+  BACKGROUND_DIR="$HOME/.local/share/backgrounds"
+  PROPERTIES_DIR="$HOME/.local/share/gnome-background-properties"
+fi
 
 THEME_VARIANTS=('-wave' '-mountain')
 COLOR_VARIANTS=('' '-Sea')
@@ -59,8 +64,14 @@ install() {
 
   prompt -i "\n * Install ${NAME}${theme}${color} version in ${BACKGROUND_DIR}... "
 
+  [[ -f "${BACKGROUND_DIR}/${NAME}/${NAME}${theme}${color}-timed.xml" ]] && rm -rf "${BACKGROUND_DIR}/${NAME}/${NAME}${theme}${color}-timed.xml"
+
   cp -a --no-preserve=ownership "${REPO_DIR}/wallpaper${theme}${color}"{'-Light','-Dark'}.png "${BACKGROUND_DIR}/${NAME}"
-  cp -a --no-preserve=ownership "${REPO_DIR}/xml-files/timed-xml-files/${NAME}${theme}${color}-timed.xml" "${BACKGROUND_DIR}/${NAME}"
+  cp -a --no-preserve=ownership "${REPO_DIR}/xml-files/timed.xml" "${BACKGROUND_DIR}/${NAME}/${NAME}${theme}${color}-timed.xml"
+  cp -a --no-preserve=ownership "${REPO_DIR}/xml-files/background.xml" "${PROPERTIES_DIR}/${NAME}.xml"
+  sed -i "s/-@NAME@/${theme}${color}/g" "${BACKGROUND_DIR}/${NAME}/${NAME}${theme}${color}-timed.xml"
+  sed -i "s/@BACKGROUNDDIR@/$(printf '%s\n' "${BACKGROUND_DIR}" | sed 's/[\/&]/\\&/g')/g" "${BACKGROUND_DIR}/${NAME}/${NAME}${theme}${color}-timed.xml"
+  sed -i "s/@BACKGROUNDDIR@/$(printf '%s\n' "${BACKGROUND_DIR}" | sed 's/[\/&]/\\&/g')/g" "${PROPERTIES_DIR}/${NAME}.xml"
 }
 
 pre_install() {
@@ -68,7 +79,6 @@ pre_install() {
   [[ -f "${PROPERTIES_DIR}/${NAME}.xml" ]] && rm -rf "${PROPERTIES_DIR}/${NAME}.xml"
 
   mkdir -p "${BACKGROUND_DIR}/${NAME}"
-  cp -a --no-preserve=ownership "${REPO_DIR}/xml-files/gnome-background-properties/${NAME}.xml" "${PROPERTIES_DIR}"
 }
 
 uninstall() {
@@ -170,13 +180,6 @@ uninstall_wallpaper() {
   done
   echo
 }
-
-if [[ $UID -ne $ROOT_UID ]];  then
-  echo
-  prompt -e "ERROR: Need root access! please run this script with sudo."
-  echo
-  exit 1
-fi
 
 if [[ "${uninstall}" != 'true' ]]; then
   pre_install && install_wallpaper

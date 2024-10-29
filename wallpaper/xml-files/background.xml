@@ -3,8 +3,8 @@
 <wallpapers>
   <wallpaper deleted="false">
     <name>Lavanda Wave Background</name>
-    <filename>/usr/share/backgrounds/Lavanda/wallpaper-wave-Light.png</filename>
-    <filename-dark>/usr/share/backgrounds/Lavanda/wallpaper-wave-Dark.png</filename-dark>
+    <filename>@BACKGROUNDDIR@/Lavanda/wallpaper-wave-Light.png</filename>
+    <filename-dark>@BACKGROUNDDIR@/Lavanda/wallpaper-wave-Dark.png</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -13,8 +13,8 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Mountain Background</name>
-    <filename>/usr/share/backgrounds/Lavanda/wallpaper-mountain-Light.png</filename>
-    <filename-dark>/usr/share/backgrounds/Lavanda/wallpaper-mountain-Dark.png</filename-dark>
+    <filename>@BACKGROUNDDIR@/Lavanda/wallpaper-mountain-Light.png</filename>
+    <filename-dark>@BACKGROUNDDIR@/Lavanda/wallpaper-mountain-Dark.png</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -23,8 +23,8 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Wave Sea Background</name>
-    <filename>/usr/share/backgrounds/Lavanda/wallpaper-wave-Sea-Light.png</filename>
-    <filename-dark>/usr/share/backgrounds/Lavanda/wallpaper-wave-Sea-Dark.png</filename-dark>
+    <filename>@BACKGROUNDDIR@/Lavanda/wallpaper-wave-Sea-Light.png</filename>
+    <filename-dark>@BACKGROUNDDIR@/Lavanda/wallpaper-wave-Sea-Dark.png</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -33,8 +33,8 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Mountain Sea Background</name>
-    <filename>/usr/share/backgrounds/Lavanda/wallpaper-mountain-Sea-Light.png</filename>
-    <filename-dark>/usr/share/backgrounds/Lavanda/wallpaper-mountain-Sea-Dark.png</filename-dark>
+    <filename>@BACKGROUNDDIR@/Lavanda/wallpaper-mountain-Sea-Light.png</filename>
+    <filename-dark>@BACKGROUNDDIR@/Lavanda/wallpaper-mountain-Sea-Dark.png</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -43,7 +43,7 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Wave Time of Day</name>
-    <filename>/usr/share/backgrounds/Lavanda/Lavanda-wave-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Lavanda/Lavanda-wave-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -52,7 +52,7 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Mountain Time of Day</name>
-    <filename>/usr/share/backgrounds/Lavanda/Lavanda-mountain-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Lavanda/Lavanda-mountain-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -61,7 +61,7 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Wave Sea Time of Day</name>
-    <filename>/usr/share/backgrounds/Lavanda/Lavanda-wave-Sea-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Lavanda/Lavanda-wave-Sea-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -70,7 +70,7 @@
 
   <wallpaper deleted="false">
     <name>Lavanda Mountain Sea Time of Day</name>
-    <filename>/usr/share/backgrounds/Lavanda/Lavanda-mountain-Sea-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Lavanda/Lavanda-mountain-Sea-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
