@@ -82,35 +82,35 @@
       @extend %row_activatable;
     }
   }
+}
 
-  .floating-bar {
-    min-height: 32px;
-    padding: 0;
-    margin: $space-size;
-    border-style: none;
-    border-radius: $corner-radius;
-    background-color: $primary;
+.floating-bar {
+  min-height: 32px;
+  padding: 0;
+  margin: $space-size;
+  border-style: none;
+  border-radius: $corner-radius;
+  background-color: $primary;
+  color: on($primary);
+  box-shadow: $shadow-z3;
+
+  button {
+    margin: (32px - $small-size) / 2;
     color: on($primary);
-    box-shadow: $shadow-z3;
 
-    button {
-      margin: (32px - $small-size) / 2;
-      color: on($primary);
-
-      @extend %small-button;
-    }
+    @extend %small-button;
   }
 }
 
 #NautilusQueryEditor { // search entry
   > menubutton > button.image-button {
-    min-width: 24px;
-    min-height: 24px;
+    min-width: $small-size;
+    min-height: $small-size;
 
     @extend %titlebar-flat-button;
   }
 
-  > text, > box, > menubutton > button.image-button {
+  > * {
     margin: $space-size 0;
   }
 }
@@ -129,7 +129,6 @@
   padding: 0;
   background-color: if($topbar == 'light', white, $overlay-normal);
   border-radius: $corner-radius;
-  margin: $space-size 0;
   color: $titlebar-text-secondary;
   box-shadow: 0 2px 3px -1px rgba(black, 0.04);
 
