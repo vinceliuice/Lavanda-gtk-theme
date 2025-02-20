@@ -2049,6 +2049,10 @@ notebook {
         // padding-left: 8px;
         // padding-right: 8px;
 
+        > tab + tab {
+          margin-left: $space-size / 2;
+        }
+
         &:not(:only-child) {
           &:first-child { margin-left: 0; }
 
@@ -2064,6 +2068,10 @@ notebook {
       tabs {
         // padding-top: 8px;
         // padding-bottom: 8px;
+
+        > tab + tab {
+          margin-top: $space-size / 2;
+        }
 
         &:not(:only-child) {
           &:first-child { margin-top: 0; }
