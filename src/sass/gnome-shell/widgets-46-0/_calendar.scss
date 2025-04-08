@@ -3,7 +3,7 @@
 %popover_bubble {
   color: $text-secondary;
   background-color: $fill;
-  border-radius: $base_radius;
+  border-radius: $menu_radius;
   border: none;
   box-shadow: none;
   text-shadow: none;
@@ -27,7 +27,7 @@
 }
 
 .datemenu-popover {
-  border-radius: $base_radius + $base_padding * 2 !important;
+  border-radius: $menu_radius + $base_padding * 2 !important;
 }
 
 // Calendar menu side column

@@ -3,7 +3,7 @@
 %popover_bubble {
   color: $text-secondary;
   background-color: $fill;
-  border-radius: $base_radius;
+  border-radius: $menu_radius;
   border: none;
   box-shadow: none;
   text-shadow: none;
@@ -63,7 +63,7 @@
   margin: 0 $base_padding * 2;
   text-shadow: none;
   color: $text-secondary;
-  border-radius: $base_radius;
+  border-radius: $menu_radius;
 
   &:hover, &:focus {
     background-color: overlay($base, hover);

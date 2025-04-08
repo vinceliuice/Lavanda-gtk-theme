@@ -12,7 +12,7 @@
   &:rtl { margin-right: 0; margin-left: $base_margin * 2; padding-left: $base_padding + $base_margin; border-left-width: 0; }
 
   .message-list-placeholder {
-    @extend %title_2;
+    @extend %title_3;
     spacing: $base_spacing * 2;
     color: $text-secondary-disabled;
 
@@ -25,19 +25,16 @@
   }
 }
 
-.message-list-sections {
-  margin: 0; // to account for scrollbar
-  padding-bottom: $base_padding;
-
+.message-view {
   // to account for scrollbar
-  &:ltr { margin-right: 0; }
-  &:rtl { margin-left: 0; }
-}
+  &:ltr { margin-right: $base_margin * 3; }
+  &:rtl { margin-left: $base_margin * 3; }
 
-.message-list-section,
-.message-list-sections,
-.message-list-section-list {
-  spacing: $base_spacing;
+  -st-vfade-offset: 68px;
+
+  .message {
+    margin-bottom: $base_padding * 2 !important;
+  }
 }
 
 // do-not-disturb + clear button
@@ -63,23 +60,79 @@
   }
 }
 
+// message notification group
+.message-notification-group {
+  spacing: $base_padding * 2;
+
+  .message-group-header {
+    padding: $base_padding;
+    .message-group-title {
+      @extend %title_2;
+      margin: 0 $base_margin;
+    }
+  }
+
+  // close button
+  .message-collapse-button {
+    @extend .icon-button;
+    color: $text;
+    background-color: transparentize($text, 0.8);
+    padding: 4px !important;
+    border: 4px transparent solid;
+    &:hover {background-color: transparentize($text, 0.7);}
+    &:active {background-color: transparentize($text, 0.8);}
+  }
+}
+
+$card_bg_color: mix($text, $base, 6%);
+
 // message bubbles
 .message {
-  padding: 0;
+  padding: $base_padding;
   margin: $base_spacing / 2;
   border-radius: $window_radius;
 
   .popup-menu & {
-    @extend %popover_bubble;
+    border-radius: $menu_radius;
+    color: $text-secondary;
+    background-color: $card_bg_color;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+
+    &:hover, &:focus {
+      color: $text;
+      background-color: mix($text, $card_bg_color, 6%);
+      box-shadow: none;
+    }
+
+    &:active {
+      color: $text;
+      background-color: mix($text, $card_bg_color, 12%);
+      box-shadow: none;
+    }
+  }
+
+  &:second-in-stack {
+    background-color: mix($text, $base, 4%);
+    box-shadow: none;
+  }
+
+  &:lower-in-stack {
+    background-color: mix($text, $base, 2%);
+    box-shadow: none;
+    border-color: transparent; // a not ideal workaround for light theme
   }
 
   // message header
   .message-header {
-    padding: 0 $scaled_padding;
-    margin: $base_padding;
-    margin-bottom: 0;
+    padding: 0 $base_padding;
     spacing: $base_padding;
     color: $text-disabled;
+
+    // remove side padding to accommodate the close button
+    &:ltr { padding-right: 0; }
+    &:rtl { padding-left: 0; }
 
     // header source icon
     .message-source-icon {
@@ -175,6 +228,26 @@
       // message title
       .message-title {
         font-weight: bold;
+      }
+    }
+  }
+
+  // container for message buttons
+  .message-action-bin {
+    padding: $base_margin;
+    spacing: $base_padding;
+
+    // set margin on children
+    * {
+      margin: 0 $base_margin;
+      // remove margins
+      &:first-child {
+        &:ltr { margin-left:0;}
+        &:rtl { margin-right:0;}
+      }
+      &:last-child {
+        &:ltr { margin-right:0;}
+        &:rtl { margin-left:0;}
       }
     }
   }

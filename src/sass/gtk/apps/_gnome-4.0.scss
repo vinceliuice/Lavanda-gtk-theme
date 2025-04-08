@@ -58,7 +58,7 @@
       box-shadow: inset 0 1px highlight($titlebar);
       background-color: $titlebar;
       border-bottom: 1px solid $border;
-  
+
       &:backdrop {
         background-color: $titlebar-backdrop;
       }
@@ -67,7 +67,7 @@
     toolbarview.undershoot-top scrolledwindow {
       @include undershoot(top);
     }
-    
+
     toolbarview.undershoot-bottom scrolledwindow {
       @include undershoot(bottom);
     }
@@ -82,12 +82,29 @@
       @extend %row_activatable;
     }
   }
+
+  .nautilus-list-view {
+    columnview { padding: 0 $space-size * 2; }
+
+    listview.view {
+      border-spacing: $space-size;
+      padding: $space-size * 1.5 0 $space-size * 2.5;
+
+      row.activatable > cell {
+        padding: $space-size / 2 $space-size;
+
+        > #NautilusViewCell {
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 
 .floating-bar {
   min-height: 32px;
   padding: 0;
-  margin: $space-size;
+  margin: $space-size / 2;
   border-style: none;
   border-radius: $corner-radius;
   background-color: $primary;
