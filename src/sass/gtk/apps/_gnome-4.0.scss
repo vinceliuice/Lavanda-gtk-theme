@@ -44,35 +44,6 @@
 }
 
 .nautilus-window {
-  .content-pane .top-bar headerbar {
-    background-color: transparent;
-    box-shadow: inset 0 1px highlight($titlebar);
-
-    &:backdrop {
-      background-color: transparent;
-    }
-  }
-
-  .content-pane {
-    .top-bar headerbar {
-      box-shadow: inset 0 1px highlight($titlebar);
-      background-color: $titlebar;
-      border-bottom: 1px solid $border;
-
-      &:backdrop {
-        background-color: $titlebar-backdrop;
-      }
-    }
-
-    toolbarview.undershoot-top scrolledwindow {
-      @include undershoot(top);
-    }
-
-    toolbarview.undershoot-bottom scrolledwindow {
-      @include undershoot(bottom);
-    }
-  }
-
   placesview {
     label { color: $text-secondary; }
   }
@@ -97,6 +68,29 @@
           padding: 0;
         }
       }
+    }
+  }
+}
+
+.nautilus-window,
+#NautilusFileChooser {
+  .content-pane {
+    .top-bar headerbar {
+      box-shadow: inset 0 1px highlight($titlebar);
+      background-color: $titlebar;
+      border-bottom: 1px solid $border;
+
+      &:backdrop {
+        background-color: $titlebar-backdrop;
+      }
+    }
+
+    toolbarview.undershoot-top scrolledwindow {
+      @include undershoot(top);
+    }
+
+    toolbarview.undershoot-bottom scrolledwindow {
+      @include undershoot(bottom);
     }
   }
 }

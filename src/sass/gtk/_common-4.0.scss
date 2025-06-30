@@ -5202,6 +5202,8 @@ $window-space: $space-size * 1.5;
 
 headerbar windowcontrols {
   border-spacing: $space-size;
+  margin-top: $space-size;
+  margin-bottom: $space-size;
 
   &:not(.empty) {
     &.start:dir(ltr),
