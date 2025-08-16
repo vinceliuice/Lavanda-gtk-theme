@@ -733,15 +733,15 @@ toolbarview {
     actionbar {
       > revealer > box {
         background-color: transparent;
-        border: none;
         box-shadow: none;
+        border: none;
       }
     }
 
     .toolbar {
       background-color: transparent;
-      padding: 0 0 0 6px;
-      border-spacing: 0;
+      box-shadow: none;
+      border: none;
     }
 
     .collapse-spacing {
@@ -866,6 +866,58 @@ toolbarview {
 
     &.border {
       box-shadow: none;
+    }
+  }
+}
+
+.fullscreen {
+  toolbarview {
+    > .top-bar,
+    > .bottom-bar {
+      &, &:backdrop {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+      }
+
+      headerbar {
+        &, &:backdrop {
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      .toolbar.osd {
+        @extend %osd;
+      }
+    }
+  }
+
+  background:not(.osd) {
+    border: none;
+  }
+}
+
+.end {
+  border: none;
+
+  toolbarview {
+    > .top-bar,
+    > .bottom-bar {
+      &, &:backdrop {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+      }
+
+      headerbar {
+        &, &:backdrop {
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+        }
+      }
     }
   }
 }

@@ -235,12 +235,8 @@ window.assistant {
   box-shadow: $shadow-z6, inset 0 1px highlight($surface);
 }
 
-.osd {
-  @extend %osd;
-  padding: $space-size;
-  margin: $space-size;
-
-  &.circular { border-radius: $circular-radius; }
+background.osd {
+  border: none;
 }
 
 
@@ -681,8 +677,10 @@ button {
     min-width: $small-size;
     padding: ($medium-size - 24px) / 2;
     box-shadow: none;
+    border: none;
     background-color: rgba(black, 0.35);
     color: white;
+    border-radius: $circular-radius;
 
     > image {
       padding: 0;
@@ -1359,7 +1357,7 @@ button.combo:only-child {
   background-color: $background;
   border-spacing: $space-size;
 
-  & > button { @extend %button-flat; }
+  button { @extend %button-flat; }
 
   // on OSD
   .osd & { background-color: transparent; }
