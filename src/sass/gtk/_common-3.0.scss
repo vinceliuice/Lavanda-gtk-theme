@@ -1312,7 +1312,7 @@ searchbar > revealer > box {
 
     .background.csd & {
       padding: $space-size;
-      box-shadow: inset 0 1px highlight($titlebar), inset 0 -1px $border;
+      // box-shadow: inset 0 1px highlight($titlebar), inset 0 -1px $border;
     }
 
     // workaround for non-animatable buttons
@@ -1647,7 +1647,7 @@ menubar,
   padding: 0;
   background-color: $titlebar;
   color: $titlebar-text;
-  box-shadow: inset 0 -1px $border;
+  // box-shadow: inset 0 -1px $border;
 
   &:backdrop {
     background-color: $titlebar-backdrop;

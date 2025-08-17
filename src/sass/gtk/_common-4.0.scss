@@ -1688,6 +1688,9 @@ headerbar {
     }
 
     windowcontrols {
+      margin-top: 0;
+      margin-bottom: 0;
+
       button,
       menubutton {
         min-width: 16px;
@@ -1974,6 +1977,7 @@ menubar {
     min-height: 20px;
     padding: $space-size - 2px $space-size + 2px;
     color: $titlebar-text-secondary;
+    border-radius: $corner-radius;
 
     &:selected { // Seems like it :hover even with keyboard focus
       transition: none;
@@ -5157,7 +5161,7 @@ window {
   min-height: 22px;
   min-width: 22px;
   padding: 0;
-  margin: 0 $space-size - 2px;
+  margin: ($large-size - $space-size * 2 - 22px) / 2 $space-size - 2px;
 
   > image {
     background-color: transparent;
@@ -5200,8 +5204,6 @@ $window-space: $space-size * 1.5;
 
 headerbar windowcontrols {
   border-spacing: $space-size;
-  margin-top: $space-size;
-  margin-bottom: $space-size;
 
   &:not(.empty) {
     &.start:dir(ltr),
@@ -5220,6 +5222,26 @@ headerbar windowcontrols {
   button:not(.suggested-action):not(.destructive-action) {
     @extend %circular-button;
     @extend %mac_window_button;
+  }
+}
+
+headerbar.default-decoration windowcontrols {
+  &:not(.empty) {
+    &.start:dir(ltr),
+    &.end:dir(rtl) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &.start:dir(rtl),
+    &.end:dir(ltr) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  button:not(.suggested-action):not(.destructive-action) {
+    margin: 0 $space-size - 2px;
   }
 }
 
